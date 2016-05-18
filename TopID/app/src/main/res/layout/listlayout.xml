@@ -1,10 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <TextView
+        android:id="@+id/tvNaamListItem"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="PLACEHOLDER TITLE"
+        android:layout_toEndOf="@+id/ivImageListItem"
+        />
+
+    <TextView
+        android:id="@+id/tvSAMENVATINGLISTITEM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DIT IS EEN KLEINE SAMENVATTING PLACEHOLDER om natuurlijk wat mee te testen"
+        android:layout_below="@+id/tvNaamListItem"
+        android:layout_toEndOf="@id/ivImageListItem"
+        android:layout_marginTop="20sp"/>
+
+    <TextView
+        android:id="@+id/tvPostDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="10:20 10-10-2006"
+        android:layout_toEndOf="@+id/tvNaamListItem"
+        android:layout_marginLeft="20sp"/>
+
+    <ImageView
+        android:id="@+id/ivImageListItem"
+        android:layout_width="100sp"
+        android:layout_height="100sp"
+        android:src="@drawable/trollface"
+        />
 
 
-</LinearLayout>
+</RelativeLayout>

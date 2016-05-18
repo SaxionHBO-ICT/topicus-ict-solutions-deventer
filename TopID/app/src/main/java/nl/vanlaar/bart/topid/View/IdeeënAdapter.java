@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 import nl.vanlaar.bart.topid.Model.Idee;
 import nl.vanlaar.bart.topid.Model.IdeeënLijst;
+import nl.vanlaar.bart.topid.R;
 
 /**
  * Created by bart on 18-5-2016.
@@ -18,15 +19,15 @@ import nl.vanlaar.bart.topid.Model.IdeeënLijst;
 public class IdeeënAdapter extends ArrayAdapter<Idee> {
     private ArrayList<Idee> ideeën = IdeeënLijst.getIdeeënLijst();
 
-    public IdeeënAdapter(Context context, int resource, int textViewResourceId, ArrayList<Idee> objects) {
-        super(context, resource, textViewResourceId, objects);
+    public IdeeënAdapter(Context context, int resource, ArrayList<Idee> objects) {
+        super(context, resource,objects);
         objects = ideeën;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if(convertView == null){
-           // convertView = LayoutInflater.from(getContext()).inflate()
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.listlayout,parent,false);
         }
         return  convertView;
     }
