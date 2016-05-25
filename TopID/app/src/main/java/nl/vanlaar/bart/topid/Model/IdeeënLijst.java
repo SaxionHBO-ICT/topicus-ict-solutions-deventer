@@ -15,14 +15,18 @@ public class IdeeënLijst {
         if(ideeënLijst == null){
             ideeënLijst = new ArrayList<>();
             User user =  new User("naam",R.drawable.trollface);
-            new Idee(user,"kdmakdsadnsajkdnsajkdnsajda", R.drawable.trollface);
-            new Idee(user,"kdmakdsadnsajkdnsajkdnsajda", R.drawable.trollface);
-            new Idee(user,"kdmakdsadnsajkdnsajkdnsajda", R.drawable.trollface);
-            new Idee(user,"kdmakdsadnsajkdnsajkdnsajda", R.drawable.trollface);
-            new Idee(user,"kdmakdsadnsajkdnsajkdnsajda", R.drawable.trollface);
-            new Idee(user,"kdmakdsadnsajkdnsajkdnsajda", R.drawable.trollface);
-            new Idee(user,"kdmakdsadnsajkdnsajkdnsajda", R.drawable.trollface);
-            new Idee(user,"kdmakdsadnsajkdnsajkdnsajda", R.drawable.trollface);
+            Idee idee = new Idee(user,"kdmakdsadnsajkdnsajkdnsajda", R.drawable.trollface);
+            ideeënLijst.add(idee);
+            ideeënLijst.add(idee);
+            ideeënLijst.add(idee);
+            ideeënLijst.add(idee);
+            ideeënLijst.add(idee);
+            ideeënLijst.add(idee);
+            ideeënLijst.add(idee);
+            ideeënLijst.add(idee);
+            ideeënLijst.add(idee);
+            ideeënLijst.add(idee);
+            ideeënLijst.add(idee);
 
         }
         return ideeënLijst;
