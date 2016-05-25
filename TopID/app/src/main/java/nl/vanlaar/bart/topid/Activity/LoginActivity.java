@@ -148,7 +148,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         //temp login for DEMO
         if (mPasswordView.getText().toString().equalsIgnoreCase("admin") && mEmailView.getText().toString().equalsIgnoreCase("admin")){
-            Intent intent = new Intent(this, MainActivityFragment.class);
+            Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         }
 
