@@ -23,14 +23,16 @@ public class MainActivityFragment extends Fragment {
     public MainActivityFragment() {
     }
 
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.list_fragment_main, container, false);
+        View view = inflater.inflate(R.layout.fragment_main, container, false);
 
         ListView lvIdeeën = (ListView) view.findViewById(R.id.lvIdeeën);
 
-        IdeeënAdapter adapter = new IdeeënAdapter(getContext(),R.layout.list_fragment_main, ideeën);
+        IdeeënAdapter adapter = new IdeeënAdapter(getContext(),R.layout.fragment_main, ideeën);
         lvIdeeën.setAdapter(adapter);
 
 

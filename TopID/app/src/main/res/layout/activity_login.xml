@@ -44,6 +44,7 @@
 
         <EditText
             android:id="@+id/et_login_password"
+            android:inputType="textPassword"
             android:layout_width="200sp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv_login_email"

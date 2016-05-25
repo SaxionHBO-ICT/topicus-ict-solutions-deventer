@@ -2,13 +2,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.MainActivityFragment"
+    tools:context="nl.vanlaar.bart.topid.IdeeActivityFragment"
     tools:showIn="@layout/activity_main">
 
- <ListView
-     android:id="@+id/lvIdeeën"
-     android:layout_width="match_parent"
-     android:layout_height="wrap_content">
- </ListView>
+
+    <ListView
+        android:id="@+id/lvIdeeën"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout="@layout/listlayout">
+    </ListView>
 
 </RelativeLayout>

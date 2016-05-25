@@ -5,6 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 
 import java.util.ArrayList;
@@ -29,6 +31,18 @@ public class IdeeënAdapter extends ArrayAdapter<Idee> {
         if(convertView == null){
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.listlayout,parent,false);
         }
+        TextView tvSummary = (TextView) convertView.findViewById(R.id.tvSAMENVATINGLISTITEM);
+        ImageView ivPoster = (ImageView) convertView.findViewById(R.id.ivImageListItem);
+
+
+        Idee idee = ideeën.get(position);
+
+        tvSummary.setText(idee.getSummaryText());
+        ivPoster.setImageResource(idee.getPoster().getTempImage());
+
+
+
+
         return  convertView;
     }
 }

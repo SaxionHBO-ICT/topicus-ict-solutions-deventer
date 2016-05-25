@@ -27,6 +27,14 @@ public class User {
         this.profileImage = profileImage;
     }
 
+    public int getTempImage() {
+        return tempImage;
+    }
+
+    public void setTempImage(int tempImage) {
+        this.tempImage = tempImage;
+    }
+
     public String getName() {
         return name;
     }

@@ -7,8 +7,10 @@ import java.util.Date;
  */
 public class Idee {
     private User poster;
-    private String text;
+    private String mainText;
     private int plaatje;
+    private int postPoints;
+    private String summaryText;
     private Date postDate;
     private boolean anonymous;
     private static final int KLACHT = 1;
@@ -17,8 +19,29 @@ public class Idee {
 
     public Idee(User poster, String text, int plaatje) {
         this.poster = poster;
-        this.text = text;
+        this.mainText = text;
         this.plaatje = plaatje;
+        this.postPoints = 0;
+    }
+
+    public int getPostPoints() {
+        return postPoints;
+    }
+
+    public String getMainText() {
+        return mainText;
+    }
+
+    public void setMainText(String mainText) {
+        this.mainText = mainText;
+    }
+
+    public String getSummaryText() {
+        return summaryText;
+    }
+
+    public void setSummaryText(String summaryText) {
+        this.summaryText = summaryText;
     }
 
     public User getPoster() {
@@ -27,14 +50,6 @@ public class Idee {
 
     public void setPoster(User poster) {
         this.poster = poster;
-    }
-
-    public String getText() {
-        return text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
     }
 
     public int getPlaatje() {

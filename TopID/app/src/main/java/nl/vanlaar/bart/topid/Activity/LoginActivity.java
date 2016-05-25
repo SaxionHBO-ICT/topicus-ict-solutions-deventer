@@ -90,8 +90,18 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         });
 
         mProgressView = findViewById(R.id.login_progress);
-    }
 
+        mEmailView.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if(keyCode == KeyEvent.KEYCODE_ENTER){
+                    mPasswordView.requestFocus();
+                }
+                return false;
+            }
+        });
+
+    }
     private void populateAutoComplete() {
         if (!mayRequestContacts()) {
             return;
@@ -148,7 +158,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         //temp login for DEMO
         if (mPasswordView.getText().toString().equalsIgnoreCase("admin") && mEmailView.getText().toString().equalsIgnoreCase("admin")){
-            Intent intent = new Intent(this, MainActivity.class);
+            Intent intent = new Intent(this, HomescreenActivity.class);
             startActivity(intent);
         }
 
