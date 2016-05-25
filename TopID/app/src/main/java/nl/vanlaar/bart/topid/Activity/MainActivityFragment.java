@@ -34,10 +34,6 @@ public class MainActivityFragment extends Fragment {
 
         IdeeënAdapter adapter = new IdeeënAdapter(getContext(),R.layout.fragment_main, ideeën);
         lvIdeeën.setAdapter(adapter);
-
-
-
-
         return  view;
     }
 
