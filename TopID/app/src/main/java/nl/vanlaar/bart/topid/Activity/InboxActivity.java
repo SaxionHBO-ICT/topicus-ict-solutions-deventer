@@ -8,11 +8,10 @@ import nl.vanlaar.bart.topid.R;
 /**
  * Created by Sander on 25-5-2016.
  */
-public class InstellingenActivity extends AppCompatActivity {
-
+public class InboxActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_instellingen);
+        setContentView(R.layout.activity_inbox);
     }
 }
