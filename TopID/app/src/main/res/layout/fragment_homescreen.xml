@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/iv_homescreen_image"
+        android:layout_width="250sp"
+        android:layout_height="150sp"
+        android:layout_below="@+id/tv_homescreen_uitloggen"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/topicus_logo"/>
+
+    <TextView
+        android:id="@+id/tv_homescreen_uitloggen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:text="@string/uitloggen"
+        android:textSize="32sp"/>
+
+    <TextView
+        android:id="@+id/tv_homescreen_inbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="16sp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/iv_homescreen_image"
+        android:text="@string/inbox"
+        android:textSize="32sp"/>
+
+    <TextView
+        android:id="@+id/tv_homescreen_ideeën"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ideeën"
+        android:textSize="32sp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/tv_homescreen_inbox"/>
+
+    <TextView
+        android:id="@+id/tv_homescreen_instellingen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/instellingen"
+        android:textSize="32sp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/tv_homescreen_ideeën"/>
+
+</RelativeLayout>
