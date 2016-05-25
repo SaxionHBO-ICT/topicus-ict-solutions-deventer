@@ -6,10 +6,10 @@
     android:layout_height="match_parent">
 
     <fragment
-        android:id="@+id/f_login_fragment"
+        android:id="@+id/f_homescreen_fragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout="@layout/fragment_login"
+        tools:layout="@layout/fragment_homescreen"
         ></fragment>
 
 </LinearLayout>

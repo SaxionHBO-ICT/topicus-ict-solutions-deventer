@@ -11,4 +11,11 @@
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
     <string name="action_sign_in_short">Sign in</string>
+    <string name="inbox">Inbox</string>
+    <string name="uitloggen">Uitloggen</string>
+    <string name="title_activity_homescreen2">homescreen2</string>
+    <string name="title_activity_homescreen">Homescreen</string>
+    <string name="ideeën">Ideeën</string>
+    <string name="instellingen">Instellingen</string>
+
 </resources>
