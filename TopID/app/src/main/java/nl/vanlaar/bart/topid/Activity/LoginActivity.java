@@ -5,6 +5,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.app.LoaderManager.LoaderCallbacks;
 import android.content.CursorLoader;
+import android.content.Intent;
 import android.content.Loader;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -66,9 +67,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         setContentView(R.layout.activity_login);
         // Set up the login form.
         mEmailView = (EditText) findViewById(R.id.tv_login_email);
-        populateAutoComplete();
 
         mPasswordView = (EditText) findViewById(R.id.et_login_password);
+
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
@@ -143,6 +144,12 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private void attemptLogin() {
         if (mAuthTask != null) {
             return;
+        }
+
+        //temp login for DEMO
+        if (mPasswordView.getText().toString().equalsIgnoreCase("admin") && mEmailView.getText().toString().equalsIgnoreCase("admin")){
+            Intent intent = new Intent(this, MainActivityFragment.class);
+            startActivity(intent);
         }
 
         // Reset errors.
