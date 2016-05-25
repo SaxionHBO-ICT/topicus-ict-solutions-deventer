@@ -14,13 +14,16 @@ public class IdeeënLijst {
     public static ArrayList<Idee> getIdeeënLijst() {
         if(ideeënLijst == null){
             ideeënLijst = new ArrayList<>();
-            new Idee("henk","kdmakdsadnsajkdnsajkdnsajda", R.drawable.trollface);
-            new Idee("henk","kdmakdsadnsajkdnsajkdnsajda", R.drawable.trollface);
-            new Idee("henk","kdmakdsadnsajkdnsajkdnsajda", R.drawable.trollface);
-            new Idee("henk","kdmakdsadnsajkdnsajkdnsajda", R.drawable.trollface);
-            new Idee("henk","kdmakdsadnsajkdnsajkdnsajda", R.drawable.trollface);
-            new Idee("henk","kdmakdsadnsajkdnsajkdnsajda", R.drawable.trollface);
-            new Idee("henk","kdmakdsadnsajkdnsajkdnsajda", R.drawable.trollface);
+            User user =  new User("naam",R.drawable.trollface);
+            new Idee(user,"kdmakdsadnsajkdnsajkdnsajda", R.drawable.trollface);
+            new Idee(user,"kdmakdsadnsajkdnsajkdnsajda", R.drawable.trollface);
+            new Idee(user,"kdmakdsadnsajkdnsajkdnsajda", R.drawable.trollface);
+            new Idee(user,"kdmakdsadnsajkdnsajkdnsajda", R.drawable.trollface);
+            new Idee(user,"kdmakdsadnsajkdnsajkdnsajda", R.drawable.trollface);
+            new Idee(user,"kdmakdsadnsajkdnsajkdnsajda", R.drawable.trollface);
+            new Idee(user,"kdmakdsadnsajkdnsajkdnsajda", R.drawable.trollface);
+            new Idee(user,"kdmakdsadnsajkdnsajkdnsajda", R.drawable.trollface);
+
         }
         return ideeënLijst;
     }
