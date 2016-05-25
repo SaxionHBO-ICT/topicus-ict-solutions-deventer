@@ -17,5 +17,9 @@
     <string name="title_activity_homescreen">Homescreen</string>
     <string name="ideeën">Ideeën</string>
     <string name="instellingen">Instellingen</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
 
 </resources>

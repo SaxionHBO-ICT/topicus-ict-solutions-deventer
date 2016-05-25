@@ -26,7 +26,10 @@
         <activity
             android:name=".Homescreen"
             android:label="@string/title_activity_homescreen"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/title_activity_login"></activity>
     </application>
 
 </manifest>
