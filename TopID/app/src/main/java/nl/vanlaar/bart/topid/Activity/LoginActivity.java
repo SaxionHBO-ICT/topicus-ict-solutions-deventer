@@ -1,4 +1,4 @@
-package nl.vanlaar.bart.topid;
+package nl.vanlaar.bart.topid.Activity;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -27,6 +27,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import nl.vanlaar.bart.topid.R;
 
 import static android.Manifest.permission.READ_CONTACTS;
 

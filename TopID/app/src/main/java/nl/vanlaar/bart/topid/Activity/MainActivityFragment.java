@@ -1,4 +1,4 @@
-package nl.vanlaar.bart.topid.MainActivity;
+package nl.vanlaar.bart.topid.Activity;
 
 import android.support.v4.app.Fragment;
 import android.os.Bundle;

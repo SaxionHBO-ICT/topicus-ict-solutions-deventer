@@ -1,4 +1,4 @@
-package nl.vanlaar.bart.topid.MainActivity;
+package nl.vanlaar.bart.topid.Activity;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
