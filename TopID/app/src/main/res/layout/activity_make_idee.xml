@@ -27,20 +27,25 @@
         android:layout_height="150sp"
         android:layout_margin="10sp"
         android:inputType="textMultiLine"
-        android:layout_below="@+id/ivImagePreview"/>
+        android:layout_below="@+id/ivImagePreview"
+        android:text="Hier komt het uitgebreide idee achter een idee."
+        android:textSize="12sp"/>
     <TextView
         android:id="@+id/tvSamenvatting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/etIdeeText"
         android:text="Samenvatting:"
-        android:layout_marginLeft="10sp"/>
+        android:layout_marginLeft="10sp"
+        />
     <EditText
         android:id="@+id/etIdeeSamenvattingText"
         android:layout_below="@+id/tvSamenvatting"
         android:layout_width="match_parent"
         android:layout_margin="10sp"
-        android:layout_height="75sp" />
+        android:layout_height="75sp"
+        android:textSize="12sp"
+        android:text="Hier komt de samenvatting van het idee"/>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -48,5 +53,50 @@
         android:layout_alignParentEnd="true"
         android:text="Post"
         android:layout_marginRight="10sp"/>
+
+    <TextView
+        android:id="@+id/tvAnoniem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etIdeeSamenvattingText"
+        android:layout_marginLeft="10sp"
+        android:text="Anoniem"/>
+
+    <CheckBox
+        android:id="@+id/cbAnoniem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/tvAnoniem"
+        android:layout_below="@id/etIdeeSamenvattingText"/>
+    <TextView
+        android:id="@+id/tvKlacht"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Klacht"
+        android:layout_toEndOf="@id/cbAnoniem"
+        android:layout_below="@id/etIdeeSamenvattingText"
+        android:layout_marginLeft="20sp"/>
+    <CheckBox
+        android:id="@+id/cbKlacht"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/tvKlacht"
+        android:layout_below="@id/etIdeeSamenvattingText"/>
+
+    <TextView
+        android:id="@+id/tvIdee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Idee"
+        android:layout_toEndOf="@id/cbKlacht"
+        android:layout_below="@id/etIdeeSamenvattingText"
+        android:layout_marginLeft="20sp"/>
+    <CheckBox
+        android:id="@+id/cbIdee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/tvIdee"
+        android:checked="true"
+        android:layout_below="@id/etIdeeSamenvattingText"/>
 
 </RelativeLayout>
