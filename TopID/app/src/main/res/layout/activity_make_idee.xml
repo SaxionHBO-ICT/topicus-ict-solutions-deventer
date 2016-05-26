@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.MakeIdeeActivity">
+
+
+
+    <TextView
+        android:id="@+id/tvImagePreview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Image preview:"
+        android:textSize="20sp"
+        android:layout_margin="5sp"/>
+    <ImageView
+        android:id="@+id/ivImagePreview"
+        android:layout_width="wrap_content"
+        android:layout_margin="10sp"
+        android:layout_height="125sp"
+        android:layout_below="@id/tvImagePreview"
+        android:src="@drawable/gabenewell"/>
+    <EditText
+        android:id="@+id/etIdeeText"
+        android:layout_width="match_parent"
+        android:layout_height="150sp"
+        android:layout_margin="10sp"
+        android:inputType="textMultiLine"
+        android:layout_below="@+id/ivImagePreview"/>
+    <TextView
+        android:id="@+id/tvSamenvatting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etIdeeText"
+        android:text="Samenvatting:"
+        android:layout_marginLeft="10sp"/>
+    <EditText
+        android:id="@+id/etIdeeSamenvattingText"
+        android:layout_below="@+id/tvSamenvatting"
+        android:layout_width="match_parent"
+        android:layout_margin="10sp"
+        android:layout_height="75sp" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etIdeeSamenvattingText"
+        android:layout_alignParentEnd="true"
+        android:text="Post"
+        android:layout_marginRight="10sp"/>
+
+</RelativeLayout>
