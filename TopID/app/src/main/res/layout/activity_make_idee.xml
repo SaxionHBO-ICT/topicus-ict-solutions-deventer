@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activity.MakeIdeeActivity">
 
 
-
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <TextView
         android:id="@+id/tvImagePreview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Image preview:"
         android:textSize="20sp"
-        android:layout_margin="5sp"/>
+        android:layout_margin="10sp"/>
     <ImageView
         android:id="@+id/ivImagePreview"
         android:layout_width="wrap_content"
@@ -21,13 +23,37 @@
         android:layout_height="125sp"
         android:layout_below="@id/tvImagePreview"
         android:src="@drawable/gabenewell"/>
+
+    <TextView
+        android:id="@+id/tvIdeeTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Idee Titel:"
+        android:layout_below="@+id/ivImagePreview"
+        android:layout_marginLeft="10sp"/>
+    <EditText
+        android:id="@+id/etIDeeTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvIdeeTitle"
+        android:layout_margin="10sp"/>
+
+
+    <TextView
+        android:id="@+id/tvHetIdee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Het idee:"
+        android:layout_below="@id/etIDeeTitle"
+        android:layout_marginLeft="10sp"
+        />
     <EditText
         android:id="@+id/etIdeeText"
         android:layout_width="match_parent"
         android:layout_height="150sp"
         android:layout_margin="10sp"
         android:inputType="textMultiLine"
-        android:layout_below="@+id/ivImagePreview"
+        android:layout_below="@+id/tvHetIdee"
         android:text="Hier komt het uitgebreide idee achter een idee."
         android:textSize="12sp"/>
     <TextView
@@ -100,3 +126,4 @@
         android:layout_below="@id/etIdeeSamenvattingText"/>
 
 </RelativeLayout>
+</ScrollView>

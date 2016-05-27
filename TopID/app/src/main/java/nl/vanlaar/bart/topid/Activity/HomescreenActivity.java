@@ -23,6 +23,7 @@ public class HomescreenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homescreen);
 
+
         uitloggen = (TextView) findViewById(R.id.tv_homescreen_uitloggen);
         uitloggen.setOnClickListener(new View.OnClickListener() {
             @Override

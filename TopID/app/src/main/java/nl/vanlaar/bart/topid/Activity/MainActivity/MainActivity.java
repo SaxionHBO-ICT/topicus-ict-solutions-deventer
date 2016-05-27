@@ -8,10 +8,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import nl.vanlaar.bart.topid.Activity.HomescreenActivity;
-import nl.vanlaar.bart.topid.Activity.MakeIdeeActivity;
+import nl.vanlaar.bart.topid.Activity.LoginActivity;
 import nl.vanlaar.bart.topid.R;
 
 public class MainActivity extends AppCompatActivity {
+    public static boolean ingelogd = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,10 +21,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
+
+        if ( ingelogd == false){
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+        }
+
+        /*
         Intent intent = new Intent(this, MakeIdeeActivity.class);
         startActivity(intent);
+        */
 
-//
+
         /*
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -34,6 +46,19 @@ public class MainActivity extends AppCompatActivity {
         });
         */
 }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if ( ingelogd == false){
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+        } else {
+            Intent intent = new Intent(this, HomescreenActivity.class);
+            startActivity(intent);
+        }
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

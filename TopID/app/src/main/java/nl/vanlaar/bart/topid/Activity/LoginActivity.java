@@ -29,6 +29,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import nl.vanlaar.bart.topid.Activity.MainActivity.MainActivity;
 import nl.vanlaar.bart.topid.R;
 
 import static android.Manifest.permission.READ_CONTACTS;
@@ -159,6 +160,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         //temp login for DEMO
         if (mPasswordView.getText().toString().equalsIgnoreCase("admin") && mEmailView.getText().toString().equalsIgnoreCase("admin")){
             Intent intent = new Intent(this, HomescreenActivity.class);
+            MainActivity.ingelogd = true;
             startActivity(intent);
         }
 
