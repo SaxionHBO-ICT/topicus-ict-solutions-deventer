@@ -53,9 +53,6 @@ public class MainActivity extends AppCompatActivity {
         if ( ingelogd == false){
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
-        } else {
-            Intent intent = new Intent(this, HomescreenActivity.class);
-            startActivity(intent);
         }
     }
 
