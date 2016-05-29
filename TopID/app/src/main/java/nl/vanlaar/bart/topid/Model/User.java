@@ -1,6 +1,7 @@
 package nl.vanlaar.bart.topid.Model;
 
 import android.graphics.Bitmap;
+import android.os.Bundle;
 
 /**
  * Created by bart on 25-5-2016.
@@ -25,6 +26,11 @@ public class User {
     public User(String name, Bitmap profileImage) {
         this.name = name;
         this.profileImage = profileImage;
+    }
+
+
+    public User(String name) {
+        this.name = name;
     }
 
     public int getTempImage() {
@@ -58,4 +64,16 @@ public class User {
     public void setPostcount(int postcount) {
         this.postcount = postcount;
     }
+    public void addToPostcount(){
+        this.postcount =+1;
+    }
+
+    public Bundle toBundle(){
+        Bundle b = new Bundle();
+
+
+
+        return b;
+    }
 }
+

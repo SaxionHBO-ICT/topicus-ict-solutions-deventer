@@ -1,5 +1,8 @@
 package nl.vanlaar.bart.topid.Model;
 
+import android.graphics.Bitmap;
+import android.os.Bundle;
+
 import java.util.Date;
 
 /**
@@ -7,21 +10,62 @@ import java.util.Date;
  */
 public class Idee {
     private User poster;
+    private String title;
     private String mainText;
-    private int plaatje;
+    private Bitmap plaatje;
     private int postPoints;
     private String summaryText;
     private Date postDate;
     private boolean anonymous;
-    private static final int KLACHT = 1;
-    private static final int IDEE = 2;
+    private int soortIdee;
 
 
-    public Idee(User poster, String text, int plaatje) {
+    private int tempPlaatje; // temp plaatje voor int.
+
+
+    public static final int KLACHT = 1;
+    public static final int IDEE = 2;
+
+
+    public Idee(User poster, String text, Bitmap plaatje) {
         this.poster = poster;
         this.mainText = text;
         this.plaatje = plaatje;
         this.postPoints = 0;
+    }
+    public Idee(User poster, String text, int plaatje) {
+        this.poster = poster;
+        this.mainText = text;
+        this.tempPlaatje = plaatje;
+        this.postPoints = 0;
+    }
+
+    public Idee(String mainText, String summaryText) {
+        this.mainText = mainText;
+        this.summaryText = summaryText;
+    }
+
+    public Idee(String title, String mainText, String summaryText) {
+        this.poster = poster;
+        this.title = title;
+        this.mainText = mainText;
+        this.summaryText = summaryText;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public int getSoortIdee() {
+        return soortIdee;
+    }
+
+    public void setSoortIdee(int soortIdee) {
+        this.soortIdee = soortIdee;
     }
 
     public int getPostPoints() {
@@ -57,11 +101,11 @@ public class Idee {
         this.poster = poster;
     }
 
-    public int getPlaatje() {
+    public Bitmap getPlaatje() {
         return plaatje;
     }
 
-    public void setPlaatje(int plaatje) {
+    public void setPlaatje(Bitmap plaatje) {
         this.plaatje = plaatje;
     }
 
@@ -80,12 +124,18 @@ public class Idee {
     public void setAnonymous(boolean anonymous) {
         this.anonymous = anonymous;
     }
+    public Bundle toBundle(){
+        Bundle b = new Bundle();
+        b.putBundle("User",this.poster.toBundle());
 
-    public static int getKLACHT() {
-        return KLACHT;
-    }
 
-    public static int getIDEE() {
-        return IDEE;
+
+
+
+
+
+        return  b;
     }
 }
+
+
