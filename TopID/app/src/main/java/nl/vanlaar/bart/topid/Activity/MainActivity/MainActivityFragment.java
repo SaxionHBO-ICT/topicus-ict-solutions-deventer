@@ -1,14 +1,17 @@
 package nl.vanlaar.bart.topid.Activity.MainActivity;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 
+import nl.vanlaar.bart.topid.Activity.IdeeenActivity;
 import nl.vanlaar.bart.topid.Model.Idee;
 import nl.vanlaar.bart.topid.Model.IdeeënLijst;
 import nl.vanlaar.bart.topid.R;
@@ -34,6 +37,17 @@ public class MainActivityFragment extends Fragment {
 
         IdeeënAdapter adapter = new IdeeënAdapter(getContext(),R.layout.fragment_main, ideeën);
         lvIdeeën.setAdapter(adapter);
+
+
+        lvIdeeën.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(getContext(),IdeeenActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
         return  view;
     }
 
