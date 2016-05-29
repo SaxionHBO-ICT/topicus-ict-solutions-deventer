@@ -7,6 +7,7 @@ public class Comment {
     private String userName;
     private String ideeName;
     private String comment;
+    private Idee parentIdee;
     private int userPicture;
 
     public Comment(String userName, String ideeName, String comment, int userPicture) {
@@ -14,6 +15,14 @@ public class Comment {
         this.ideeName = ideeName;
         this.comment = comment;
         this.userPicture = userPicture;
+    }
+
+    public Idee getParentIdee() {
+        return parentIdee;
+    }
+
+    public void setParentIdee(Idee parentIdee) {
+        this.parentIdee = parentIdee;
     }
 
     public String getUserName() {

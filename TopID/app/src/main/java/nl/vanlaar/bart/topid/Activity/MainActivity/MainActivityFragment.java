@@ -11,7 +11,7 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-import nl.vanlaar.bart.topid.Activity.IdeeenActivity;
+import nl.vanlaar.bart.topid.Activity.showIdeeActivity;
 import nl.vanlaar.bart.topid.Model.Idee;
 import nl.vanlaar.bart.topid.Model.IdeeënLijst;
 import nl.vanlaar.bart.topid.R;
@@ -42,7 +42,7 @@ public class MainActivityFragment extends Fragment {
         lvIdeeën.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(getContext(),IdeeenActivity.class);
+                Intent intent = new Intent(getContext(),showIdeeActivity.class);
                 startActivity(intent);
             }
         });

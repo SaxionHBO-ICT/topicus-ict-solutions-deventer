@@ -5,11 +5,11 @@ import android.os.Bundle;
 
 import nl.vanlaar.bart.topid.R;
 
-public class IdeeenActivity extends AppCompatActivity {
+public class showIdeeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ideeen);
+        setContentView(R.layout.activity_show_idee);
     }
 }

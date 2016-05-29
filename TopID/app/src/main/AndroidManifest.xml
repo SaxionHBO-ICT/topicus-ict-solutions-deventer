@@ -32,7 +32,7 @@
             android:name=".Activity.InstellingenActivity"
             android:parentActivityName=".Activity.MainActivity.MainActivity" />
         <activity android:name=".Activity.MakeIdeeActivity" />
-        <activity android:name=".Activity.IdeeenActivity"></activity>
+        <activity android:name=".Activity.showIdeeActivity"></activity>
     </application>
 
 </manifest>

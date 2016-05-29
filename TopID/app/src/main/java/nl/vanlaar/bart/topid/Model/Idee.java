@@ -28,6 +28,11 @@ public class Idee {
         return postPoints;
     }
 
+    public void setPostPoints(int postPoints) {
+        this.postPoints = postPoints;
+    }
+
+
     public String getMainText() {
         return mainText;
     }
