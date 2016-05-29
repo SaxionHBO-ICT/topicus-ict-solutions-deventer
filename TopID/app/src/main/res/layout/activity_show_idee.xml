@@ -76,9 +76,10 @@
 
 
         <ListView
+            android:id="@+id/lvReacties_showIdee"
             android:layout_below="@+id/btUpvote_showIdee"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             tools:layout="@layout/list_item_reaction"
             >
 
