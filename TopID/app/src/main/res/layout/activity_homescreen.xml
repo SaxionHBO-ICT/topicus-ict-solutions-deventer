@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/homeScreenBackground">
 
     <ImageView
         android:id="@+id/iv_homescreen_user"
@@ -17,7 +18,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="ingelogde user" />
+        android:text="ingelogde user"
+        android:textColor="@color/white"/>
 
     <TextView
         android:id="@+id/tv_homescreen_inbox"
@@ -27,7 +29,8 @@
         android:layout_below="@+id/iv_homescreen_user"
         android:text="@string/inbox"
         android:layout_marginLeft="25sp"
-        android:textSize="32sp"/>
+        android:textSize="25sp"
+        android:textColor="@color/white"/>
 
     <TextView
         android:id="@+id/tv_homescreen_ideeën"
@@ -35,7 +38,8 @@
         android:layout_height="wrap_content"
         android:text="@string/ideeën"
         android:layout_marginLeft="25sp"
-        android:textSize="32sp"
+        android:textSize="25sp"
+        android:textColor="@color/white"
         android:layout_below="@id/tv_homescreen_inbox"/>
 
 
@@ -45,7 +49,8 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="25sp"
         android:text="@string/instellingen"
-        android:textSize="32sp"
+        android:textSize="25sp"
+        android:textColor="@color/white"
         android:layout_below="@+id/tv_homescreen_ideeën"/>
     <TextView
         android:id="@+id/tv_homescreen_uitloggen"
@@ -54,7 +59,8 @@
         android:text="@string/uitloggen"
         android:layout_below="@id/tv_homescreen_instellingen"
         android:layout_marginLeft="25sp"
-        android:textSize="32sp"/>
+        android:textSize="25sp"
+        android:textColor="@color/white"/>
 
 
 </RelativeLayout>
