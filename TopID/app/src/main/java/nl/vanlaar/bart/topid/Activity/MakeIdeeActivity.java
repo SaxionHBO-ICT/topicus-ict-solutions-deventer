@@ -13,7 +13,6 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -39,8 +38,13 @@ public class MakeIdeeActivity extends AppCompatActivity {
 
     private MainActivity context = new MainActivity(this);
 
+    private EditText etIdeeTitle;
+    private EditText etIdeeText;
+    private EditText etIdeeSamenvattingText;
+
 
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_make_idee);
@@ -48,9 +52,9 @@ public class MakeIdeeActivity extends AppCompatActivity {
 
         ivImagePreview = (ImageView) findViewById(R.id.ivImagePreview_makeIdee);
 
-        final EditText etIdeeTitle = (EditText) findViewById(R.id.etIdeeTitle_makeIdee);
-        final EditText etIdeeText = (EditText) findViewById(R.id.etIdeeText_makeIdee);
-        final EditText etIdeeSamenvattingText = (EditText) findViewById(R.id.etIdeeSamenvattingText_makeIdee);
+        etIdeeTitle = (EditText) findViewById(R.id.etIdeeTitle_makeIdee);
+        etIdeeText = (EditText) findViewById(R.id.etIdeeText_makeIdee);
+        etIdeeSamenvattingText = (EditText) findViewById(R.id.etIdeeSamenvattingText_makeIdee);
 
 
         btPost = (Button) findViewById(R.id.btPost_makeIdee);
@@ -97,48 +101,9 @@ public class MakeIdeeActivity extends AppCompatActivity {
             public void onClick(View v) {
 
 
-
-                if (etIdeeSamenvattingText.getText() == null
-                        || etIdeeSamenvattingText.getText().toString().isEmpty()) {
-                    Toast.makeText(MakeIdeeActivity.this, "Vul alstublieft alle velden in.", Toast.LENGTH_LONG).show();
-                    return;
-                }
-
-                if (etIdeeText.getText() == null
-                        || etIdeeText.getText().toString().isEmpty()) {
-                    Toast.makeText(MakeIdeeActivity.this, "Vul alstublieft alle velden in.", Toast.LENGTH_LONG).show();
-                    return;
-                }
-
-                if (etIdeeTitle.getText() == null
-                        || etIdeeTitle.getText().toString().isEmpty()) {
-                    Toast.makeText(MakeIdeeActivity.this, "Vul alstublieft alle velden in.", Toast.LENGTH_LONG).show();
-                    return;
-                }
-
-                idee = new Idee(etIdeeTitle.getText().toString(), etIdeeText.getText().toString(), etIdeeSamenvattingText.getText().toString());
-
-
-                if (cbKlacht.isChecked()) {
-                    idee.setSoortIdee(Idee.KLACHT);
-                }
-                if (cbIdee.isChecked()) {
-                    idee.setSoortIdee(Idee.IDEE);
-                }
-                if (cbAnoniem.isChecked()) {
-                    idee.setAnonymous(true);
-
-                }
-
-
-                user.addToPostcount();
-                ideeën.add(idee);
-               // context.getIdeeënAdapter().notifyDataSetChanged();
-                finishActivity(MainActivity.IDEE_REQUESTCODE);
-                /*
-                getIntent().putExtra("Idee_Bundle",idee.toBundle());
-                finishActivity(MainActivity.IDEE_REQUESTCODE);
-                */
+                setResult(RESULT_OK);
+                finish();
+               // finishActivity(MainActivity.IDEE_REQUESTCODE);
 
             }
         });

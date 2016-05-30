@@ -38,6 +38,7 @@
         android:textSize="32sp"
         android:layout_below="@id/tv_homescreen_inbox"/>
 
+
     <TextView
         android:id="@+id/tv_homescreen_instellingen"
         android:layout_width="wrap_content"
