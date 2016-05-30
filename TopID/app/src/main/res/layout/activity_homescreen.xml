@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15sp"
         android:layout_below="@+id/iv_homescreen_image"
-        android:text="ingelogte user"
+        android:text="ingelogde user"
         android:layout_toEndOf="@+id/iv_homescreen_user"/>
 
     <ImageView

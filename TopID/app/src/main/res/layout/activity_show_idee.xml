@@ -16,6 +16,7 @@
         android:src="@drawable/gabenewell"
         android:layout_margin="20sp"/>
 
+
     <TextView
         android:id="@+id/tvPosterName_showIdee"
         android:layout_width="wrap_content"
