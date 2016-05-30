@@ -37,10 +37,12 @@ public class IdeeënAdapter extends ArrayAdapter<Idee> {
 
         Idee idee = ideeën.get(position);
 
-        tvSummary.setText(idee.getSummaryText());
-        ivPoster.setImageResource(idee.getPoster().getTempImage());
-
-
+        tvSummary.setText(idee.getSummaryText().toString());
+        /*
+        if(idee.getPoster().getTempImage() != 0 && idee.getPoster().getProfileImage() != null) {
+            ivPoster.setImageResource(idee.getPoster().getTempImage());
+        }
+*/
 
 
         return  convertView;

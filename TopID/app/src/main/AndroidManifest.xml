@@ -31,7 +31,8 @@
             android:name=".Activity.InstellingenActivity"
             android:parentActivityName=".Activity.MainActivity.MainActivity" />
         <activity android:name=".Activity.MakeIdeeActivity" />
-        <activity android:name=".Activity.showIdeeActivity"></activity>
+        <activity android:name=".Activity.showIdeeActivity" />
+        <activity android:name=".ReageerActivity"></activity>
     </application>
 
 </manifest>

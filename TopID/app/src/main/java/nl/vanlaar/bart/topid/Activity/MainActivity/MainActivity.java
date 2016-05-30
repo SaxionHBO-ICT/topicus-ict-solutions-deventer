@@ -1,5 +1,6 @@
 package nl.vanlaar.bart.topid.Activity.MainActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -31,7 +32,15 @@ public class MainActivity extends AppCompatActivity {
     public static boolean ingelogd = true;
     private ListView lvIdeeën;
     private FloatingActionButton fab;
-    private IdeeënAdapter adapter;
+    private static IdeeënAdapter adapter = null;
+    private Context context;
+
+    public MainActivity(Context context){
+        this.context = context;
+    }
+    public MainActivity(){
+
+    }
 
 
     @Override
@@ -66,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, MakeIdeeActivity.class);
+                //startActivity(intent);
                 startActivityForResult(intent, IDEE_REQUESTCODE);
             }
         });
@@ -76,7 +86,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onResume() {
-        adapter.notifyDataSetChanged();
         super.onResume();
     }
 
@@ -104,19 +113,21 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-/*
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if(resultCode == RESULT_OK){
             if(requestCode == IDEE_REQUESTCODE){
-                Idee idee = data.getBundleExtra();
-                ideeën.add(idee);
-                notifyAdapter();
+                adapter.notifyDataSetChanged();
 
             }
         }
 
     }
-    */
+
+
+ public IdeeënAdapter getIdeeënAdapter(){
+     return adapter;
+ }
 }

@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -34,8 +35,9 @@ public class MakeIdeeActivity extends AppCompatActivity {
     private CheckBox cbAnoniem;
 
     private Idee idee;
+    private User user = MainActivity.LOGGED_IN_USER;
 
-
+    private MainActivity context = new MainActivity(this);
 
 
     @Override
@@ -59,10 +61,40 @@ public class MakeIdeeActivity extends AppCompatActivity {
 
 
         btPost.setOnClickListener(new View.OnClickListener() {
-            User user = MainActivity.LOGGED_IN_USER;
+
 
             @Override
             public void onClick(View v) {
+
+                cbKlacht.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (cbIdee.isChecked()) {
+                            cbIdee.setChecked(false);
+                        }
+                        cbKlacht.setChecked(true);
+                    }
+                });
+
+                cbIdee.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (cbKlacht.isChecked()) {
+                            cbKlacht.setChecked(false);
+                        }
+                        cbIdee.setChecked(true);
+                    }
+                });
+
+                ivImagePreview.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                        startActivityForResult(intent, IMAGE_REQUEST_CODE);
+
+                    }
+                });
+
                 if (etIdeeSamenvattingText.getText() == null
                         || etIdeeSamenvattingText.getText().toString().isEmpty()) {
                     Toast.makeText(MakeIdeeActivity.this, "Vul alstublieft alle velden in.", Toast.LENGTH_LONG).show();
@@ -90,18 +122,16 @@ public class MakeIdeeActivity extends AppCompatActivity {
                 if (cbIdee.isChecked()) {
                     idee.setSoortIdee(Idee.IDEE);
                 }
-                if(cbAnoniem.isChecked()){
+                if (cbAnoniem.isChecked()) {
                     idee.setAnonymous(true);
 
                 }
 
 
-
-
-
                 user.addToPostcount();
                 ideeën.add(idee);
-                finish();
+               // context.getIdeeënAdapter().notifyDataSetChanged();
+                finishActivity(MainActivity.IDEE_REQUESTCODE);
                 /*
                 getIntent().putExtra("Idee_Bundle",idee.toBundle());
                 finishActivity(MainActivity.IDEE_REQUESTCODE);
@@ -110,35 +140,11 @@ public class MakeIdeeActivity extends AppCompatActivity {
             }
         });
 
-        cbKlacht.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (cbIdee.isChecked()) {
-                    cbIdee.setChecked(false);
-                }
-                cbKlacht.setChecked(true);
-            }
-        });
 
-        cbIdee.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (cbKlacht.isChecked()) {
-                    cbKlacht.setChecked(false);
-                }
-                cbIdee.setChecked(true);
-            }
-        });
+    }
 
-        ivImagePreview.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(intent, IMAGE_REQUEST_CODE);
-
-            }
-        });
-
+    @Override
+    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
 
     }
 
