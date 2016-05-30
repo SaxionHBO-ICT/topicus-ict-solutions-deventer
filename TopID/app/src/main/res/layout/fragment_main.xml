@@ -8,12 +8,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sorteer op:"
-        android:textSize="20sp"/>
+        android:textSize="20sp"
+        android:layout_margin="5sp"/>
     <android.support.v7.widget.AppCompatSpinner
         android:id="@+id/spinner_lijst_sorteer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toEndOf="@+id/tv_lijstType"
+        android:layout_margin="5sp"
         >
 
     </android.support.v7.widget.AppCompatSpinner>

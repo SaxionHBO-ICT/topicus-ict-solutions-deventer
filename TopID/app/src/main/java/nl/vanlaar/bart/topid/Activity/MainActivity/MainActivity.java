@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -28,14 +29,14 @@ import nl.vanlaar.bart.topid.R;
 import nl.vanlaar.bart.topid.View.IdeeënAdapter;
 
 public class MainActivity extends AppCompatActivity {
-    private ArrayList<Idee> ideeën = IdeeënLijst.getIdeeënLijst();
+    private static ArrayList<Idee> ideeën;
     public static final User LOGGED_IN_USER = new User("henk",R.drawable.gabenewell);
     public static final int IDEE_REQUESTCODE = 666;
     public static boolean dataChanged = false;
-    public static boolean ingelogd = true;
+    public static boolean ingelogd = false;
     private ListView lvIdeeën;
     private FloatingActionButton fab;
-    private static IdeeënAdapter adapter = null;
+    private IdeeënAdapter adapter = null;
     private Context context;
     private Spinner spinnerSort;
     private Toolbar toolbar;
@@ -52,8 +53,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ideeën = IdeeënLijst.sortByIdee();
+        Log.d("lijst:      ", ideeën.toString());
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-       toolbar.setBackgroundColor(Color.rgb(255,180,56));
+        toolbar.setBackgroundColor(Color.rgb(255,180,56));
          setSupportActionBar(toolbar);
 
         fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -84,11 +87,14 @@ public class MainActivity extends AppCompatActivity {
         spinnerSort.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if(parent.getItemAtPosition(position).equals("Klachten")){
+                if(position == 1){
+                    Log.d("position",  "" + position);
                     ideeën = IdeeënLijst.sortByKlacht();
                     adapter.notifyDataSetChanged();
+
+                    Log.d("size   ", "" + ideeën.size());
                 }
-                if(parent.getItemAtPosition(position).equals("Ideeën")){
+                if(parent.getItemAtPosition(position).toString().equalsIgnoreCase("Ideeën")){
                     ideeën = IdeeënLijst.sortByIdee();
                     adapter.notifyDataSetChanged();
                 }
@@ -97,9 +103,12 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
+
+                /*
                 parent.setSelection(0);
                 ideeën = IdeeënLijst.sortByIdee();
                 adapter.notifyDataSetChanged();
+                */
             }
         });
 

@@ -95,8 +95,6 @@ public class MakeIdeeActivity extends AppCompatActivity {
 
 
         btPost.setOnClickListener(new View.OnClickListener() {
-
-
             @Override
             public void onClick(View v) {
 

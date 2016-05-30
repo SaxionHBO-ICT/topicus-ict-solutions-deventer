@@ -62,8 +62,11 @@ public class Idee {
         this.title = title;
     }
 
-    public int getSoortIdee() {
-        return soortIdee;
+    public String getSoortIdee() {
+        if(this.soortIdee == KLACHT){
+            return "klacht";
+        }
+        return "idee";
     }
 
     public void setSoortIdee(int soortIdee) {
