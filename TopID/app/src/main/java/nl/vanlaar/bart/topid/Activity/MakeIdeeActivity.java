@@ -60,40 +60,43 @@ public class MakeIdeeActivity extends AppCompatActivity {
         cbIdee = (CheckBox) findViewById(R.id.cbIdee_makeIdee);
 
 
+        cbKlacht.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (cbIdee.isChecked()) {
+                    cbIdee.setChecked(false);
+                }
+                cbKlacht.setChecked(true);
+            }
+        });
+
+        cbIdee.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (cbKlacht.isChecked()) {
+                    cbKlacht.setChecked(false);
+                }
+                cbIdee.setChecked(true);
+            }
+        });
+
+        ivImagePreview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(intent, IMAGE_REQUEST_CODE);
+
+            }
+        });
+
+
         btPost.setOnClickListener(new View.OnClickListener() {
 
 
             @Override
             public void onClick(View v) {
 
-                cbKlacht.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        if (cbIdee.isChecked()) {
-                            cbIdee.setChecked(false);
-                        }
-                        cbKlacht.setChecked(true);
-                    }
-                });
 
-                cbIdee.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        if (cbKlacht.isChecked()) {
-                            cbKlacht.setChecked(false);
-                        }
-                        cbIdee.setChecked(true);
-                    }
-                });
-
-                ivImagePreview.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                        startActivityForResult(intent, IMAGE_REQUEST_CODE);
-
-                    }
-                });
 
                 if (etIdeeSamenvattingText.getText() == null
                         || etIdeeSamenvattingText.getText().toString().isEmpty()) {
