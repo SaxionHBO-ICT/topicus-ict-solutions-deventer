@@ -17,6 +17,7 @@
         android:text="Image preview:"
         android:textSize="20sp"
         android:layout_margin="10sp"/>
+
     <ImageView
         android:id="@+id/ivImagePreview_makeIdee"
         android:layout_width="wrap_content"
@@ -32,12 +33,14 @@
         android:text="Idee Titel:"
         android:layout_below="@+id/ivImagePreview_makeIdee"
         android:layout_marginLeft="10sp"/>
+
     <EditText
         android:id="@+id/etIdeeTitle_makeIdee"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvIdeeTitle_makeIdee"
-        android:layout_margin="10sp"/>
+        android:layout_margin="10sp"
+        android:hint="de naam van je idee"/>
 
 
     <TextView
@@ -55,7 +58,7 @@
         android:layout_margin="10sp"
         android:inputType="textMultiLine"
         android:layout_below="@+id/tvHetIdee_makeIdee"
-        android:text="Hier komt het uitgebreide idee achter een idee."
+        android:hint="Het uitgebreide idee"
         android:textSize="12sp"/>
     <TextView
         android:id="@+id/tvSamenvatting_makeIdee"
@@ -72,7 +75,7 @@
         android:layout_margin="10sp"
         android:layout_height="75sp"
         android:textSize="12sp"
-        android:text="Hier komt de samenvatting van het idee"/>
+        android:hint="de samenvatting van je idee"/>
     <Button
         android:id="@+id/btPost_makeIdee"
         android:layout_width="wrap_content"

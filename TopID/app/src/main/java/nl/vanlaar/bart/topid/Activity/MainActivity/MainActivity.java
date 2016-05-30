@@ -56,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
         ideeën = IdeeënLijst.sortByIdee();
         Log.d("lijst:      ", ideeën.toString());
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setBackgroundColor(Color.rgb(255,180,56));
          setSupportActionBar(toolbar);
 
         fab = (FloatingActionButton) findViewById(R.id.fab);

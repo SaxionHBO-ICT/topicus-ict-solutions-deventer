@@ -13,9 +13,9 @@ public class CommentList {
 
     private CommentList(){
         comments = new ArrayList<>();
-        addComment("Bert", "Meer fietsen", "Dit is een super gaaf idee", R.drawable.bert, "9-18-2016 || 2:30");
-        addComment("Ernie", "Meer fietsen", "Maar ik fiets niet graag", R.drawable.ernie, "9-18-2016 || 2:30");
-        addComment("Koekiemonster", "Meer koekjes", "nomnomnomnom", R.drawable.koekiemonster, "11-7-2016 || 15:27");
+        addComment("David", "Meer fietsen", "Dit is een top idee", R.drawable.david, "9-18-2016 || 2:30");
+        addComment("Jos", "Meer fietsen", "Dat zal wel goed zijn voor sommigen", R.drawable.david, "9-18-2016 || 2:32");
+        addComment("Lisa", "Meer koekjes", "Ja meer koekjes tijdens de koffie pauze!", R.drawable.david, "11-7-2016 || 15:27");
     }
 
     public static CommentList getInstance(){

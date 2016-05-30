@@ -1,7 +1,5 @@
 package nl.vanlaar.bart.topid.Model;
 
-import android.util.Log;
-
 import java.util.ArrayList;
 
 import nl.vanlaar.bart.topid.R;
@@ -18,13 +16,18 @@ public class IdeeënLijst {
             ideeënLijst = new ArrayList<>();
             User user =  new User("naam",R.drawable.trollface);
             Idee idee = new Idee(user,"kdmakdsadnsajkdnsajkdnsajda", R.drawable.trollface);
-            idee.setSoortIdee(Idee.IDEE);
-            Comment comment = new Comment("Henk", "meer fietsen", "Dit is geen slect idee", R.drawable.bert, "9-18-2016 || 12:30");
+            Comment comment = new Comment("Henk", "meer fietsen", "Dit is geen slect idee", R.drawable.david, "9-18-2016 || 12:30");
             idee.setSummaryText("dit is een samenvatting");
-
-            Comment comment2 = new Comment("koekiemonster", "meer fietsen", "kan je fietsen eten?", R.drawable.koekiemonster, "5-30-2016 || 16:57");
+            Comment comment2 = new Comment("koekiemonster", "meer fietsen", "kan je fietsen eten?", R.drawable.david, "5-30-2016 || 16:57");
+            idee.addComment(comment);
+            idee.addComment(comment2);
+            idee.addComment(comment);
+            idee.addComment(comment2);
+            idee.addComment(comment);
+            idee.addComment(comment2);
 
             ideeënLijst.add(idee);
+            idee.setSoortIdee(Idee.IDEE);
             ideeënLijst.add(idee);
             idee.setSoortIdee(Idee.KLACHT);
             ideeënLijst.add(idee);
@@ -33,7 +36,6 @@ public class IdeeënLijst {
             ideeënLijst.add(idee);
             ideeënLijst.add(idee);
             ideeënLijst.add(idee);
-            Log.d("idee soort", ""+idee.getSoortIdee());
             ideeënLijst.add(idee);
 
 
@@ -46,10 +48,8 @@ public class IdeeënLijst {
         for(Idee idee : unSortedList){
             if(idee.getSoortIdee().equalsIgnoreCase("idee")){
                 sortedList.add(idee);
-                Log.d("test ", "@#@#@#@#@##@");
             }
         }
-        Log.d("tag    ", "" +sortedList.size());
         return sortedList;
     }
 
@@ -59,7 +59,6 @@ public class IdeeënLijst {
         for(Idee idee : unSortedList){
             if(idee.getSoortIdee().equalsIgnoreCase("klacht")){
                 sortedList.add(idee);
-
             }
         }
         return sortedList;

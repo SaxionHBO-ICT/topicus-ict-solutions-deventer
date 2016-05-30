@@ -19,11 +19,8 @@ import nl.vanlaar.bart.topid.R;
  * Created by bart on 18-5-2016.
  */
 public class IdeeënAdapter extends ArrayAdapter<Idee> {
-    private ArrayList<Idee> ideeën = IdeeënLijst.getIdeeënLijst();
-
     public IdeeënAdapter(Context context, int resource, ArrayList<Idee> objects) {
         super(context, resource,objects);
-        objects = ideeën;
     }
 
     @Override
@@ -35,7 +32,7 @@ public class IdeeënAdapter extends ArrayAdapter<Idee> {
         ImageView ivPoster = (ImageView) convertView.findViewById(R.id.ivImageListItem);
 
 
-        Idee idee = ideeën.get(position);
+        Idee idee = getItem(position);
 
         tvSummary.setText(idee.getSummaryText());
         /*
