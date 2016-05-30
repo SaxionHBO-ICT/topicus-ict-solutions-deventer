@@ -2,6 +2,7 @@ package nl.vanlaar.bart.topid.Activity.MainActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -10,7 +11,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Spinner;
 
 import java.util.ArrayList;
 
@@ -34,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
     private FloatingActionButton fab;
     private static IdeeënAdapter adapter = null;
     private Context context;
+    private Spinner spinnerSort;
+    private Toolbar toolbar;
 
     public MainActivity(Context context){
         this.context = context;
@@ -47,11 +52,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+       toolbar.setBackgroundColor(Color.rgb(255,180,56));
          setSupportActionBar(toolbar);
 
         fab = (FloatingActionButton) findViewById(R.id.fab);
         lvIdeeën = (ListView) findViewById(R.id.lvIdeeën);
+        spinnerSort = (Spinner) findViewById(R.id.spinner_lijst_sorteer);
 
         if ( ingelogd == false){
             Intent intent = new Intent(this, LoginActivity.class);
@@ -71,6 +78,33 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        final ArrayAdapter<CharSequence> adapterSort = ArrayAdapter.createFromResource(this,R.array.sort_lijst,android.R.layout.simple_spinner_item);
+        spinnerSort.setAdapter(adapterSort);
+
+        spinnerSort.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if(parent.getItemAtPosition(position).equals("Klachten")){
+                    ideeën = IdeeënLijst.sortByKlacht();
+                    adapter.notifyDataSetChanged();
+                }
+                if(parent.getItemAtPosition(position).equals("Ideeën")){
+                    ideeën = IdeeënLijst.sortByIdee();
+                    adapter.notifyDataSetChanged();
+                }
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                parent.setSelection(0);
+                ideeën = IdeeënLijst.sortByIdee();
+                adapter.notifyDataSetChanged();
+            }
+        });
+
+
+
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -126,6 +160,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
+
+
 
 
  public IdeeënAdapter getIdeeënAdapter(){

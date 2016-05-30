@@ -7,10 +7,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 
-import java.util.ArrayList;
-
-import nl.vanlaar.bart.topid.Model.Idee;
-import nl.vanlaar.bart.topid.Model.IdeeënLijst;
 import nl.vanlaar.bart.topid.R;
 import nl.vanlaar.bart.topid.View.ReactiesAdapter;
 

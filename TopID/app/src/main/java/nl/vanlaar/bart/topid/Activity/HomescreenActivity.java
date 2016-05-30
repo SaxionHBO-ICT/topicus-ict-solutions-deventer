@@ -13,10 +13,11 @@ import nl.vanlaar.bart.topid.R;
  * Created by Sander on 25-5-2016.
  */
 public class HomescreenActivity extends AppCompatActivity {
-    TextView uitloggen;
-    TextView inbox;
-    TextView ideeën;
-    TextView instellingen;
+    private TextView uitloggen;
+    private TextView inbox;
+    private TextView ideeën;
+    private TextView instellingen;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +49,7 @@ public class HomescreenActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
         instellingen = (TextView) findViewById(R.id.tv_homescreen_instellingen);
         instellingen.setOnClickListener(new View.OnClickListener() {
             @Override
