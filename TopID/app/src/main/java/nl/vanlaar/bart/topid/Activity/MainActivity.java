@@ -1,4 +1,4 @@
-package nl.vanlaar.bart.topid.Activity.MainActivity;
+package nl.vanlaar.bart.topid.Activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,13 +14,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 
-import java.util.ArrayList;
-
-import nl.vanlaar.bart.topid.Activity.HomescreenActivity;
-import nl.vanlaar.bart.topid.Activity.LoginActivity;
-import nl.vanlaar.bart.topid.Activity.MakeIdeeActivity;
-import nl.vanlaar.bart.topid.Activity.ShowIdeeActivity;
-import nl.vanlaar.bart.topid.Model.Idee;
 import nl.vanlaar.bart.topid.Model.IdeeënLijst;
 import nl.vanlaar.bart.topid.Model.User;
 import nl.vanlaar.bart.topid.R;

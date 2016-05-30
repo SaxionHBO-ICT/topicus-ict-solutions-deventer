@@ -17,7 +17,6 @@ import android.widget.ImageView;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
-import nl.vanlaar.bart.topid.Activity.MainActivity.MainActivity;
 import nl.vanlaar.bart.topid.Model.Idee;
 import nl.vanlaar.bart.topid.Model.IdeeënLijst;
 import nl.vanlaar.bart.topid.Model.User;

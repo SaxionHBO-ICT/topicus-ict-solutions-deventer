@@ -9,7 +9,6 @@ import nl.vanlaar.bart.topid.R;
  */
 public class IdeeënLijst {
     private static ArrayList<Idee> ideeënLijst;
-    //private static IdeeënLijst ourInstance = new IdeeënLijst();
 
     public static ArrayList<Idee> getIdeeënLijst() {
         if(ideeënLijst == null){

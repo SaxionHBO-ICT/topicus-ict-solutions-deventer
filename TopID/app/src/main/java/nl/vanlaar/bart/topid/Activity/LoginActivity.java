@@ -29,7 +29,6 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import nl.vanlaar.bart.topid.Activity.MainActivity.MainActivity;
 import nl.vanlaar.bart.topid.R;
 
 import static android.Manifest.permission.READ_CONTACTS;
