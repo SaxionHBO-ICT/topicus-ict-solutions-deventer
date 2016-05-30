@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.Button;
 
 import nl.vanlaar.bart.topid.R;
-import nl.vanlaar.bart.topid.ReageerActivity;
 
 public class showIdeeActivity extends AppCompatActivity {
 

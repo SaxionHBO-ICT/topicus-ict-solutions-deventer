@@ -31,6 +31,7 @@ public class CommentList {
 
     public void addComment(String userName, String ideeName, String comment, int userPic){
         Comment commentAdded = new Comment(userName, ideeName, comment, userPic);
+        addComment(commentAdded);
     }
 
     public ArrayList<Comment> getComments() {

@@ -36,8 +36,6 @@ public class InboxAdapter extends ArrayAdapter {
         inboxMessage.setText(comment.getUserName() + " reageerde op jouw post: " + comment.getIdeeName());
         inboxComment.setText(comment.getComment());
         inboxUserImage.setImageResource(comment.getUserPicture());
-
-        System.out.println(inboxComment.getText());
         return convertView;
     }
 }

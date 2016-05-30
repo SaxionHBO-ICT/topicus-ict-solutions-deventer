@@ -1,7 +1,9 @@
-package nl.vanlaar.bart.topid;
+package nl.vanlaar.bart.topid.Activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import nl.vanlaar.bart.topid.R;
 
 public class ReageerActivity extends AppCompatActivity {
 
