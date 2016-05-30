@@ -2,7 +2,6 @@ package nl.vanlaar.bart.topid.Activity.MainActivity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -27,16 +26,17 @@ import nl.vanlaar.bart.topid.Model.IdeeënLijst;
 import nl.vanlaar.bart.topid.Model.User;
 import nl.vanlaar.bart.topid.R;
 import nl.vanlaar.bart.topid.View.IdeeënAdapter;
+import nl.vanlaar.bart.topid.View.KlachtenAdapter;
 
 public class MainActivity extends AppCompatActivity {
-    private static ArrayList<Idee> ideeën;
     public static final User LOGGED_IN_USER = new User("henk",R.drawable.gabenewell);
     public static final int IDEE_REQUESTCODE = 666;
     public static boolean dataChanged = false;
     public static boolean ingelogd = false;
     private ListView lvIdeeën;
     private FloatingActionButton fab;
-    private IdeeënAdapter adapter = null;
+    private IdeeënAdapter ideeAdapter;
+    private KlachtenAdapter klachtenAdapter;
     private Context context;
     private Spinner spinnerSort;
     private Toolbar toolbar;
@@ -53,8 +53,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ideeën = IdeeënLijst.sortByIdee();
-        Log.d("lijst:      ", ideeën.toString());
         toolbar = (Toolbar) findViewById(R.id.toolbar);
          setSupportActionBar(toolbar);
 
@@ -70,8 +68,9 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        adapter = new IdeeënAdapter(this,R.layout.fragment_main, ideeën);
-        lvIdeeën.setAdapter(adapter);
+        ideeAdapter = new IdeeënAdapter(this,R.layout.fragment_main, IdeeënLijst.sortByIdee());
+        klachtenAdapter = new KlachtenAdapter(this, R.layout.fragment_main, IdeeënLijst.sortByKlacht());
+        lvIdeeën.setAdapter(ideeAdapter);
         lvIdeeën.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -87,15 +86,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if(position == 1){
-                    Log.d("position",  "" + position);
-                    ideeën = IdeeënLijst.sortByKlacht();
-                    adapter.notifyDataSetChanged();
-
-                    Log.d("size   ", "" + ideeën.size());
+                    lvIdeeën.setAdapter(ideeAdapter);
                 }
-                if(parent.getItemAtPosition(position).toString().equalsIgnoreCase("Ideeën")){
-                    ideeën = IdeeënLijst.sortByIdee();
-                    adapter.notifyDataSetChanged();
+                if(position == 0){
+                    lvIdeeën.setAdapter(klachtenAdapter);
                 }
 
             }
@@ -106,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
                 /*
                 parent.setSelection(0);
                 ideeën = IdeeënLijst.sortByIdee();
-                adapter.notifyDataSetChanged();
+                ideeAdapter.notifyDataSetChanged();
                 */
             }
         });
@@ -162,7 +156,7 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if(resultCode == RESULT_OK){
             if(requestCode == IDEE_REQUESTCODE){
-                adapter.notifyDataSetChanged();
+                ideeAdapter.notifyDataSetChanged();
 
             }
         }
@@ -174,6 +168,6 @@ public class MainActivity extends AppCompatActivity {
 
 
  public IdeeënAdapter getIdeeënAdapter(){
-     return adapter;
+     return ideeAdapter;
  }
 }

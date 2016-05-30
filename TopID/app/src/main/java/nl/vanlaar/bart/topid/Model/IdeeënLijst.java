@@ -18,24 +18,28 @@ public class IdeeënLijst {
             Idee idee = new Idee(user,"kdmakdsadnsajkdnsajkdnsajda", R.drawable.trollface);
             Comment comment = new Comment("Henk", "meer fietsen", "Dit is geen slect idee", R.drawable.david, "9-18-2016 || 12:30");
             idee.setSummaryText("dit is een samenvatting");
+
+            User user2 =  new User("naam",R.drawable.trollface);
+            Idee idee2 = new Idee(user,"kdmakdsadnsajkdnsajkdnsajda", R.drawable.trollface);
+            idee2.setSummaryText("dit is een samenvatting");
+            idee2.setSoortIdee(Idee.KLACHT);
+
             Comment comment2 = new Comment("koekiemonster", "meer fietsen", "kan je fietsen eten?", R.drawable.david, "5-30-2016 || 16:57");
             idee.addComment(comment);
             idee.addComment(comment2);
             idee.addComment(comment);
             idee.addComment(comment2);
-            idee.addComment(comment);
-            idee.addComment(comment2);
+            idee2.addComment(comment);
+            idee2.addComment(comment2);
 
-            ideeënLijst.add(idee);
             idee.setSoortIdee(Idee.IDEE);
             ideeënLijst.add(idee);
-            idee.setSoortIdee(Idee.KLACHT);
             ideeënLijst.add(idee);
-            ideeënLijst.add(idee);
-            ideeënLijst.add(idee);
-            ideeënLijst.add(idee);
-            ideeënLijst.add(idee);
-            ideeënLijst.add(idee);
+            ideeënLijst.add(idee2);
+            ideeënLijst.add(idee2);
+            ideeënLijst.add(idee2);
+            ideeënLijst.add(idee2);
+            ideeënLijst.add(idee2);
             ideeënLijst.add(idee);
 
 
