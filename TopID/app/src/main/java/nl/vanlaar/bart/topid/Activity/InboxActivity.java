@@ -7,6 +7,10 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ListView;
 
+import java.util.ArrayList;
+
+import nl.vanlaar.bart.topid.Model.Comment;
+import nl.vanlaar.bart.topid.Model.CommentList;
 import nl.vanlaar.bart.topid.R;
 import nl.vanlaar.bart.topid.View.InboxAdapter;
 
@@ -14,8 +18,9 @@ import nl.vanlaar.bart.topid.View.InboxAdapter;
  * Created by Sander on 25-5-2016.
  */
 public class InboxActivity extends AppCompatActivity {
-    ListView listView;
-    InboxAdapter inboxAdapter;
+    private ListView listView;
+    private InboxAdapter inboxAdapter;
+    private ArrayList<Comment> comments = CommentList.getInstance().getComments();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +28,9 @@ public class InboxActivity extends AppCompatActivity {
         setContentView(R.layout.activity_inbox);
 
         listView = (ListView) findViewById(R.id.lv_inbox_list);
-        inboxAdapter = new InboxAdapter(listView.getContext());
+        inboxAdapter = new InboxAdapter(this, R.layout.activity_inbox, comments);
         listView.setAdapter(inboxAdapter);
     }
+
+
 }

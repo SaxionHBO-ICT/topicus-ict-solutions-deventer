@@ -8,6 +8,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 import nl.vanlaar.bart.topid.Model.Comment;
 import nl.vanlaar.bart.topid.Model.CommentList;
 import nl.vanlaar.bart.topid.R;
@@ -16,9 +18,11 @@ import nl.vanlaar.bart.topid.R;
  * Created by Sander on 25-5-2016.
  */
 public class InboxAdapter extends ArrayAdapter<Comment> {
+    private ArrayList<Comment> comments = CommentList.getInstance().getComments();
 
-    public InboxAdapter(Context context) {
-        super(context, 0, CommentList.getInstance().getComments());
+    public InboxAdapter(Context context, int resource, ArrayList<Comment> objects) {
+        super(context, resource, objects);
+        objects = comments;
     }
 
     @Override
@@ -31,9 +35,9 @@ public class InboxAdapter extends ArrayAdapter<Comment> {
         ImageView inboxUserImage = (ImageView) convertView.findViewById(R.id.iv_inbox_user);
 
         Comment comment = getItem(position);
-        inboxMessage.setText(comment.getUserName() + " reageerde op je post:  " + comment.getIdeeName());
-        inboxComment.setText(comment.getComment());
-        inboxUserImage.setImageResource(comment.getUserPicture());
+        inboxMessage.setText("test");
+        inboxComment.setText("test");
+        inboxUserImage.setImageResource(R.drawable.bert);
 
         return convertView;
     }
