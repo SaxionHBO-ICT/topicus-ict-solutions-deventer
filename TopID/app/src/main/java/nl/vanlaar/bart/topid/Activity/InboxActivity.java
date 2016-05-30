@@ -23,7 +23,7 @@ public class InboxActivity extends AppCompatActivity {
         setContentView(R.layout.activity_inbox);
 
         listView = (ListView) findViewById(R.id.lv_inbox_list);
-        inboxAdapter = new InboxAdapter(getApplicationContext());
+        inboxAdapter = new InboxAdapter(listView.getContext());
         listView.setAdapter(inboxAdapter);
     }
 }
