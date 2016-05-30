@@ -5,7 +5,8 @@
     <ImageView
         android:id="@+id/iv_reaction_gebbruiker_plaatje"
         android:layout_width="75sp"
-        android:layout_height="75sp" />
+        android:layout_height="75sp"
+        android:layout_margin="5sp"/>
 
     <TextView
         android:id="@+id/tv_reaction_gebruiker_naam"

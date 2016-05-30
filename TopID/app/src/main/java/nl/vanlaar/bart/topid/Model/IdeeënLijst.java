@@ -14,12 +14,12 @@ public class IdeeënLijst {
         if(ideeënLijst == null){
             ideeënLijst = new ArrayList<>();
             User user =  new User("naam",R.drawable.trollface);
-            Idee idee = new Idee(user,"kdmakdsadnsajkdnsajkdnsajda", R.drawable.trollface);
+            Idee idee = new Idee(user,"kdmakdsadnsajkdnsajkdnsajda", R.drawable.trollface,Idee.KLACHT);
             Comment comment = new Comment("Henk", "meer fietsen", "Dit is geen slect idee", R.drawable.david, "9-18-2016 || 12:30");
             idee.setSummaryText("dit is een samenvatting");
 
             User user2 =  new User("naam",R.drawable.trollface);
-            Idee idee2 = new Idee(user,"kdmakdsadnsajkdnsajkdnsajda", R.drawable.trollface);
+            Idee idee2 = new Idee(user,"kdmakdsadnsajkdnsajkdnsajda", R.drawable.trollface,Idee.IDEE);
             idee2.setSummaryText("dit is een samenvatting");
             idee2.setSoortIdee(Idee.KLACHT);
 

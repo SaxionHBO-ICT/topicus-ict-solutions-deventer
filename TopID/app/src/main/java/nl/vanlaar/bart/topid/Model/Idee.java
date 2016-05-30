@@ -35,11 +35,12 @@ public class Idee {
         this.plaatje = plaatje;
         this.postPoints = 0;
     }
-    public Idee(User poster, String text, int plaatje) {
+    public Idee(User poster, String text, int plaatje, int soortIdee) {
         this.poster = poster;
         this.mainText = text;
         this.tempPlaatje = plaatje;
         this.postPoints = 0;
+        this.soortIdee = soortIdee;
     }
 
     public Idee(String mainText, String summaryText) {
@@ -48,10 +49,10 @@ public class Idee {
     }
 
     public Idee(String title, String mainText, String summaryText) {
-        this.poster = poster;
         this.title = title;
         this.mainText = mainText;
         this.summaryText = summaryText;
+
     }
 
     public String getTitle() {

@@ -94,9 +94,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mEmailView.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if(keyCode == KeyEvent.KEYCODE_ENTER){
-                    mPasswordView.requestFocus();
-                }
+                    //mPasswordView.requestFocus();
+
                 return false;
             }
         });

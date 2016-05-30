@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.ScrollView;
 
 import nl.vanlaar.bart.topid.R;
 import nl.vanlaar.bart.topid.View.ReactiesAdapter;
@@ -14,6 +15,8 @@ public class ShowIdeeActivity extends AppCompatActivity {
     public static final String EXTRA_IDEE = "idee";
     private ListView commentListView;
     private ReactiesAdapter adapter;
+    private Button btReageer;
+    private ScrollView svReacties;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +36,8 @@ public class ShowIdeeActivity extends AppCompatActivity {
         }
 
         commentListView.setAdapter(adapter);
-        Button btReageer = (Button) findViewById(R.id.btReageer_showIdee);
+        btReageer = (Button) findViewById(R.id.btReageer_showIdee);
+
 
         btReageer.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,5 +46,7 @@ public class ShowIdeeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
     }
 }

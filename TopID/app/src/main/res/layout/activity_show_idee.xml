@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.ShowIdeeActivity">
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+    tools:context=".Activity.ShowIdeeActivity"
+    android:fillViewport="true">
+
+
 
     <ImageView
         android:id="@+id/ivPosterImage_showIdee"
@@ -45,7 +45,7 @@
     <ImageView
         android:id="@+id/iv_ImagePost_showIdee"
         android:layout_width="match_parent"
-        android:layout_height="175sp"
+        android:layout_height="140sp"
         android:layout_below="@+id/ivPosterImage_showIdee"
         android:layout_marginLeft="5sp"
         android:layout_marginRight="5sp"/>
@@ -75,21 +75,17 @@
             android:layout_alignParentEnd="true"
             android:layout_marginRight="5sp"/>
 
+                <ListView
+                    android:layout_centerVertical="true"
+                    android:layout_below="@+id/btReageer_showIdee"
+                    android:id="@+id/lvReacties_showIdee"
+                    android:layout_width="match_parent"
+                    tools:layout="@layout/list_item_reaction"
+                    android:layout_height="match_parent">
 
-        <ListView
-            android:id="@+id/lvReacties_showIdee"
-            android:layout_below="@+id/btUpvote_showIdee"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:layout="@layout/list_item_reaction"
-            >
-
-        </ListView>
+                </ListView>
 
     </RelativeLayout>
 
 
 
-
-
-</LinearLayout>
