@@ -12,12 +12,23 @@ public class Comment {
     private User user;
     private String date;
 
+    public Comment() {
+    }
+
     public Comment(String userName, String ideeName, String comment, int userPicture, String date) {
         this.userName = userName;
         this.ideeName = ideeName;
         this.comment = comment;
         this.userPicture = userPicture;
         this.date = date;
+    }
+
+    public Comment(String userName, String comment, Idee parentIdee, int userPicture, User user) {
+        this.userName = userName;
+        this.comment = comment;
+        this.parentIdee = parentIdee;
+        this.userPicture = userPicture;
+        this.user = user;
     }
 
     public Idee getParentIdee() {

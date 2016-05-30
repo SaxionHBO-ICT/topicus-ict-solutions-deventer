@@ -3,10 +3,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".Activity.ReageerActivity">
+
+
+    <EditText
+        android:id="@+id/et_reageer_text"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:inputType="textMultiLine"/>
+
+    <Button
+        android:id="@+id/btPlaats_reactie"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Plaats reactie"
+        android:layout_alignParentBottom="true"/>
 
 </RelativeLayout>

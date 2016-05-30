@@ -8,11 +8,16 @@ import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -32,7 +37,7 @@ public class MakeIdeeActivity extends AppCompatActivity {
     private CheckBox cbIdee;
     private CheckBox cbAnoniem;
 
-    private Idee idee;
+    private Idee idee = new Idee();
     private User user = MainActivity.LOGGED_IN_USER;
 
     private MainActivity context = new MainActivity(this);
@@ -62,14 +67,23 @@ public class MakeIdeeActivity extends AppCompatActivity {
         cbKlacht = (CheckBox) findViewById(R.id.cbKlacht_makeIdee);
         cbIdee = (CheckBox) findViewById(R.id.cbIdee_makeIdee);
 
-
+        cbAnoniem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(cbAnoniem.isChecked()){
+                    idee.setAnonymous(true);
+                } else {
+                    idee.setAnonymous(false);
+                }
+            }
+        });
         cbKlacht.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (cbIdee.isChecked()) {
                     cbIdee.setChecked(false);
                 }
-                cbKlacht.setChecked(true);
+                idee.setSoortIdee(Idee.KLACHT);
             }
         });
 
@@ -78,8 +92,8 @@ public class MakeIdeeActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (cbKlacht.isChecked()) {
                     cbKlacht.setChecked(false);
+                    idee.setSoortIdee(Idee.IDEE);
                 }
-                cbIdee.setChecked(true);
             }
         });
 
@@ -92,15 +106,56 @@ public class MakeIdeeActivity extends AppCompatActivity {
             }
         });
 
+        etIdeeTitle.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                idee.setTitle(v.getText().toString());
+
+                return false;
+            }
+        });
+
+        etIdeeSamenvattingText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                idee.setSummaryText(v.getText().toString());
+                return false;
+            }
+        });
+
+        etIdeeText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                idee.setMainText(v.getText().toString());
+                return false;
+            }
+        });
+
 
         btPost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                if(TextUtils.isEmpty(etIdeeSamenvattingText.getText())
+                        || TextUtils.isEmpty(etIdeeText.getText())
+                        || TextUtils.isEmpty(etIdeeTitle.getText())){
+                    Toast toast = Toast.makeText(getApplicationContext(),"s.v.p. alle textvelden invullen.", Toast.LENGTH_SHORT);
+                    toast.show();
+                    return;
+                } else {
+                    Toast toast = Toast.makeText(getApplicationContext(),"Uw Idee/Klacht is geplaatst", Toast.LENGTH_SHORT);
+                    toast.show();
+                    Log.d("idee size voor" ,"" + ideeën.size());
+                    ideeën.add(idee);
+                    Log.d("idee size na" ,"" + ideeën.size());
+                    MainActivity.notifyAdapter();
+                    finish();
 
-                setResult(RESULT_OK);
-                finish();
-               // finishActivity(MainActivity.IDEE_REQUESTCODE);
+                }
+
+
+                //setResult(RESULT_OK);
+                // finishActivity(MainActivity.IDEE_REQUESTCODE);
 
             }
         });

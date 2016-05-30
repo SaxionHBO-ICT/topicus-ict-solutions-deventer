@@ -28,6 +28,10 @@ public class Idee {
     public static final int KLACHT = 1;
     public static final int IDEE = 2;
 
+    public Idee(){
+
+    }
+
 
     public Idee(User poster, String text, Bitmap plaatje) {
         this.poster = poster;
@@ -42,6 +46,7 @@ public class Idee {
         this.postPoints = 0;
         this.soortIdee = soortIdee;
     }
+
 
     public Idee(String mainText, String summaryText) {
         this.mainText = mainText;

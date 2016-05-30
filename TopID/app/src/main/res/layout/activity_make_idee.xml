@@ -14,7 +14,7 @@
         android:id="@+id/tvImagePreview_makeIdee"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Image preview:"
+        android:text="Image preview, klik om aan te passen:"
         android:textSize="20sp"
         android:layout_margin="10sp"/>
 
@@ -24,7 +24,7 @@
         android:layout_margin="10sp"
         android:layout_height="125sp"
         android:layout_below="@id/tvImagePreview_makeIdee"
-        android:src="@drawable/gabenewell"/>
+        android:src="@drawable/topicus_logo"/>
 
     <TextView
         android:id="@+id/tvIdeeTitle_makeIdee"

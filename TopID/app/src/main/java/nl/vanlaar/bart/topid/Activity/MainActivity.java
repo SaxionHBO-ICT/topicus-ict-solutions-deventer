@@ -27,8 +27,8 @@ public class MainActivity extends AppCompatActivity {
     public static boolean ingelogd = false;
     private ListView lvIdeeën;
     private FloatingActionButton fab;
-    private IdeeënAdapter ideeAdapter;
-    private KlachtenAdapter klachtenAdapter;
+    private static IdeeënAdapter ideeAdapter;
+    private static KlachtenAdapter klachtenAdapter;
     private Context context;
     private Spinner spinnerSort;
     private Toolbar toolbar;
@@ -155,11 +155,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public static void notifyAdapter(){
+        ideeAdapter.notifyDataSetChanged();
+        klachtenAdapter.notifyDataSetChanged();
+    }
 
 
-
-
- public IdeeënAdapter getIdeeënAdapter(){
-     return ideeAdapter;
- }
 }

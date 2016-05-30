@@ -43,6 +43,7 @@ public class ShowIdeeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ShowIdeeActivity.this, ReageerActivity.class);
+                intent.putExtra(EXTRA_IDEE,getIntent().getIntExtra(EXTRA_IDEE,-1));
                 startActivity(intent);
             }
         });
