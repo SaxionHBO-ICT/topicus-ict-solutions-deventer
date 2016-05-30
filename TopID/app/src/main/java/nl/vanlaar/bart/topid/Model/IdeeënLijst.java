@@ -24,7 +24,7 @@ public class IdeeënLijst {
             idee2.setSummaryText("dit is een samenvatting");
             idee2.setSoortIdee(Idee.KLACHT);
 
-            Comment comment2 = new Comment("koekiemonster", "meer fietsen", "kan je fietsen eten?", R.drawable.david, "5-30-2016 || 16:57");
+            Comment comment2 = new Comment("Sander", "meer fietsen", "Dat zal voor sommige wel beter zijn", R.drawable.sander, "5-30-2016 || 16:57");
             idee.addComment(comment);
             idee.addComment(comment2);
             idee.addComment(comment);
