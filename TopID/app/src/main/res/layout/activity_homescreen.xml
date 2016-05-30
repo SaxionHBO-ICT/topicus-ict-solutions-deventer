@@ -8,28 +8,16 @@
         android:id="@+id/iv_homescreen_user"
         android:layout_width="75sp"
         android:layout_height="75sp"
-        android:layout_marginTop="15sp"
-        android:layout_marginLeft="15sp"
-        android:src="@drawable/gabenewell"
-        android:layout_below="@+id/iv_homescreen_image"/>
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/tv_homescreen_user_name"
+        android:src="@drawable/gabenewell" />
 
     <TextView
         android:id="@+id/tv_homescreen_user_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15sp"
-        android:layout_below="@+id/iv_homescreen_image"
-        android:text="ingelogde user"
-        android:layout_toEndOf="@+id/iv_homescreen_user"/>
-
-    <ImageView
-        android:id="@+id/iv_homescreen_image"
-        android:layout_width="250sp"
-        android:layout_height="100sp"
-        android:layout_marginTop="15sp"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/topicus_logo"/>
-
+        android:text="ingelogde user" />
 
     <TextView
         android:id="@+id/tv_homescreen_inbox"
