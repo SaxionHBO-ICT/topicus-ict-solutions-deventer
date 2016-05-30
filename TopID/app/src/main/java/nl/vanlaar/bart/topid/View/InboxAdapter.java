@@ -8,8 +8,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-
 import nl.vanlaar.bart.topid.Model.Comment;
 import nl.vanlaar.bart.topid.Model.CommentList;
 import nl.vanlaar.bart.topid.R;

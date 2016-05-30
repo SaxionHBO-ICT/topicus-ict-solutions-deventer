@@ -1,17 +1,12 @@
 package nl.vanlaar.bart.topid.Activity;
 
-import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.AttributeSet;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import java.util.ArrayList;
-
-import nl.vanlaar.bart.topid.Model.Comment;
-import nl.vanlaar.bart.topid.Model.CommentList;
 import nl.vanlaar.bart.topid.R;
 import nl.vanlaar.bart.topid.View.InboxAdapter;
 
@@ -33,7 +28,9 @@ public class InboxActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                Intent intent = new Intent(InboxActivity.this, showIdeeActivity.class);
+                intent.putExtra()
+                startActivity(intent);
             }
         });
     }

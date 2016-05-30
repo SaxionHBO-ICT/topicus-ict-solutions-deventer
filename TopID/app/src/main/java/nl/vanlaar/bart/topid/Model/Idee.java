@@ -3,6 +3,7 @@ package nl.vanlaar.bart.topid.Model;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -18,6 +19,7 @@ public class Idee {
     private Date postDate;
     private boolean anonymous;
     private int soortIdee;
+    private ArrayList<Comment> comments;
 
 
     private int tempPlaatje; // temp plaatje voor int.
@@ -135,6 +137,14 @@ public class Idee {
 
 
         return  b;
+    }
+
+    public void addComment(Comment comment){
+        comments.add(comment);
+    }
+
+    public ArrayList<Comment> getComments() {
+        return comments;
     }
 }
 
