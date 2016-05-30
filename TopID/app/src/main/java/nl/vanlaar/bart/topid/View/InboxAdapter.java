@@ -17,12 +17,10 @@ import nl.vanlaar.bart.topid.R;
 /**
  * Created by Sander on 25-5-2016.
  */
-public class InboxAdapter extends ArrayAdapter<Comment> {
-    private ArrayList<Comment> comments = CommentList.getInstance().getComments();
+public class InboxAdapter extends ArrayAdapter {
 
-    public InboxAdapter(Context context, int resource, ArrayList<Comment> objects) {
-        super(context, resource, objects);
-        objects = comments;
+    public InboxAdapter(Context context) {
+        super(context, 0, CommentList.getInstance().getComments());
     }
 
     @Override
@@ -34,11 +32,12 @@ public class InboxAdapter extends ArrayAdapter<Comment> {
         TextView inboxComment = (TextView) convertView.findViewById(R.id.tv_inbox_comment);
         ImageView inboxUserImage = (ImageView) convertView.findViewById(R.id.iv_inbox_user);
 
-        Comment comment = getItem(position);
-        inboxMessage.setText("test");
-        inboxComment.setText("test");
-        inboxUserImage.setImageResource(R.drawable.bert);
+        Comment comment = (Comment) getItem(position);
+        inboxMessage.setText(comment.getUserName() + " reageerde op jouw post: " + comment.getIdeeName());
+        inboxComment.setText(comment.getComment());
+        inboxUserImage.setImageResource(comment.getUserPicture());
 
+        System.out.println(inboxComment.getText());
         return convertView;
     }
 }

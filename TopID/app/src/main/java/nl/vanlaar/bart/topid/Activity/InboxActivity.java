@@ -20,7 +20,6 @@ import nl.vanlaar.bart.topid.View.InboxAdapter;
 public class InboxActivity extends AppCompatActivity {
     private ListView listView;
     private InboxAdapter inboxAdapter;
-    private ArrayList<Comment> comments = CommentList.getInstance().getComments();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +27,7 @@ public class InboxActivity extends AppCompatActivity {
         setContentView(R.layout.activity_inbox);
 
         listView = (ListView) findViewById(R.id.lv_inbox_list);
-        inboxAdapter = new InboxAdapter(this, R.layout.activity_inbox, comments);
+        inboxAdapter = new InboxAdapter(this);
         listView.setAdapter(inboxAdapter);
     }
 

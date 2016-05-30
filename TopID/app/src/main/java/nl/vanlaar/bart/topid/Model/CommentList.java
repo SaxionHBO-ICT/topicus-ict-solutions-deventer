@@ -29,7 +29,9 @@ public class CommentList {
         comments.add(comment);
     }
 
-    public void addComment(String userName, String ideeName, String comment, int userPic){}
+    public void addComment(String userName, String ideeName, String comment, int userPic){
+        Comment commentAdded = new Comment(userName, ideeName, comment, userPic);
+    }
 
     public ArrayList<Comment> getComments() {
         return comments;
