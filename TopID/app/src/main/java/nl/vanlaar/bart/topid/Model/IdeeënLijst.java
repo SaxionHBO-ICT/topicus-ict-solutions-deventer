@@ -16,6 +16,10 @@ public class IdeeënLijst {
             ideeënLijst = new ArrayList<>();
             User user =  new User("naam",R.drawable.trollface);
             Idee idee = new Idee(user,"kdmakdsadnsajkdnsajkdnsajda", R.drawable.trollface);
+            Comment comment = new Comment("Henk", "meer fietsen", "Dit is geen slect idee", R.drawable.bert, "9-18-2016 || 12:30");
+            idee.addComment(comment);
+            idee.addComment(comment);
+            idee.addComment(comment);
             idee.setSummaryText("dit is een samenvatting");
 
             ideeënLijst.add(idee);
@@ -33,4 +37,5 @@ public class IdeeënLijst {
 
     private IdeeënLijst() {
     }
+
 }

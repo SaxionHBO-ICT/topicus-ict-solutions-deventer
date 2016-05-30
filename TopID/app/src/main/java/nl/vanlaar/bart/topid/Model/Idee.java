@@ -19,7 +19,7 @@ public class Idee {
     private Date postDate;
     private boolean anonymous;
     private int soortIdee;
-    private ArrayList<Comment> comments;
+    private ArrayList<Comment> comments = new ArrayList<>();
 
 
     private int tempPlaatje; // temp plaatje voor int.

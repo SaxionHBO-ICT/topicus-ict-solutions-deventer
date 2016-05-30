@@ -13,9 +13,9 @@ public class CommentList {
 
     private CommentList(){
         comments = new ArrayList<>();
-        addComment("Bert", "Meer fietsen", "Dit is een super gaaf idee", R.drawable.bert);
-        addComment("Ernie", "Meer fietsen", "Maar ik fiets niet graag", R.drawable.ernie);
-        addComment("Koekiemonster", "Meer koekjes", "nomnomnomnom", R.drawable.koekiemonster);
+        addComment("Bert", "Meer fietsen", "Dit is een super gaaf idee", R.drawable.bert, "9-18-2016 || 2:30");
+        addComment("Ernie", "Meer fietsen", "Maar ik fiets niet graag", R.drawable.ernie, "9-18-2016 || 2:30");
+        addComment("Koekiemonster", "Meer koekjes", "nomnomnomnom", R.drawable.koekiemonster, "11-7-2016 || 15:27");
     }
 
     public static CommentList getInstance(){
@@ -29,8 +29,8 @@ public class CommentList {
         comments.add(comment);
     }
 
-    public void addComment(String userName, String ideeName, String comment, int userPic){
-        Comment commentAdded = new Comment(userName, ideeName, comment, userPic);
+    public void addComment(String userName, String ideeName, String comment, int userPic, String date){
+        Comment commentAdded = new Comment(userName, ideeName, comment, userPic, date);
         addComment(commentAdded);
     }
 

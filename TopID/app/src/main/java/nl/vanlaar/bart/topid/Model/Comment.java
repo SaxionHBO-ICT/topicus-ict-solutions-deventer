@@ -9,12 +9,15 @@ public class Comment {
     private String comment;
     private Idee parentIdee;
     private int userPicture;
+    private User user;
+    private String date;
 
-    public Comment(String userName, String ideeName, String comment, int userPicture) {
+    public Comment(String userName, String ideeName, String comment, int userPicture, String date) {
         this.userName = userName;
         this.ideeName = ideeName;
         this.comment = comment;
         this.userPicture = userPicture;
+        this.date = date;
     }
 
     public Idee getParentIdee() {
@@ -23,6 +26,14 @@ public class Comment {
 
     public void setParentIdee(Idee parentIdee) {
         this.parentIdee = parentIdee;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public User getUser() {
+        return user;
     }
 
     public String getUserName() {

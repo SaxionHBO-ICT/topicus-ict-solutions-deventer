@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import nl.vanlaar.bart.topid.Activity.HomescreenActivity;
 import nl.vanlaar.bart.topid.Activity.LoginActivity;
 import nl.vanlaar.bart.topid.Activity.MakeIdeeActivity;
-import nl.vanlaar.bart.topid.Activity.showIdeeActivity;
+import nl.vanlaar.bart.topid.Activity.ShowIdeeActivity;
 import nl.vanlaar.bart.topid.Model.Idee;
 import nl.vanlaar.bart.topid.Model.IdeeënLijst;
 import nl.vanlaar.bart.topid.Model.User;
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         lvIdeeën.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(MainActivity.this, showIdeeActivity.class);
+                Intent intent = new Intent(MainActivity.this, ShowIdeeActivity.class);
                 startActivity(intent);
             }
         });
