@@ -28,12 +28,4 @@
         android:layout_below="@+id/iv_reaction_gebbruiker_plaatje"
         android:text="sample comment"/>
 
-    <TextView
-        android:id="@+id/tv_reaction_reaction_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/iv_reaction_gebbruiker_plaatje"
-        android:layout_alignParentEnd="true"
-        android:text="Reageren =>" />
-
 </RelativeLayout>

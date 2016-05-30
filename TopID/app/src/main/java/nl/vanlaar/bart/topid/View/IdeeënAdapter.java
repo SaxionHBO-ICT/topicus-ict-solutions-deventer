@@ -37,7 +37,7 @@ public class IdeeënAdapter extends ArrayAdapter<Idee> {
 
         Idee idee = ideeën.get(position);
 
-        tvSummary.setText(idee.getSummaryText().toString());
+        tvSummary.setText(idee.getSummaryText());
         /*
         if(idee.getPoster().getTempImage() != 0 && idee.getPoster().getProfileImage() != null) {
             ivPoster.setImageResource(idee.getPoster().getTempImage());
