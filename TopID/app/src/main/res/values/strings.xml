@@ -3,6 +3,7 @@
     <string name="app_name">TopID</string>
     <string name="menu">Menu</string>
     <string name="title_activity_login">Log in</string>
+    <string name="idee">Ideeën en klachten</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>

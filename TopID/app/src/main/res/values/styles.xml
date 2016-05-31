@@ -6,8 +6,13 @@
         <item name="colorPrimary">#ffb438</item>
         <item name="colorPrimaryDark">#ffb438</item>
         <item name="colorAccent">#ffb438</item>
+        <item name="android:actionOverflowButtonStyle">@style/CustomOverflowButton</item>
     </style>
 
+    <style name="CustomOverflowButton" parent="@android:style/Widget.Holo.Light.ActionButton.Overflow">
+        <item name="android:src">@drawable/hamburger_icon</item>
+    </style>
+    
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">true</item>
         <item name="windowNoTitle">true</item>

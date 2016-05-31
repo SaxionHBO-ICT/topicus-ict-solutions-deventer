@@ -4,7 +4,7 @@
     tools:context=".Activity.MainActivity">
     <item
         android:id="@+id/topbar_menu"
-        android:orderInCategory="100"
+        android:orderInCategory="11"
         android:title="@string/menu"
         app:showAsAction="never" />
 
@@ -24,5 +24,11 @@
         android:id="@+id/topbar_uitloggen"
         android:orderInCategory="100"
         android:title="@string/uitloggen"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/topbar_ideeën"
+        android:orderInCategory="12"
+        android:title="@string/idee"
         app:showAsAction="never" />
 </menu>
