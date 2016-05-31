@@ -27,12 +27,15 @@ public class KlachtenAdapter extends ArrayAdapter<Idee> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.listlayout,parent,false);
         }
         TextView tvSummary = (TextView) convertView.findViewById(R.id.tvSAMENVATINGLISTITEM);
+        TextView title = (TextView) convertView.findViewById(R.id.tvNaamListItem);
         ImageView ivPoster = (ImageView) convertView.findViewById(R.id.ivImageListItem);
 
 
         Idee idee = getItem(position);
 
         tvSummary.setText(idee.getSummaryText());
+        title.setText(idee.getTitle());
+        ivPoster.setImageResource(idee.getPoster().getTempImage());
         /*
         if(idee.getPoster().getTempImage() != 0 && idee.getPoster().getProfileImage() != null) {
             ivPoster.setImageResource(idee.getPoster().getTempImage());

@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -47,6 +48,7 @@ public class MakeIdeeActivity extends AppCompatActivity {
     private EditText etIdeeTitle;
     private EditText etIdeeText;
     private EditText etIdeeSamenvattingText;
+    private Toolbar toolbar;
 
 
     @Override
@@ -55,6 +57,8 @@ public class MakeIdeeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_make_idee);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        
 
         ivImagePreview = (ImageView) findViewById(R.id.ivImagePreview_makeIdee);
 

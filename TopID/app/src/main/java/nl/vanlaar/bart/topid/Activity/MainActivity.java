@@ -48,6 +48,15 @@ public class MainActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
          setSupportActionBar(toolbar);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, HomescreenActivity.class);
+                startActivity(intent);
+            }
+        });
+
         fab = (FloatingActionButton) findViewById(R.id.fab);
         lvIdeeën = (ListView) findViewById(R.id.lvIdeeën);
         spinnerSort = (Spinner) findViewById(R.id.spinner_lijst_sorteer);
@@ -77,10 +86,10 @@ public class MainActivity extends AppCompatActivity {
         spinnerSort.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if(position == 1){
+                if(position == 0){
                     lvIdeeën.setAdapter(ideeAdapter);
                 }
-                if(position == 0){
+                if(position == 1){
                     lvIdeeën.setAdapter(klachtenAdapter);
                 }
 

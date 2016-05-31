@@ -22,6 +22,9 @@ public class InboxActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inbox);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        getSupportActionBar().setHomeButtonEnabled(false);
+
         listView = (ListView) findViewById(R.id.lv_inbox_list);
         inboxAdapter = new InboxAdapter(this);
         listView.setAdapter(inboxAdapter);

@@ -39,8 +39,9 @@ public class Idee {
         this.plaatje = plaatje;
         this.postPoints = 0;
     }
-    public Idee(User poster, String text, int plaatje, int soortIdee) {
+    public Idee(User poster, String title, String text, int plaatje, int soortIdee) {
         this.poster = poster;
+        this.title = title;
         this.mainText = text;
         this.tempPlaatje = plaatje;
         this.postPoints = 0;
