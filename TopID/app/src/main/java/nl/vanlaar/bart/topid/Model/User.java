@@ -8,22 +8,17 @@ import android.os.Bundle;
  */
 public class User {
     private String name;
-    private Bitmap profileImage;
+    private int profileImage;
     private int tempImage;
     private int postcount;
 
-    public User(String name, Bitmap profileImage, int postcount) {
+    public User(String name, int profileImage, int postcount) {
         this.name = name;
         this.profileImage = profileImage;
         this.postcount = postcount;
     }
 
-    public User(String name, int tempImage) {
-        this.name = name;
-        this.tempImage = tempImage;
-    }
-
-    public User(String name, Bitmap profileImage) {
+    public User(String name, int profileImage) {
         this.name = name;
         this.profileImage = profileImage;
     }
@@ -49,11 +44,11 @@ public class User {
         this.name = name;
     }
 
-    public Bitmap getProfileImage() {
+    public int getProfileImage() {
         return profileImage;
     }
 
-    public void setProfileImage(Bitmap profileImage) {
+    public void setProfileImage(int profileImage) {
         this.profileImage = profileImage;
     }
 

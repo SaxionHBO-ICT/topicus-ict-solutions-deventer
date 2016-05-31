@@ -7,13 +7,21 @@
     tools:context=".Activity.ShowIdeeActivity"
     android:fillViewport="true">
 
-
+    <TextView
+        android:id="@+id/tv_show_idee_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/ivPosterImage_showIdee"
+        android:text="Meer fietsen"
+        android:textSize="32sp"
+        android:textColor="#000000"/>
 
     <ImageView
         android:id="@+id/ivPosterImage_showIdee"
         android:layout_width="50sp"
         android:layout_height="50sp"
-        android:src="@drawable/gabenewell"
+        android:src="@drawable/sander"
         android:layout_margin="20sp"/>
 
 
@@ -46,9 +54,10 @@
         android:id="@+id/iv_ImagePost_showIdee"
         android:layout_width="match_parent"
         android:layout_height="140sp"
-        android:layout_below="@+id/ivPosterImage_showIdee"
+        android:layout_below="@+id/tv_show_idee_name"
         android:layout_marginLeft="5sp"
-        android:layout_marginRight="5sp"/>
+        android:layout_marginRight="5sp"
+        android:src="@drawable/fiets"/>
 
 
     <TextView
@@ -56,15 +65,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/iv_ImagePost_showIdee"
-        android:text="dit is placeholder id text blah blah blah dit is placeholder id text blah blah blahdit is placeholder id text blah blah blahdit is placeholder id text blah blah blahdit is placeholder id text blah blah blahdit is placeholder id text blah blah blah"
+        android:text="Te veek mensen komen met de auto terwijl ze makkelijk met de fiets kunnen"
         android:layout_marginLeft="5sp"
         android:layout_marginRight="5sp"
         android:layout_marginBottom="5sp"/>
+
+        <TextView
+            android:id="@+id/tv_upvotes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvPosterText_showIdee"
+            android:layout_toEndOf="@+id/btUpvote_showIdee"
+            android:textSize="16sp"
+            android:text="upvotes"
+            android:textColor="#000000"/>
         <Button
             android:id="@+id/btUpvote_showIdee"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="100 Upvotes"
+            android:text="100"
             android:layout_below="@+id/tvPosterText_showIdee"/>
         <Button
             android:id="@+id/btReageer_showIdee"

@@ -30,6 +30,7 @@ public class IdeeënAdapter extends ArrayAdapter<Idee> {
         }
         TextView tvSummary = (TextView) convertView.findViewById(R.id.tvSAMENVATINGLISTITEM);
         TextView title = (TextView) convertView.findViewById(R.id.tvNaamListItem);
+        TextView posterName = (TextView) convertView.findViewById(R.id.tvPosterName);
         ImageView ivPoster = (ImageView) convertView.findViewById(R.id.ivImageListItem);
 
 
@@ -37,7 +38,8 @@ public class IdeeënAdapter extends ArrayAdapter<Idee> {
 
         tvSummary.setText(idee.getSummaryText());
         title.setText(idee.getTitle());
-        ivPoster.setImageResource(idee.getPoster().getTempImage());
+        posterName.setText(idee.getPoster().getName());
+        ivPoster.setImageResource(idee.getPoster().getProfileImage());
 
         /*
         if(idee.getPoster().getTempImage() != 0 && idee.getPoster().getProfileImage() != null) {

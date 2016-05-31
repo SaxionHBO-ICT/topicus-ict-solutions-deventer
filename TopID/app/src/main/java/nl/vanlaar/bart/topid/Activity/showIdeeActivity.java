@@ -19,6 +19,7 @@ public class ShowIdeeActivity extends AppCompatActivity {
     private ReactiesAdapter adapter;
     private Button btReageer;
     private ScrollView svReacties;
+    private Button upvoteButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,14 +29,17 @@ public class ShowIdeeActivity extends AppCompatActivity {
         Intent intent = getIntent();
         int ideePositie = intent.getIntExtra(EXTRA_IDEE, -1);
 
+        upvoteButton = (Button) findViewById(R.id.btUpvote_showIdee);
+        upvoteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int nieuwGetal = Integer.parseInt(upvoteButton.getText().toString()) + 1;
+                upvoteButton.setText(nieuwGetal + "");
+            }
+        });
+
         commentListView = (ListView) findViewById(R.id.lvReacties_showIdee);
         adapter = new ReactiesAdapter(this, ideePositie);
-        if (adapter == null){
-            System.out.println("test2");
-        }
-        if (commentListView == null){
-            System.out.println("test1");
-        }
 
         commentListView.setAdapter(adapter);
         btReageer = (Button) findViewById(R.id.btReageer_showIdee);

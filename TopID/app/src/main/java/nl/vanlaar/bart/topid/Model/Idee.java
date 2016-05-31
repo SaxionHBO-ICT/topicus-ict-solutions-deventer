@@ -13,7 +13,7 @@ public class Idee {
     private User poster;
     private String title;
     private String mainText;
-    private Bitmap plaatje;
+    private int plaatje;
     private int postPoints;
     private String summaryText;
     private Date postDate;
@@ -33,7 +33,7 @@ public class Idee {
     }
 
 
-    public Idee(User poster, String text, Bitmap plaatje) {
+    public Idee(User poster, String text, int plaatje) {
         this.poster = poster;
         this.mainText = text;
         this.plaatje = plaatje;
@@ -113,11 +113,11 @@ public class Idee {
         this.poster = poster;
     }
 
-    public Bitmap getPlaatje() {
+    public int getPlaatje() {
         return plaatje;
     }
 
-    public void setPlaatje(Bitmap plaatje) {
+    public void setPlaatje(int plaatje) {
         this.plaatje = plaatje;
     }
 

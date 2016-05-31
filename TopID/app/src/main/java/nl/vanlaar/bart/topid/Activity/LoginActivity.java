@@ -29,6 +29,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import nl.vanlaar.bart.topid.Model.Idee;
+import nl.vanlaar.bart.topid.Model.IdeeënLijst;
 import nl.vanlaar.bart.topid.R;
 
 import static android.Manifest.permission.READ_CONTACTS;
@@ -65,6 +67,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        ArrayList<Idee> ideeënLijst = IdeeënLijst.getIdeeënLijst();
+
         // Set up the login form.
         mEmailView = (EditText) findViewById(R.id.tv_login_email);
 
@@ -351,6 +356,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             mAuthTask = null;
             showProgress(false);
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        System.exit(0);
     }
 }
 
