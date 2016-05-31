@@ -141,9 +141,21 @@ public class MainActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
+        //starting of activity's
         if (id == R.id.topbar_menu) {
-            Intent intent = new Intent(this, HomescreenActivity.class);
+            Intent intent = new Intent(MainActivity.this, HomescreenActivity.class);
+            startActivity(intent);
+        }
+        if (id == R.id.topbar_inbox){
+            Intent intent = new Intent(MainActivity.this, InboxActivity.class);
+            startActivity(intent);
+        }
+        if (id == R.id.topbar_uitloggen){
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(intent);
+        }
+        if (id == R.id.topbar_instellingen){
+            Intent intent = new Intent(MainActivity.this, InstellingenActivity.class);
             startActivity(intent);
         }
 

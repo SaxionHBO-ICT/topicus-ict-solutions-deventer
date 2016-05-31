@@ -67,9 +67,25 @@ public class ShowIdeeActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
+        //starting of activity's
         if (id == R.id.topbar_menu) {
-            Intent intent = new Intent(this, HomescreenActivity.class);
+            Intent intent = new Intent(ShowIdeeActivity.this, HomescreenActivity.class);
+            startActivity(intent);
+        }
+        if (id == R.id.topbar_inbox){
+            Intent intent = new Intent(ShowIdeeActivity.this, InboxActivity.class);
+            startActivity(intent);
+        }
+        if (id == R.id.topbar_uitloggen){
+            Intent intent = new Intent(ShowIdeeActivity.this, LoginActivity.class);
+            startActivity(intent);
+        }
+        if (id == R.id.topbar_instellingen){
+            Intent intent = new Intent(ShowIdeeActivity.this, InstellingenActivity.class);
+            startActivity(intent);
+        }
+        if (id == R.id.topbar_ideeën){
+            Intent intent = new Intent(ShowIdeeActivity.this, MainActivity.class);
             startActivity(intent);
         }
 

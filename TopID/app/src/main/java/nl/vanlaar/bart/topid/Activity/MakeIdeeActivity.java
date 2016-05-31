@@ -58,7 +58,7 @@ public class MakeIdeeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_make_idee);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        
+
 
         ivImagePreview = (ImageView) findViewById(R.id.ivImagePreview_makeIdee);
 
@@ -204,9 +204,25 @@ public class MakeIdeeActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
+        //starting of activity's
         if (id == R.id.topbar_menu) {
-            Intent intent = new Intent(this, HomescreenActivity.class);
+            Intent intent = new Intent(MakeIdeeActivity.this, HomescreenActivity.class);
+            startActivity(intent);
+        }
+        if (id == R.id.topbar_inbox){
+            Intent intent = new Intent(MakeIdeeActivity.this, InboxActivity.class);
+            startActivity(intent);
+        }
+        if (id == R.id.topbar_uitloggen){
+            Intent intent = new Intent(MakeIdeeActivity.this, LoginActivity.class);
+            startActivity(intent);
+        }
+        if (id == R.id.topbar_instellingen){
+            Intent intent = new Intent(MakeIdeeActivity.this, InstellingenActivity.class);
+            startActivity(intent);
+        }
+        if (id == R.id.topbar_ideeën){
+            Intent intent = new Intent(MakeIdeeActivity.this, MainActivity.class);
             startActivity(intent);
         }
 
