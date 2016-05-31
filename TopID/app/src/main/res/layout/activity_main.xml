@@ -19,7 +19,31 @@
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay"
-            />
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+               <ImageView
+                   android:id="@+id/iv_iedeeën_toolbar_backbutton"
+                   android:layout_width="50sp"
+                   android:layout_height="50sp"
+                   android:layout_centerVertical="true"
+                   android:src="@drawable/back_button"/>
+
+            <TextView
+                android:id="@+id/tv_ideeën_toolbar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ideeën en klachten"
+                android:textSize="20sp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"/>
+
+            </RelativeLayout>
+
+            </android.support.v7.widget.Toolbar>
 
 
     </android.support.design.widget.AppBarLayout>

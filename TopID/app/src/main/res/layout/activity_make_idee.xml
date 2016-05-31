@@ -1,134 +1,188 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:fitsSystemWindows="true"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.MakeIdeeActivity">
+    android:fitsSystemWindows="true"
+    tools:context=".Activity.MainActivity">
 
     <RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <TextView
-        android:id="@+id/tvImagePreview_makeIdee"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Image preview, klik om aan te passen:"
-        android:textSize="20sp"
-        android:layout_margin="10sp"/>
-
-    <ImageView
-        android:id="@+id/ivImagePreview_makeIdee"
-        android:layout_width="wrap_content"
-        android:layout_margin="10sp"
-        android:layout_height="125sp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/tvImagePreview_makeIdee"
-        android:src="@drawable/topicus_logo"/>
-
-    <TextView
-        android:id="@+id/tvIdeeTitle_makeIdee"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Idee Titel:"
-        android:layout_below="@+id/ivImagePreview_makeIdee"
-        android:layout_marginLeft="10sp"/>
-
-    <EditText
-        android:id="@+id/etIdeeTitle_makeIdee"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tvIdeeTitle_makeIdee"
-        android:layout_margin="10sp"
-        android:hint="de naam van je idee"/>
+        android:layout_height="match_parent">
 
 
-    <TextView
-        android:id="@+id/tvHetIdee_makeIdee"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Het idee:"
-        android:layout_below="@id/etIdeeTitle_makeIdee"
-        android:layout_marginLeft="10sp"
-        />
-    <EditText
-        android:id="@+id/etIdeeText_makeIdee"
-        android:layout_width="match_parent"
-        android:layout_height="150sp"
-        android:layout_margin="10sp"
-        android:inputType="textMultiLine"
-        android:layout_below="@+id/tvHetIdee_makeIdee"
-        android:hint="Het uitgebreide idee"
-        android:textSize="12sp"/>
-    <TextView
-        android:id="@+id/tvSamenvatting_makeIdee"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/etIdeeText_makeIdee"
-        android:text="Samenvatting:"
-        android:layout_marginLeft="10sp"
-        />
-    <EditText
-        android:id="@+id/etIdeeSamenvattingText_makeIdee"
-        android:layout_below="@+id/tvSamenvatting_makeIdee"
-        android:layout_width="match_parent"
-        android:layout_margin="10sp"
-        android:layout_height="75sp"
-        android:textSize="12sp"
-        android:hint="de samenvatting van je idee"/>
-    <Button
-        android:id="@+id/btPost_makeIdee"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/etIdeeSamenvattingText_makeIdee"
-        android:layout_alignParentEnd="true"
-        android:text="Post"
-        android:layout_marginRight="10sp"/>
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/make_idee_appbarlayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay">
 
-    <TextView
-        android:id="@+id/tvAnoniem_makeIdee"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/etIdeeSamenvattingText_makeIdee"
-        android:layout_marginLeft="10sp"
-        android:text="Anoniem"/>
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:popupTheme="@style/AppTheme.PopupOverlay">
 
-    <CheckBox
-        android:id="@+id/cbAnoniem_makeIdee"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/tvAnoniem_makeIdee"
-        android:layout_below="@id/etIdeeSamenvattingText_makeIdee"/>
-    <TextView
-        android:id="@+id/tvKlacht_makeIdee"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Klacht"
-        android:layout_toEndOf="@id/cbAnoniem_makeIdee"
-        android:layout_below="@id/etIdeeSamenvattingText_makeIdee"
-        android:layout_marginLeft="20sp"/>
-    <CheckBox
-        android:id="@+id/cbKlacht_makeIdee"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/tvKlacht_makeIdee"
-        android:layout_below="@id/etIdeeSamenvattingText_makeIdee"/>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tvIdee_makeIdee"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Idee"
-        android:layout_toEndOf="@id/cbKlacht_makeIdee"
-        android:layout_below="@id/etIdeeSamenvattingText_makeIdee"
-        android:layout_marginLeft="20sp"/>
-    <CheckBox
-        android:id="@+id/cbIdee_makeIdee"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/tvIdee_makeIdee"
-        android:checked="true"
-        android:layout_below="@id/etIdeeSamenvattingText_makeIdee"/>
+                    <ImageView
+                        android:id="@+id/iv_iedeeën_toolbar_backbutton"
+                        android:layout_width="50sp"
+                        android:layout_height="50sp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/back_button" />
 
-</RelativeLayout>
-</ScrollView>
+                    <TextView
+                        android:id="@+id/tv_ideeën_toolbar_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:text="Idee aanmaken"
+                        android:textSize="20sp" />
+
+                </RelativeLayout>
+
+            </android.support.v7.widget.Toolbar>
+
+
+        </android.support.design.widget.AppBarLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/make_idee_appbarlayout">
+
+            <TextView
+                android:id="@+id/tvImagePreview_makeIdee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10sp"
+                android:text="Image preview, klik om aan te passen:"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:id="@+id/ivImagePreview_makeIdee"
+                android:layout_width="wrap_content"
+                android:layout_height="125sp"
+                android:layout_below="@id/tvImagePreview_makeIdee"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="10sp"
+                android:src="@drawable/topicus_logo" />
+
+            <TextView
+                android:id="@+id/tvIdeeTitle_makeIdee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ivImagePreview_makeIdee"
+                android:layout_marginLeft="10sp"
+                android:text="Idee Titel:" />
+
+            <EditText
+                android:id="@+id/etIdeeTitle_makeIdee"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvIdeeTitle_makeIdee"
+                android:layout_margin="10sp"
+                android:hint="de naam van je idee" />
+
+
+            <TextView
+                android:id="@+id/tvHetIdee_makeIdee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/etIdeeTitle_makeIdee"
+                android:layout_marginLeft="10sp"
+                android:text="Het idee:" />
+
+            <EditText
+                android:id="@+id/etIdeeText_makeIdee"
+                android:layout_width="match_parent"
+                android:layout_height="150sp"
+                android:layout_below="@+id/tvHetIdee_makeIdee"
+                android:layout_margin="10sp"
+                android:hint="Het uitgebreide idee"
+                android:inputType="textMultiLine"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tvSamenvatting_makeIdee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/etIdeeText_makeIdee"
+                android:layout_marginLeft="10sp"
+                android:text="Samenvatting:" />
+
+            <EditText
+                android:id="@+id/etIdeeSamenvattingText_makeIdee"
+                android:layout_width="match_parent"
+                android:layout_height="75sp"
+                android:layout_below="@+id/tvSamenvatting_makeIdee"
+                android:layout_margin="10sp"
+                android:hint="de samenvatting van je idee"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/btPost_makeIdee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/etIdeeSamenvattingText_makeIdee"
+                android:layout_marginRight="10sp"
+                android:text="Post" />
+
+            <TextView
+                android:id="@+id/tvAnoniem_makeIdee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/etIdeeSamenvattingText_makeIdee"
+                android:layout_marginLeft="10sp"
+                android:text="Anoniem" />
+
+            <CheckBox
+                android:id="@+id/cbAnoniem_makeIdee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/etIdeeSamenvattingText_makeIdee"
+                android:layout_toEndOf="@id/tvAnoniem_makeIdee" />
+
+            <TextView
+                android:id="@+id/tvKlacht_makeIdee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/etIdeeSamenvattingText_makeIdee"
+                android:layout_marginLeft="20sp"
+                android:layout_toEndOf="@id/cbAnoniem_makeIdee"
+                android:text="Klacht" />
+
+            <CheckBox
+                android:id="@+id/cbKlacht_makeIdee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/etIdeeSamenvattingText_makeIdee"
+                android:layout_toEndOf="@id/tvKlacht_makeIdee" />
+
+            <TextView
+                android:id="@+id/tvIdee_makeIdee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/etIdeeSamenvattingText_makeIdee"
+                android:layout_marginLeft="20sp"
+                android:layout_toEndOf="@id/cbKlacht_makeIdee"
+                android:text="Idee" />
+
+            <CheckBox
+                android:id="@+id/cbIdee_makeIdee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/etIdeeSamenvattingText_makeIdee"
+                android:layout_toEndOf="@id/tvIdee_makeIdee"
+                android:checked="true" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+</android.support.design.widget.CoordinatorLayout>

@@ -3,10 +3,12 @@ package nl.vanlaar.bart.topid.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ScrollView;
 
@@ -20,11 +22,25 @@ public class ShowIdeeActivity extends AppCompatActivity {
     private Button btReageer;
     private ScrollView svReacties;
     private Button upvoteButton;
+    private Toolbar toolbar;
+    private ImageView backArrow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_idee);
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        backArrow = (ImageView) findViewById(R.id.iv_iedeeën_toolbar_backbutton);
+        backArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ShowIdeeActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
         Intent intent = getIntent();
         int ideePositie = intent.getIntExtra(EXTRA_IDEE, -1);

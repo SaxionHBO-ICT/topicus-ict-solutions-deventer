@@ -3,8 +3,10 @@ package nl.vanlaar.bart.topid.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import nl.vanlaar.bart.topid.R;
@@ -16,14 +18,24 @@ import nl.vanlaar.bart.topid.View.InboxAdapter;
 public class InboxActivity extends AppCompatActivity {
     private ListView listView;
     private InboxAdapter inboxAdapter;
+    private Toolbar toolbar;
+    private ImageView backArrow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inbox);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-        getSupportActionBar().setHomeButtonEnabled(false);
+        backArrow = (ImageView) findViewById(R.id.iv_iedeeën_toolbar_backbutton);
+        backArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(InboxActivity.this, HomescreenActivity.class);
+                startActivity(intent);
+            }
+        });
 
         listView = (ListView) findViewById(R.id.lv_inbox_list);
         inboxAdapter = new InboxAdapter(this);

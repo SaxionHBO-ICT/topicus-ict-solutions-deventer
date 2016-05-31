@@ -49,6 +49,7 @@ public class MakeIdeeActivity extends AppCompatActivity {
     private EditText etIdeeText;
     private EditText etIdeeSamenvattingText;
     private Toolbar toolbar;
+    private ImageView backArrow;
 
 
     @Override
@@ -57,7 +58,17 @@ public class MakeIdeeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_make_idee);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        backArrow = (ImageView) findViewById(R.id.iv_iedeeën_toolbar_backbutton);
+        backArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MakeIdeeActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
         ivImagePreview = (ImageView) findViewById(R.id.ivImagePreview_makeIdee);
