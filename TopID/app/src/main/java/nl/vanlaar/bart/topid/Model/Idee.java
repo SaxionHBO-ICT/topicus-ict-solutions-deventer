@@ -56,6 +56,7 @@ public class Idee {
     }
 
 
+
     public Idee(String mainText, String summaryText) {
         this.mainText = mainText;
         this.summaryText = summaryText;

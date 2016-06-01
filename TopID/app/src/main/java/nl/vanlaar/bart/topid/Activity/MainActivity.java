@@ -1,11 +1,13 @@
 package nl.vanlaar.bart.topid.Activity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -13,6 +15,9 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
 
+import java.util.ArrayList;
+
+import nl.vanlaar.bart.topid.Model.Idee;
 import nl.vanlaar.bart.topid.Model.IdeeënLijst;
 import nl.vanlaar.bart.topid.Model.User;
 import nl.vanlaar.bart.topid.R;
@@ -20,10 +25,11 @@ import nl.vanlaar.bart.topid.View.IdeeënAdapter;
 import nl.vanlaar.bart.topid.View.KlachtenAdapter;
 
 public class MainActivity extends AppCompatActivity {
-    public static final User LOGGED_IN_USER = new User("henk",R.drawable.gabenewell);
-    public static final int IDEE_REQUESTCODE = 666;
+    private ArrayList<Idee> ideeënLijst;
+    public static final User LOGGED_IN_USER = new User("henk", R.drawable.gabenewell);
+    public static final int IDEE_REQUESTCODE = 1337;
     public static boolean dataChanged = false;
-    public static boolean ingelogd = false;
+    public static boolean ingelogd = true;
     private ListView lvIdeeën;
     private FloatingActionButton fab;
     private static IdeeënAdapter ideeAdapter;
@@ -33,11 +39,13 @@ public class MainActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private ImageView backArrow;
     private ImageView menuButton;
+    private MainActivity parentActivity;
 
-    public MainActivity(Context context){
+    public MainActivity(Context context) {
         this.context = context;
     }
-    public MainActivity(){
+
+    public MainActivity() {
 
     }
 
@@ -45,9 +53,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ideeAdapter = new IdeeënAdapter(this, R.layout.fragment_main, IdeeënLijst.sortByIdee());
+        klachtenAdapter = new KlachtenAdapter(this, R.layout.fragment_main, IdeeënLijst.sortByKlacht());
+        ideeënLijst = IdeeënLijst.getInstance().getIdeeën();
         setContentView(R.layout.activity_main);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-         setSupportActionBar(toolbar);
+        setSupportActionBar(toolbar);
+        parentActivity = (MainActivity) getParent();
 
         menuButton = (ImageView) findViewById(R.id.iv_mainActivity_menu);
         menuButton.setOnClickListener(new View.OnClickListener() {
@@ -61,34 +73,23 @@ public class MainActivity extends AppCompatActivity {
         backArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, HomescreenActivity.class);
-                startActivity(intent);
+             finish();
             }
         });
 
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, HomescreenActivity.class);
-                startActivity(intent);
-            }
-        });
+
 
         fab = (FloatingActionButton) findViewById(R.id.fab);
         lvIdeeën = (ListView) findViewById(R.id.lvIdeeën);
         spinnerSort = (Spinner) findViewById(R.id.spinner_lijst_sorteer);
 
-        if ( ingelogd == false){
+        if (ingelogd == false) {
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
         }
 
 
 
-
-        ideeAdapter = new IdeeënAdapter(this,R.layout.fragment_main, IdeeënLijst.sortByIdee());
-        klachtenAdapter = new KlachtenAdapter(this, R.layout.fragment_main, IdeeënLijst.sortByKlacht());
-        lvIdeeën.setAdapter(ideeAdapter);
         lvIdeeën.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -97,16 +98,16 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        final ArrayAdapter<CharSequence> adapterSort = ArrayAdapter.createFromResource(this,R.array.sort_lijst,android.R.layout.simple_spinner_item);
+        final ArrayAdapter<CharSequence> adapterSort = ArrayAdapter.createFromResource(this, R.array.sort_lijst, android.R.layout.simple_spinner_item);
         spinnerSort.setAdapter(adapterSort);
 
         spinnerSort.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if(position == 0){
+                if (position == 0) {
                     lvIdeeën.setAdapter(ideeAdapter);
                 }
-                if(position == 1){
+                if (position == 1) {
                     lvIdeeën.setAdapter(klachtenAdapter);
                 }
 
@@ -124,19 +125,18 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
-
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, MakeIdeeActivity.class);
+                Intent intent1 = new Intent(Intent.ACTION_PICK_ACTIVITY);
                 //startActivity(intent);
-                startActivityForResult(intent, IDEE_REQUESTCODE);
+                startActivityForResult(intent1, IDEE_REQUESTCODE);
             }
         });
 
 
-}
+    }
 
 
     @Override
@@ -147,16 +147,18 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == IDEE_REQUESTCODE){
-            if(resultCode == RESULT_OK){
-                ideeAdapter.notifyDataSetChanged();
+        Log.d("size in main", "" + ideeënLijst.size());
+        if (requestCode == IDEE_REQUESTCODE) {
+            if (resultCode == Activity.RESULT_OK) {
+                notifyAdapter();
+
 
             }
-        }
 
+        }
     }
 
-    public static void notifyAdapter(){
+    public static void notifyAdapter() {
         ideeAdapter.notifyDataSetChanged();
         klachtenAdapter.notifyDataSetChanged();
     }

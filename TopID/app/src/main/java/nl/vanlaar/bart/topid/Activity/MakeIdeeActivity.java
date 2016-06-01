@@ -1,5 +1,6 @@
 package nl.vanlaar.bart.topid.Activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -29,7 +30,7 @@ import nl.vanlaar.bart.topid.Model.User;
 import nl.vanlaar.bart.topid.R;
 
 public class MakeIdeeActivity extends AppCompatActivity {
-    private ArrayList<Idee> ideeën = IdeeënLijst.getIdeeënLijst();
+    private ArrayList<Idee> ideeën = IdeeënLijst.getInstance().getIdeeën();
     private static final int IMAGE_REQUEST_CODE = 1337;
 
     private ImageView ivImagePreview;
@@ -41,7 +42,6 @@ public class MakeIdeeActivity extends AppCompatActivity {
     private Idee idee = new Idee();
     private User user = MainActivity.LOGGED_IN_USER;
 
-    private MainActivity context = new MainActivity(this);
 
     private EditText etIdeeTitle;
     private EditText etIdeeText;
@@ -72,6 +72,7 @@ public class MakeIdeeActivity extends AppCompatActivity {
         backArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                setResult(Activity.RESULT_CANCELED);
                 finish();
             }
         });
@@ -172,13 +173,15 @@ public class MakeIdeeActivity extends AppCompatActivity {
                 } else {
                     Toast toast = Toast.makeText(getApplicationContext(),"Uw Idee/Klacht is geplaatst", Toast.LENGTH_SHORT);
                     toast.show();
+                    idee.setPoster(MainActivity.LOGGED_IN_USER);
                     Log.d("idee size voor" ,"" + ideeën.size());
                     ideeën.add(idee);
                     Log.d("idee size na" ,"" + ideeën.size());
 
 
-                    setResult(RESULT_OK);
+                    setResult(Activity.RESULT_OK);
                     finishActivity(MainActivity.IDEE_REQUESTCODE);
+
 
                 }
 

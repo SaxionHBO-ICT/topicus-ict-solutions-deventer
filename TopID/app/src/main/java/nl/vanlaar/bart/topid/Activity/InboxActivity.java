@@ -41,8 +41,7 @@ public class InboxActivity extends AppCompatActivity {
         backArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(InboxActivity.this, HomescreenActivity.class);
-                startActivity(intent);
+              finish();
             }
         });
 

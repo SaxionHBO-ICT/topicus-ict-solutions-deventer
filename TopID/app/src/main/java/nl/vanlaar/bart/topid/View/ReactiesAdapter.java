@@ -9,7 +9,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import nl.vanlaar.bart.topid.Model.Comment;
-import nl.vanlaar.bart.topid.Model.Idee;
 import nl.vanlaar.bart.topid.Model.IdeeënLijst;
 import nl.vanlaar.bart.topid.R;
 
@@ -19,7 +18,7 @@ import nl.vanlaar.bart.topid.R;
 public class ReactiesAdapter extends ArrayAdapter<Comment> {
 
     public ReactiesAdapter(Context context, int ideePositie) {
-        super(context, 0, IdeeënLijst.getIdeeënLijst().get(ideePositie).getComments());
+        super(context, 0, IdeeënLijst.getInstance().getIdeeën().get(ideePositie).getComments());
     }
 
     @Override

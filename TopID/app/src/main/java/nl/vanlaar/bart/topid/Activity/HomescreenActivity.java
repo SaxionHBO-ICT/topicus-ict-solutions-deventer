@@ -16,7 +16,7 @@ public class HomescreenActivity extends AppCompatActivity {
     private TextView uitloggen;
     private TextView inbox;
     private TextView ideeën;
-    private TextView instellingen;
+    private TextView gevolgdeIdeeën;
     private Toolbar toolbar;
 
 
@@ -31,7 +31,9 @@ public class HomescreenActivity extends AppCompatActivity {
         uitloggen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(HomescreenActivity.this, LoginActivity.class);
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.putExtra("EXIT", true);
                 startActivity(intent);
             }
         });
@@ -52,8 +54,8 @@ public class HomescreenActivity extends AppCompatActivity {
             }
         });
 
-        instellingen = (TextView) findViewById(R.id.tv_homescreen_gevolgdeIdeeën);
-        instellingen.setOnClickListener(new View.OnClickListener() {
+        gevolgdeIdeeën = (TextView) findViewById(R.id.tv_homescreen_gevolgdeIdeeën);
+        gevolgdeIdeeën.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HomescreenActivity.this, VolgActivity.class);

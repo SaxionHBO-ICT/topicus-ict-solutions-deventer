@@ -1,11 +1,13 @@
 package nl.vanlaar.bart.topid.Activity;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -22,11 +24,12 @@ public class ReageerActivity extends AppCompatActivity {
     private Button btPlaatsReactie;
     private EditText etReactie;
     private Comment comment = new Comment();
-    private ArrayList<Idee> ideeënLijst = IdeeënLijst.getIdeeënLijst();
+    private ArrayList<Idee> ideeënLijst = IdeeënLijst.getInstance().getIdeeën();
     private Idee idee;
     private ArrayList<Comment> commentList;
     private ListView lv;
     private ReactiesAdapter reactiesAdapter;
+    private ImageView backArrow;
 
 
 
@@ -39,8 +42,18 @@ public class ReageerActivity extends AppCompatActivity {
 
         btPlaatsReactie = (Button) findViewById(R.id.btPlaats_reactie);
         etReactie = (EditText) findViewById(R.id.et_reageer_text);
+        backArrow = (ImageView) findViewById(R.id.iv_reageren_toolbar_backbutton);
 
         final int ideePositie = getIntent().getIntExtra(ShowIdeeActivity.EXTRA_IDEE,-1);
+
+
+        backArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setResult(Activity.RESULT_CANCELED);
+                finish();
+            }
+        });
 
 
         btPlaatsReactie.setOnClickListener(new View.OnClickListener() {

@@ -2,8 +2,6 @@ package nl.vanlaar.bart.topid.Model;
 
 import java.util.ArrayList;
 
-import nl.vanlaar.bart.topid.R;
-
 /**
  * Created by Sander on 25-5-2016.
  */
@@ -32,6 +30,7 @@ public class CommentList {
     }
 
     public ArrayList<Comment> getComments() {
-        return comments;
+        ArrayList<Comment> commentss = new ArrayList<>(comments);
+        return commentss;
     }
 }

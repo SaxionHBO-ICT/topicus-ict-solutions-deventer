@@ -62,7 +62,7 @@ public class ShowIdeeActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         int ideePositie = intent.getIntExtra(EXTRA_IDEE, -1);
-        idee = IdeeënLijst.getIdeeënLijst().get(ideePositie);
+        idee = IdeeënLijst.getInstance().getIdeeën().get(ideePositie);
 
 
         ideeImage  = (ImageView) findViewById(R.id.iv_ImagePost_showIdee);
