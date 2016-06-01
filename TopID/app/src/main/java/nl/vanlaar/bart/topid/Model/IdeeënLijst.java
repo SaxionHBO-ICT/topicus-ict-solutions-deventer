@@ -7,7 +7,7 @@ import java.util.ArrayList;
  */
 public class IdeeënLijst {
     private static IdeeënLijst instance = new IdeeënLijst();
-    private static ArrayList<Idee> ideeën = new ArrayList<>();
+    private ArrayList<Idee> ideeën = new ArrayList<>();
 
 
     private IdeeënLijst() {
@@ -29,7 +29,7 @@ public class IdeeënLijst {
         return array;
     }
 
-    public static ArrayList<Idee> sortByIdee(){
+    public ArrayList<Idee> sortByIdee(){
         ArrayList<Idee> unsortedArray = new ArrayList<>(ideeën);
         ArrayList<Idee> sortedArray = new ArrayList<>();
 
@@ -41,7 +41,7 @@ public class IdeeënLijst {
 
         return sortedArray;
     }
-    public static ArrayList<Idee> sortByKlacht(){
+    public ArrayList<Idee> sortByKlacht(){
         ArrayList<Idee> unsortedArray = new ArrayList<>(ideeën);
         ArrayList<Idee> sortedArray = new ArrayList<>();
 

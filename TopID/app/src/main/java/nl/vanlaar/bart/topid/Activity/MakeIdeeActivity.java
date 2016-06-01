@@ -173,10 +173,11 @@ public class MakeIdeeActivity extends AppCompatActivity {
                 } else {
                     Toast toast = Toast.makeText(getApplicationContext(),"Uw Idee/Klacht is geplaatst", Toast.LENGTH_SHORT);
                     toast.show();
+                    Log.d("Klacht/Idee", ""+idee.getSoortIdee());
                     idee.setPoster(MainActivity.LOGGED_IN_USER);
-                    Log.d("idee size voor" ,"" + ideeën.size());
-                    ideeën.add(idee);
-                    Log.d("idee size na" ,"" + ideeën.size());
+
+                    IdeeënLijst.getInstance().addIdee(idee);
+
 
 
                     setResult(Activity.RESULT_OK);

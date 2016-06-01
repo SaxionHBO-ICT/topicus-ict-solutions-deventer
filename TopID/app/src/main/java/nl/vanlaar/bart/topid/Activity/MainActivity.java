@@ -52,8 +52,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ideeAdapter = new IdeeënAdapter(this, R.layout.fragment_main, IdeeënLijst.sortByIdee());
-        klachtenAdapter = new KlachtenAdapter(this, R.layout.fragment_main, IdeeënLijst.sortByKlacht());
+        ideeAdapter = new IdeeënAdapter(this, R.layout.fragment_main, IdeeënLijst.getInstance().sortByIdee());
+        klachtenAdapter = new KlachtenAdapter(this, R.layout.fragment_main, IdeeënLijst.getInstance().sortByKlacht());
         ideeënLijst = IdeeënLijst.getInstance().getIdeeën();
         setContentView(R.layout.activity_main);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -126,8 +126,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, MakeIdeeActivity.class);
-                Intent intent1 = new Intent(Intent.ACTION_PICK);
-                //startActivity(intent);
+
                 startActivityForResult(intent, IDEE_REQUESTCODE);
             }
         });
@@ -139,11 +138,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        notifyAdapter();
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        ideeënLijst = IdeeënLijst.getInstance().getIdeeën();
         Log.d("size in main", "" + ideeënLijst.size());
         if (requestCode == IDEE_REQUESTCODE) {
             if (resultCode == Activity.RESULT_OK) {
@@ -155,7 +156,8 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public static void notifyAdapter() {
+
+    public void notifyAdapter() {
         ideeAdapter.notifyDataSetChanged();
         klachtenAdapter.notifyDataSetChanged();
     }
