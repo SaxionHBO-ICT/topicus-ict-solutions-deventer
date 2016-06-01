@@ -39,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private ImageView backArrow;
     private ImageView menuButton;
-    private MainActivity parentActivity;
 
     public MainActivity(Context context) {
         this.context = context;
@@ -59,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        parentActivity = (MainActivity) getParent();
+
 
         menuButton = (ImageView) findViewById(R.id.iv_mainActivity_menu);
         menuButton.setOnClickListener(new View.OnClickListener() {
@@ -73,10 +72,9 @@ public class MainActivity extends AppCompatActivity {
         backArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-             finish();
+                finish();
             }
         });
-
 
 
         fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -87,7 +85,6 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
         }
-
 
 
         lvIdeeën.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -129,9 +126,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, MakeIdeeActivity.class);
-                Intent intent1 = new Intent(Intent.ACTION_PICK_ACTIVITY);
+                Intent intent1 = new Intent(Intent.ACTION_PICK);
                 //startActivity(intent);
-                startActivityForResult(intent1, IDEE_REQUESTCODE);
+                startActivityForResult(intent, IDEE_REQUESTCODE);
             }
         });
 

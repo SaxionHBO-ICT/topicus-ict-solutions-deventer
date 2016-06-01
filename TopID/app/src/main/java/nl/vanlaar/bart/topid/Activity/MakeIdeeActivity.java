@@ -117,8 +117,8 @@ public class MakeIdeeActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (cbKlacht.isChecked()) {
                     cbKlacht.setChecked(false);
-                    idee.setSoortIdee(Idee.IDEE);
                 }
+                idee.setSoortIdee(Idee.IDEE);
             }
         });
 
@@ -181,6 +181,7 @@ public class MakeIdeeActivity extends AppCompatActivity {
 
                     setResult(Activity.RESULT_OK);
                     finishActivity(MainActivity.IDEE_REQUESTCODE);
+                    finish();
 
 
                 }

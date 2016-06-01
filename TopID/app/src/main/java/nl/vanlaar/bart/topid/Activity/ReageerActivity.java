@@ -46,7 +46,6 @@ public class ReageerActivity extends AppCompatActivity {
 
         final int ideePositie = getIntent().getIntExtra(ShowIdeeActivity.EXTRA_IDEE,-1);
 
-
         backArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
