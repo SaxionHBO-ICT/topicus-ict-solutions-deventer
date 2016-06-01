@@ -15,9 +15,9 @@
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/topbar_instellingen"
+        android:id="@+id/topbar_GevolgdeIdeeën"
         android:orderInCategory="10"
-        android:title="@string/instellingen"
+        android:title="Gevolgde Ideeën"
         app:showAsAction="never" />
 
     <item

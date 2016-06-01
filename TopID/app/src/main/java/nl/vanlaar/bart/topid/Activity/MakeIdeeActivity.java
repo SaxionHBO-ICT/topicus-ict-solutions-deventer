@@ -12,8 +12,6 @@ import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -80,6 +78,7 @@ public class MakeIdeeActivity extends AppCompatActivity {
 
 
         ivImagePreview = (ImageView) findViewById(R.id.ivImagePreview_makeIdee);
+
 
         etIdeeTitle = (EditText) findViewById(R.id.etIdeeTitle_makeIdee);
         etIdeeText = (EditText) findViewById(R.id.etIdeeText_makeIdee);
@@ -167,20 +166,23 @@ public class MakeIdeeActivity extends AppCompatActivity {
                     Toast toast = Toast.makeText(getApplicationContext(),"s.v.p. alle textvelden invullen.", Toast.LENGTH_SHORT);
                     toast.show();
                     return;
+
+
+
                 } else {
                     Toast toast = Toast.makeText(getApplicationContext(),"Uw Idee/Klacht is geplaatst", Toast.LENGTH_SHORT);
                     toast.show();
                     Log.d("idee size voor" ,"" + ideeën.size());
                     ideeën.add(idee);
                     Log.d("idee size na" ,"" + ideeën.size());
-                    MainActivity.notifyAdapter();
-                    finish();
+
+
+                    setResult(RESULT_OK);
+                    finishActivity(MainActivity.IDEE_REQUESTCODE);
 
                 }
 
 
-                //setResult(RESULT_OK);
-                // finishActivity(MainActivity.IDEE_REQUESTCODE);
 
             }
         });
@@ -201,7 +203,8 @@ public class MakeIdeeActivity extends AppCompatActivity {
             Uri targetUri = data.getData();
             try {
                 Bitmap bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(targetUri));
-                ivImagePreview.setImageBitmap(bitmap);
+                ivImagePreview.setScaleType(ImageView.ScaleType.FIT_XY);
+                ivImagePreview.setImageBitmap(Bitmap.createScaledBitmap(bitmap,120,120,false));
 
             } catch (FileNotFoundException e) {
                 e.printStackTrace();

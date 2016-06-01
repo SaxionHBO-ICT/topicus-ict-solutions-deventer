@@ -100,7 +100,7 @@ public class ShowIdeeActivity extends AppCompatActivity {
             Intent intent = new Intent(ShowIdeeActivity.this, LoginActivity.class);
             startActivity(intent);
         }
-        if (id == R.id.topbar_instellingen){
+        if (id == R.id.topbar_GevolgdeIdeeën){
             Intent intent = new Intent(ShowIdeeActivity.this, VolgActivity.class);
             startActivity(intent);
         }
