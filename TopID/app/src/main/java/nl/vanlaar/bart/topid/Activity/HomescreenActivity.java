@@ -3,6 +3,7 @@ package nl.vanlaar.bart.topid.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
@@ -16,12 +17,15 @@ public class HomescreenActivity extends AppCompatActivity {
     private TextView inbox;
     private TextView ideeën;
     private TextView instellingen;
+    private Toolbar toolbar;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homescreen);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         uitloggen = (TextView) findViewById(R.id.tv_homescreen_uitloggen);
         uitloggen.setOnClickListener(new View.OnClickListener() {
