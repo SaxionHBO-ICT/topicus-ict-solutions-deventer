@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -15,7 +14,7 @@ import android.widget.ScrollView;
 import nl.vanlaar.bart.topid.R;
 import nl.vanlaar.bart.topid.View.ReactiesAdapter;
 
-public class ShowIdeeActivity extends AppCompatActivity {
+public class showIdeeActivity extends AppCompatActivity {
     public static final String EXTRA_IDEE = "idee";
     private ListView commentListView;
     private ReactiesAdapter adapter;
@@ -24,6 +23,7 @@ public class ShowIdeeActivity extends AppCompatActivity {
     private Button upvoteButton;
     private Toolbar toolbar;
     private ImageView backArrow;
+    private ImageView menuButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +34,14 @@ public class ShowIdeeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_show_idee);
 
 
-
+        menuButton = (ImageView) findViewById(R.id.iv_show_idee_menu);
+        menuButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(showIdeeActivity.this, HomescreenActivity.class);
+                startActivity(intent);
+            }
+        });
         backArrow = (ImageView) findViewById(R.id.iv_iedeeën_toolbar_backbutton);
         backArrow.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,19 +72,12 @@ public class ShowIdeeActivity extends AppCompatActivity {
         btReageer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ShowIdeeActivity.this, ReageerActivity.class);
+                Intent intent = new Intent(showIdeeActivity.this, ReageerActivity.class);
                 intent.putExtra(EXTRA_IDEE,getIntent().getIntExtra(EXTRA_IDEE,-1));
                 startActivity(intent);
             }
         });
 
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_secondary, menu);
-        return true;
     }
 
     @Override
@@ -89,23 +89,23 @@ public class ShowIdeeActivity extends AppCompatActivity {
 
         //starting of activity's
         if (id == R.id.topbar_menu) {
-            Intent intent = new Intent(ShowIdeeActivity.this, HomescreenActivity.class);
+            Intent intent = new Intent(showIdeeActivity.this, HomescreenActivity.class);
             startActivity(intent);
         }
         if (id == R.id.topbar_inbox){
-            Intent intent = new Intent(ShowIdeeActivity.this, InboxActivity.class);
+            Intent intent = new Intent(showIdeeActivity.this, InboxActivity.class);
             startActivity(intent);
         }
         if (id == R.id.topbar_uitloggen){
-            Intent intent = new Intent(ShowIdeeActivity.this, LoginActivity.class);
+            Intent intent = new Intent(showIdeeActivity.this, LoginActivity.class);
             startActivity(intent);
         }
         if (id == R.id.topbar_instellingen){
-            Intent intent = new Intent(ShowIdeeActivity.this, InstellingenActivity.class);
+            Intent intent = new Intent(showIdeeActivity.this, InstellingenActivity.class);
             startActivity(intent);
         }
         if (id == R.id.topbar_ideeën){
-            Intent intent = new Intent(ShowIdeeActivity.this, MainActivity.class);
+            Intent intent = new Intent(showIdeeActivity.this, MainActivity.class);
             startActivity(intent);
         }
 

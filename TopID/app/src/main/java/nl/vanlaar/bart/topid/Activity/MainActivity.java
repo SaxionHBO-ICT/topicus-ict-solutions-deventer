@@ -6,16 +6,12 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 import nl.vanlaar.bart.topid.Model.IdeeënLijst;
 import nl.vanlaar.bart.topid.Model.User;
@@ -36,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private Spinner spinnerSort;
     private Toolbar toolbar;
     private ImageView backArrow;
+    private ImageView menuButton;
 
     public MainActivity(Context context){
         this.context = context;
@@ -52,6 +49,14 @@ public class MainActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
          setSupportActionBar(toolbar);
 
+        menuButton = (ImageView) findViewById(R.id.iv_mainActivity_menu);
+        menuButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, HomescreenActivity.class);
+                startActivity(intent);
+            }
+        });
         backArrow = (ImageView) findViewById(R.id.iv_iedeeën_toolbar_backbutton);
         backArrow.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,8 +92,8 @@ public class MainActivity extends AppCompatActivity {
         lvIdeeën.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(MainActivity.this, ShowIdeeActivity.class);
-                intent.putExtra(ShowIdeeActivity.EXTRA_IDEE, position);
+                Intent intent = new Intent(MainActivity.this, showIdeeActivity.class);
+                intent.putExtra(showIdeeActivity.EXTRA_IDEE, position);
                 startActivity(intent);
             }
         });
@@ -138,43 +143,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //starting of activity's
-        if (id == R.id.topbar_menu) {
-            Intent intent = new Intent(MainActivity.this, HomescreenActivity.class);
-            startActivity(intent);
-        }
-        if (id == R.id.topbar_inbox){
-            Intent intent = new Intent(MainActivity.this, InboxActivity.class);
-            startActivity(intent);
-        }
-        if (id == R.id.topbar_uitloggen){
-            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-            startActivity(intent);
-        }
-        if (id == R.id.topbar_instellingen){
-            Intent intent = new Intent(MainActivity.this, InstellingenActivity.class);
-            startActivity(intent);
-        }
-
-
-        return super.onOptionsItemSelected(item);
-    }
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

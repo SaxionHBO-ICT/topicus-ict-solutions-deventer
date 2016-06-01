@@ -20,6 +20,7 @@ public class InboxActivity extends AppCompatActivity {
     private InboxAdapter inboxAdapter;
     private Toolbar toolbar;
     private ImageView backArrow;
+    private ImageView menuButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,14 @@ public class InboxActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        menuButton = (ImageView) findViewById(R.id.iv_inbox_menu);
+        menuButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(InboxActivity.this, HomescreenActivity.class);
+                startActivity(intent);
+            }
+        });
         backArrow = (ImageView) findViewById(R.id.iv_iedeeën_toolbar_backbutton);
         backArrow.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,8 +52,8 @@ public class InboxActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(InboxActivity.this, ShowIdeeActivity.class);
-                intent.putExtra(ShowIdeeActivity.EXTRA_IDEE, position);
+                Intent intent = new Intent(InboxActivity.this, showIdeeActivity.class);
+                intent.putExtra(showIdeeActivity.EXTRA_IDEE, position);
                 startActivity(intent);
             }
         });

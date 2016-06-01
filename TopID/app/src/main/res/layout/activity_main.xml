@@ -41,6 +41,15 @@
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"/>
 
+                <ImageView
+                    android:id="@+id/iv_mainActivity_menu"
+                    android:layout_width="32sp"
+                    android:layout_height="32sp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:paddingRight="15sp"
+                    android:src="@drawable/hamburger_icon"/>
+
             </RelativeLayout>
 
             </android.support.v7.widget.Toolbar>

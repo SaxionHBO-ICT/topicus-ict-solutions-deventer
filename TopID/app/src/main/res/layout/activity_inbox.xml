@@ -44,6 +44,15 @@
                         android:text="Inbox"
                         android:textSize="20sp" />
 
+                    <ImageView
+                        android:id="@+id/iv_inbox_menu"
+                        android:layout_width="32sp"
+                        android:layout_height="32sp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:paddingRight="15sp"
+                        android:src="@drawable/hamburger_icon"/>
+
                 </RelativeLayout>
 
             </android.support.v7.widget.Toolbar>

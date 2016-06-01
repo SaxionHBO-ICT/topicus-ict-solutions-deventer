@@ -50,6 +50,7 @@ public class MakeIdeeActivity extends AppCompatActivity {
     private EditText etIdeeSamenvattingText;
     private Toolbar toolbar;
     private ImageView backArrow;
+    private ImageView menuButton;
 
 
     @Override
@@ -61,6 +62,14 @@ public class MakeIdeeActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        menuButton = (ImageView) findViewById(R.id.iv_make_idee_menu);
+        menuButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MakeIdeeActivity.this, HomescreenActivity.class);
+                startActivity(intent);
+            }
+        });
         backArrow = (ImageView) findViewById(R.id.iv_iedeeën_toolbar_backbutton);
         backArrow.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -198,45 +207,5 @@ public class MakeIdeeActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_secondary, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //starting of activity's
-        if (id == R.id.topbar_menu) {
-            Intent intent = new Intent(MakeIdeeActivity.this, HomescreenActivity.class);
-            startActivity(intent);
-        }
-        if (id == R.id.topbar_inbox){
-            Intent intent = new Intent(MakeIdeeActivity.this, InboxActivity.class);
-            startActivity(intent);
-        }
-        if (id == R.id.topbar_uitloggen){
-            Intent intent = new Intent(MakeIdeeActivity.this, LoginActivity.class);
-            startActivity(intent);
-        }
-        if (id == R.id.topbar_instellingen){
-            Intent intent = new Intent(MakeIdeeActivity.this, InstellingenActivity.class);
-            startActivity(intent);
-        }
-        if (id == R.id.topbar_ideeën){
-            Intent intent = new Intent(MakeIdeeActivity.this, MainActivity.class);
-            startActivity(intent);
-        }
-
-
-        return super.onOptionsItemSelected(item);
     }
 }
