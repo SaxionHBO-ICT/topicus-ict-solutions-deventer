@@ -39,8 +39,7 @@ public class ShowIdeeActivity extends AppCompatActivity {
         backArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ShowIdeeActivity.this, MainActivity.class);
-                startActivity(intent);
+            finish();
             }
         });
 

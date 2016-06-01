@@ -65,8 +65,7 @@ public class MakeIdeeActivity extends AppCompatActivity {
         backArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MakeIdeeActivity.this, MainActivity.class);
-                startActivity(intent);
+                finish();
             }
         });
 
