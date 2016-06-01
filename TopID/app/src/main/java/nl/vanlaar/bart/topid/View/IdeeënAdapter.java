@@ -1,13 +1,13 @@
 package nl.vanlaar.bart.topid.View;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 
 import java.util.ArrayList;
 
@@ -18,6 +18,7 @@ import nl.vanlaar.bart.topid.R;
  * Created by bart on 18-5-2016.
  */
 public class IdeeënAdapter extends ArrayAdapter<Idee> {
+    private Idee idee;
     public IdeeënAdapter(Context context, int resource, ArrayList<Idee> objects) {
         super(context, resource,objects);
     }
@@ -33,7 +34,9 @@ public class IdeeënAdapter extends ArrayAdapter<Idee> {
         ImageView ivPoster = (ImageView) convertView.findViewById(R.id.ivImageListItem);
 
 
-        Idee idee = getItem(position);
+        idee = getItem(position);
+        Log.d("idee", idee.getTitle()
+        );
 
         tvSummary.setText(idee.getSummaryText());
         title.setText(idee.getTitle());

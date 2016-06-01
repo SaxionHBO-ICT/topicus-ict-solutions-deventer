@@ -134,7 +134,8 @@ public class MakeIdeeActivity extends AppCompatActivity {
         etIdeeTitle.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                idee.setTitle(v.getText().toString());
+
+                idee.getTitle();
 
                 return false;
             }
@@ -143,7 +144,7 @@ public class MakeIdeeActivity extends AppCompatActivity {
         etIdeeSamenvattingText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                idee.setSummaryText(v.getText().toString());
+
                 return false;
             }
         });
@@ -151,7 +152,7 @@ public class MakeIdeeActivity extends AppCompatActivity {
         etIdeeText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                idee.setMainText(v.getText().toString());
+
                 return false;
             }
         });
@@ -174,6 +175,12 @@ public class MakeIdeeActivity extends AppCompatActivity {
                     Toast toast = Toast.makeText(getApplicationContext(),"Uw Idee/Klacht is geplaatst", Toast.LENGTH_SHORT);
                     toast.show();
                     Log.d("Klacht/Idee", ""+idee.getSoortIdee());
+
+                    idee.setTitle(etIdeeTitle.getText().toString());
+                    idee.setSummaryText(etIdeeSamenvattingText.getText().toString());
+                    idee.setMainText(etIdeeText.getText().toString());
+                    Log.d("title",idee.getTitle());
+
                     idee.setPoster(MainActivity.LOGGED_IN_USER);
 
                     IdeeënLijst.getInstance().addIdee(idee);
@@ -181,7 +188,7 @@ public class MakeIdeeActivity extends AppCompatActivity {
 
 
                     setResult(Activity.RESULT_OK);
-                    finishActivity(MainActivity.IDEE_REQUESTCODE);
+                   // finishActivity(MainActivity.IDEE_REQUESTCODE);
                     finish();
 
 

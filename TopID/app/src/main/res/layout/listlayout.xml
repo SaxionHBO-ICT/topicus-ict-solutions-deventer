@@ -32,8 +32,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="10:20 10-10-2006"
-        android:layout_toEndOf="@+id/tvNaamListItem"
-        android:layout_marginLeft="20sp"/>
+        android:layout_alignParentEnd="true"
+        android:layout_marginLeft="5sp"
+        android:layout_marginRight="5sp"/>
 
     <ImageView
         android:id="@+id/ivImageListItem"

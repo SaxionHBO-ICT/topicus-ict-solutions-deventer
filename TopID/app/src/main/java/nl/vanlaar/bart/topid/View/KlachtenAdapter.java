@@ -1,6 +1,7 @@
 package nl.vanlaar.bart.topid.View;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,7 @@ import nl.vanlaar.bart.topid.R;
  * Created by bart on 18-5-2016.
  */
 public class KlachtenAdapter extends ArrayAdapter<Idee> {
+    private Idee idee;
     public KlachtenAdapter(Context context, int resource, ArrayList<Idee> objects) {
         super(context, resource,objects);
     }
@@ -32,7 +34,8 @@ public class KlachtenAdapter extends ArrayAdapter<Idee> {
         ImageView ivPoster = (ImageView) convertView.findViewById(R.id.ivImageListItem);
 
 
-        Idee idee = getItem(position);
+        idee = getItem(position);
+        Log.d("idee", idee.getTitle());
 
         tvSummary.setText(idee.getSummaryText());
         title.setText(idee.getTitle());

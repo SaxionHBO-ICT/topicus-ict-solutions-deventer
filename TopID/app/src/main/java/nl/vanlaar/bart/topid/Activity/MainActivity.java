@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        setAdapter(-1);
 
         menuButton = (ImageView) findViewById(R.id.iv_mainActivity_menu);
         menuButton.setOnClickListener(new View.OnClickListener() {
@@ -101,12 +101,9 @@ public class MainActivity extends AppCompatActivity {
         spinnerSort.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (position == 0) {
-                    lvIdeeën.setAdapter(ideeAdapter);
-                }
-                if (position == 1) {
-                    lvIdeeën.setAdapter(klachtenAdapter);
-                }
+
+                setAdapter(position);
+
 
             }
 
@@ -138,7 +135,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        notifyAdapter();
+        ideeënLijst.clear();
+        ideeënLijst.addAll(IdeeënLijst.getInstance().getIdeeën());
+        setAdapter(-1);
+
+
+
     }
 
     @Override
@@ -148,7 +150,9 @@ public class MainActivity extends AppCompatActivity {
         Log.d("size in main", "" + ideeënLijst.size());
         if (requestCode == IDEE_REQUESTCODE) {
             if (resultCode == Activity.RESULT_OK) {
-                notifyAdapter();
+                Log.d("size in main", "" + ideeënLijst.size());
+                ideeAdapter.notifyDataSetChanged();
+                klachtenAdapter.notifyDataSetChanged();
 
 
             }
@@ -157,10 +161,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void notifyAdapter() {
+    private void setAdapter(int position_in_spinner){
         ideeAdapter.notifyDataSetChanged();
         klachtenAdapter.notifyDataSetChanged();
-    }
+        if (position_in_spinner == 0) {
 
+            lvIdeeën.setAdapter(ideeAdapter);
+        }
+        if (position_in_spinner == 1) {
+            lvIdeeën.setAdapter(klachtenAdapter);
+        }
+    }
 
 }
