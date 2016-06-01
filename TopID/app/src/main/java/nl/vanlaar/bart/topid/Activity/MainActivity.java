@@ -1,13 +1,11 @@
 package nl.vanlaar.bart.topid.Activity;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -124,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, MakeIdeeActivity.class);
 
-                startActivityForResult(intent, IDEE_REQUESTCODE);
+                startActivity(intent);
             }
         });
 
@@ -143,22 +141,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        ideeënLijst = IdeeënLijst.getInstance().getIdeeën();
-        Log.d("size in main", "" + ideeënLijst.size());
-        if (requestCode == IDEE_REQUESTCODE) {
-            if (resultCode == Activity.RESULT_OK) {
-                Log.d("size in main", "" + ideeënLijst.size());
-                ideeAdapter.notifyDataSetChanged();
-                klachtenAdapter.notifyDataSetChanged();
-
-
-            }
-
-        }
-    }
 
 
     private void setAdapter(int position_in_spinner){

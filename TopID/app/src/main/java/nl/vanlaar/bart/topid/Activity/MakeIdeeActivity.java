@@ -187,8 +187,6 @@ public class MakeIdeeActivity extends AppCompatActivity {
 
 
 
-                    setResult(Activity.RESULT_OK);
-                   // finishActivity(MainActivity.IDEE_REQUESTCODE);
                     finish();
 
 
