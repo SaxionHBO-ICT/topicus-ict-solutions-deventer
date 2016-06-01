@@ -7,10 +7,12 @@
     android:fitsSystemWindows="true"
     tools:context=".Activity.MainActivity">
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
 
         <android.support.design.widget.AppBarLayout
             android:id="@+id/make_idee_appbarlayout"
@@ -193,5 +195,6 @@
                 android:checked="true" />
 
         </RelativeLayout>
-    </RelativeLayout>
+</RelativeLayout>
+    </ScrollView>
 </android.support.design.widget.CoordinatorLayout>

@@ -29,7 +29,7 @@
             android:name=".Activity.InstellingenActivity"
             android:parentActivityName=".Activity.MainActivity" />
         <activity android:name=".Activity.MakeIdeeActivity" />
-        <activity android:name=".Activity.showIdeeActivity" />
+        <activity android:name=".Activity.ShowIdeeActivity" />
         <activity android:name=".Activity.ReageerActivity" />
     </application>
 

@@ -14,7 +14,7 @@ import android.widget.ScrollView;
 import nl.vanlaar.bart.topid.R;
 import nl.vanlaar.bart.topid.View.ReactiesAdapter;
 
-public class showIdeeActivity extends AppCompatActivity {
+public class ShowIdeeActivity extends AppCompatActivity {
     public static final String EXTRA_IDEE = "idee";
     private ListView commentListView;
     private ReactiesAdapter adapter;
@@ -38,7 +38,7 @@ public class showIdeeActivity extends AppCompatActivity {
         menuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(showIdeeActivity.this, HomescreenActivity.class);
+                Intent intent = new Intent(ShowIdeeActivity.this, HomescreenActivity.class);
                 startActivity(intent);
             }
         });
@@ -72,7 +72,7 @@ public class showIdeeActivity extends AppCompatActivity {
         btReageer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(showIdeeActivity.this, ReageerActivity.class);
+                Intent intent = new Intent(ShowIdeeActivity.this, ReageerActivity.class);
                 intent.putExtra(EXTRA_IDEE,getIntent().getIntExtra(EXTRA_IDEE,-1));
                 startActivity(intent);
             }
@@ -89,23 +89,23 @@ public class showIdeeActivity extends AppCompatActivity {
 
         //starting of activity's
         if (id == R.id.topbar_menu) {
-            Intent intent = new Intent(showIdeeActivity.this, HomescreenActivity.class);
+            Intent intent = new Intent(ShowIdeeActivity.this, HomescreenActivity.class);
             startActivity(intent);
         }
         if (id == R.id.topbar_inbox){
-            Intent intent = new Intent(showIdeeActivity.this, InboxActivity.class);
+            Intent intent = new Intent(ShowIdeeActivity.this, InboxActivity.class);
             startActivity(intent);
         }
         if (id == R.id.topbar_uitloggen){
-            Intent intent = new Intent(showIdeeActivity.this, LoginActivity.class);
+            Intent intent = new Intent(ShowIdeeActivity.this, LoginActivity.class);
             startActivity(intent);
         }
         if (id == R.id.topbar_instellingen){
-            Intent intent = new Intent(showIdeeActivity.this, InstellingenActivity.class);
+            Intent intent = new Intent(ShowIdeeActivity.this, InstellingenActivity.class);
             startActivity(intent);
         }
         if (id == R.id.topbar_ideeën){
-            Intent intent = new Intent(showIdeeActivity.this, MainActivity.class);
+            Intent intent = new Intent(ShowIdeeActivity.this, MainActivity.class);
             startActivity(intent);
         }
 

@@ -52,8 +52,8 @@ public class InboxActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(InboxActivity.this, showIdeeActivity.class);
-                intent.putExtra(showIdeeActivity.EXTRA_IDEE, position);
+                Intent intent = new Intent(InboxActivity.this, ShowIdeeActivity.class);
+                intent.putExtra(ShowIdeeActivity.EXTRA_IDEE, position);
                 startActivity(intent);
             }
         });

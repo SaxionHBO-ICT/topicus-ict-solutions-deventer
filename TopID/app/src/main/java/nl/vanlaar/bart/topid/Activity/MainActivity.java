@@ -92,8 +92,8 @@ public class MainActivity extends AppCompatActivity {
         lvIdeeën.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(MainActivity.this, showIdeeActivity.class);
-                intent.putExtra(showIdeeActivity.EXTRA_IDEE, position);
+                Intent intent = new Intent(MainActivity.this, ShowIdeeActivity.class);
+                intent.putExtra(ShowIdeeActivity.EXTRA_IDEE, position);
                 startActivity(intent);
             }
         });

@@ -34,13 +34,13 @@ public class ReageerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reageer);
-        idee = ideeënLijst.get(getIntent().getIntExtra(showIdeeActivity.EXTRA_IDEE,-1));
-        commentList = ideeënLijst.get(getIntent().getIntExtra(showIdeeActivity.EXTRA_IDEE,-1)).getComments();
+        idee = ideeënLijst.get(getIntent().getIntExtra(ShowIdeeActivity.EXTRA_IDEE,-1));
+        commentList = ideeënLijst.get(getIntent().getIntExtra(ShowIdeeActivity.EXTRA_IDEE,-1)).getComments();
 
         btPlaatsReactie = (Button) findViewById(R.id.btPlaats_reactie);
         etReactie = (EditText) findViewById(R.id.et_reageer_text);
 
-        final int ideePositie = getIntent().getIntExtra(showIdeeActivity.EXTRA_IDEE,-1);
+        final int ideePositie = getIntent().getIntExtra(ShowIdeeActivity.EXTRA_IDEE,-1);
 
 
         btPlaatsReactie.setOnClickListener(new View.OnClickListener() {
