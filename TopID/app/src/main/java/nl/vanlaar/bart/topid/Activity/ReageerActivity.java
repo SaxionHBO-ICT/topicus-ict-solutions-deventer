@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ import nl.vanlaar.bart.topid.Model.Comment;
 import nl.vanlaar.bart.topid.Model.Idee;
 import nl.vanlaar.bart.topid.Model.IdeeënLijst;
 import nl.vanlaar.bart.topid.R;
+import nl.vanlaar.bart.topid.View.ReactiesAdapter;
 
 public class ReageerActivity extends AppCompatActivity {
 
@@ -21,8 +23,10 @@ public class ReageerActivity extends AppCompatActivity {
     private EditText etReactie;
     private Comment comment = new Comment();
     private ArrayList<Idee> ideeënLijst = IdeeënLijst.getIdeeënLijst();
-    private Idee idee = ideeënLijst.get(getIntent().getIntExtra(ShowIdeeActivity.EXTRA_IDEE,-1));
-    private ArrayList<Comment> commentList = ideeënLijst.get(getIntent().getIntExtra(ShowIdeeActivity.EXTRA_IDEE,-1)).getComments();
+    private Idee idee;
+    private ArrayList<Comment> commentList;
+    private ListView lv;
+    private ReactiesAdapter reactiesAdapter;
 
 
 
@@ -30,9 +34,14 @@ public class ReageerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reageer);
+        idee = ideeënLijst.get(getIntent().getIntExtra(ShowIdeeActivity.EXTRA_IDEE,-1));
+        commentList = ideeënLijst.get(getIntent().getIntExtra(ShowIdeeActivity.EXTRA_IDEE,-1)).getComments();
 
         btPlaatsReactie = (Button) findViewById(R.id.btPlaats_reactie);
         etReactie = (EditText) findViewById(R.id.et_reageer_text);
+
+        final int ideePositie = getIntent().getIntExtra(ShowIdeeActivity.EXTRA_IDEE,-1);
+
 
         btPlaatsReactie.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,6 +54,8 @@ public class ReageerActivity extends AppCompatActivity {
                 } else {
                     comment = new Comment(MainActivity.LOGGED_IN_USER.getName(),etReactie.getText().toString(),idee,MainActivity.LOGGED_IN_USER.getTempImage(),MainActivity.LOGGED_IN_USER);
                     commentList.add(comment);
+                    reactiesAdapter = new ReactiesAdapter(ReageerActivity.this,ideePositie);
+
                     Toast toast = Toast.makeText(getApplicationContext(),"Uw Reactie is geplaatst", Toast.LENGTH_SHORT);
                     toast.show();
                     finish();

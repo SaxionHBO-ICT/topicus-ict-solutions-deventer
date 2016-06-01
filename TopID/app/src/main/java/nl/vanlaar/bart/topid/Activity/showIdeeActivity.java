@@ -27,11 +27,13 @@ public class ShowIdeeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_idee);
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
 
         backArrow = (ImageView) findViewById(R.id.iv_iedeeën_toolbar_backbutton);
         backArrow.setOnClickListener(new View.OnClickListener() {
@@ -69,7 +71,6 @@ public class ShowIdeeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
 
     }
 
