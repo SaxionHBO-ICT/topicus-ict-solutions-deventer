@@ -17,7 +17,7 @@
     <string name="uitloggen">Uitloggen</string>
     <string name="title_activity_homescreen">Homescreen</string>
     <string name="ideeën">Ideeën en Klachten</string>
-    <string name="instellingen">Instellingen</string>
+    <string name="GevolgdeIdeeën">Gevolgde Ideeën</string>
     <string name="error_invalid_password">This password is too short</string>
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."

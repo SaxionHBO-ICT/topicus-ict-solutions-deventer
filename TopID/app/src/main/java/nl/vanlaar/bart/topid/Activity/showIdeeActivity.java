@@ -101,7 +101,7 @@ public class ShowIdeeActivity extends AppCompatActivity {
             startActivity(intent);
         }
         if (id == R.id.topbar_instellingen){
-            Intent intent = new Intent(ShowIdeeActivity.this, InstellingenActivity.class);
+            Intent intent = new Intent(ShowIdeeActivity.this, VolgActivity.class);
             startActivity(intent);
         }
         if (id == R.id.topbar_ideeën){

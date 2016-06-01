@@ -52,11 +52,11 @@ public class HomescreenActivity extends AppCompatActivity {
             }
         });
 
-        instellingen = (TextView) findViewById(R.id.tv_homescreen_instellingen);
+        instellingen = (TextView) findViewById(R.id.tv_homescreen_gevolgdeIdeeën);
         instellingen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(HomescreenActivity.this, InstellingenActivity.class);
+                Intent intent = new Intent(HomescreenActivity.this, VolgActivity.class);
                 startActivity(intent);
             }
         });

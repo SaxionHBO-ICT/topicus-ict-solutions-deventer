@@ -8,7 +8,7 @@ import nl.vanlaar.bart.topid.R;
 /**
  * Created by Sander on 25-5-2016.
  */
-public class InstellingenActivity extends AppCompatActivity {
+public class VolgActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
