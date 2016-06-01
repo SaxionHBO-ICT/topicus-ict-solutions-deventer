@@ -10,6 +10,13 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/iv_ImagePost_FullScreen_showIdee"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:layout_centerInParent="true"
+            android:visibility="gone"/>
 
 
         <android.support.design.widget.AppBarLayout

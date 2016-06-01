@@ -8,13 +8,16 @@ import nl.vanlaar.bart.topid.R;
  * Created by bart on 25-5-2016.
  */
 public class IdeeënLijst {
+
     private static ArrayList<Idee> ideeënLijst;
+
+
 
     public static ArrayList<Idee> getIdeeënLijst() {
         if(ideeënLijst == null){
             ideeënLijst = new ArrayList<>();
             User user =  new User("Sander Groot Wesseldijk",R.drawable.sander);
-            Idee idee = new Idee(user,"Meer fietsen", "Te veek mensen komen met de auto terwijl ze makkelijk met de fiets kunnen", R.drawable.fiets,Idee.IDEE);
+            Idee idee = new Idee(user,"Meer fietsen", "Te veek mensen komen met de auto terwijl ze makkelijk met de fiets kunnen",R.drawable.fiets ,Idee.IDEE);
             Comment comment = new Comment("Henk", "meer fietsen", "Dit is geen slect idee", R.drawable.david, "9-18-2016 || 12:30");
             idee.setSummaryText("Te weinig mensen komen op de fiets");
 

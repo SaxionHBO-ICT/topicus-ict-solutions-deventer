@@ -203,8 +203,15 @@ public class MakeIdeeActivity extends AppCompatActivity {
             Uri targetUri = data.getData();
             try {
                 Bitmap bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(targetUri));
-                ivImagePreview.setScaleType(ImageView.ScaleType.FIT_XY);
-                ivImagePreview.setImageBitmap(Bitmap.createScaledBitmap(bitmap,120,120,false));
+                if(bitmap.getHeight() > 3840 && bitmap.getWidth()>2160){
+                    bitmap = Bitmap.createScaledBitmap(bitmap,bitmap.getHeight()/4,bitmap.getWidth()/4,false);
+                } else if(bitmap.getHeight() > 2500 && bitmap.getWidth()>1500){
+                    bitmap = Bitmap.createScaledBitmap(bitmap,bitmap.getHeight()/3,bitmap.getWidth()/3,false);
+                }
+                else if (bitmap.getHeight()>1920 && bitmap.getWidth() > 1080){
+                    bitmap = Bitmap.createScaledBitmap(bitmap,bitmap.getHeight()/2,bitmap.getWidth()/2,false);
+                }
+                ivImagePreview.setImageBitmap(bitmap);
 
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
