@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageView backArrow;
     private ImageView menuButton;
 
+
     public MainActivity(Context context) {
         this.context = context;
     }
@@ -123,6 +124,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, MakeIdeeActivity.class);
 
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -133,9 +135,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        ideeënLijst.clear();
-        ideeënLijst.addAll(IdeeënLijst.getInstance().getIdeeën());
-        setAdapter(-1);
 
 
 
@@ -144,8 +143,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void setAdapter(int position_in_spinner){
-        ideeAdapter.notifyDataSetChanged();
-        klachtenAdapter.notifyDataSetChanged();
         if (position_in_spinner == 0) {
 
             lvIdeeën.setAdapter(ideeAdapter);

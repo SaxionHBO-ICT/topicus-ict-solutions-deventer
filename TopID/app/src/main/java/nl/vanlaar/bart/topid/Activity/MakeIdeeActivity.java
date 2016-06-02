@@ -185,10 +185,10 @@ public class MakeIdeeActivity extends AppCompatActivity {
 
                     IdeeënLijst.getInstance().addIdee(idee);
 
+                    Intent intent = new Intent(MakeIdeeActivity.this,MainActivity.class);
 
-
+                    startActivity(intent);
                     finish();
-
 
                 }
 
