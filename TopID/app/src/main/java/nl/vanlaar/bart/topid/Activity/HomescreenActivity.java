@@ -18,6 +18,7 @@ public class HomescreenActivity extends AppCompatActivity {
     private TextView ideeën;
     private TextView gevolgdeIdeeën;
     private Toolbar toolbar;
+    private TextView tvIngelogdeUser;
 
 
     @Override
@@ -27,6 +28,9 @@ public class HomescreenActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
+        tvIngelogdeUser = (TextView) findViewById(R.id.tv_homescreen_user_name);
+        tvIngelogdeUser.setText(MainActivity.LOGGED_IN_USER.getName());
         uitloggen = (TextView) findViewById(R.id.tv_homescreen_uitloggen);
         uitloggen.setOnClickListener(new View.OnClickListener() {
             @Override
