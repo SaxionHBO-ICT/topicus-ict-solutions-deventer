@@ -187,7 +187,11 @@ public class MakeIdeeActivity extends AppCompatActivity {
 
                     Intent intent = new Intent(MakeIdeeActivity.this,MainActivity.class);
 
+
+                    //start de main activity weer op. zodat die overnieuw door de oncreate heen gaat.
                     startActivity(intent);
+
+                    //sluit de make idee activity af zodat deze van de stack verdwijnt.
                     finish();
 
                 }
