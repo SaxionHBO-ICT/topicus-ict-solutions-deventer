@@ -3,6 +3,8 @@ package nl.vanlaar.bart.topid.Model;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 
+import java.util.ArrayList;
+
 /**
  * Created by bart on 25-5-2016.
  */
@@ -11,6 +13,7 @@ public class User {
     private int profileImage;
     private int tempImage;
     private int postcount;
+    private ArrayList<Idee> gevolgeIdeeën = new ArrayList<>();
 
     public User(String name, int profileImage, int postcount) {
         this.name = name;
@@ -69,6 +72,10 @@ public class User {
 
 
         return b;
+    }
+
+    public ArrayList<Idee> getGevolgeIdeeën() {
+        return gevolgeIdeeën;
     }
 }
 

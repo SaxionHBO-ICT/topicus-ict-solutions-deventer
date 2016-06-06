@@ -25,12 +25,10 @@
         <activity
             android:name=".Activity.MainActivity"
             android:parentActivityName=".Activity.MainActivity" />
-        <activity
-            android:name=".Activity.VolgActivity"
-            android:parentActivityName=".Activity.MainActivity" />
         <activity android:name=".Activity.MakeIdeeActivity" />
         <activity android:name=".Activity.ShowIdeeActivity" />
         <activity android:name=".Activity.ReageerActivity" />
+        <activity android:name=".Activity.VolgIdeeActivity"></activity>
     </application>
 
 </manifest>

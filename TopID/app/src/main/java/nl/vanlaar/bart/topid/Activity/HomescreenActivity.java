@@ -62,7 +62,7 @@ public class HomescreenActivity extends AppCompatActivity {
         gevolgdeIdeeën.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(HomescreenActivity.this, VolgActivity.class);
+                Intent intent = new Intent(HomescreenActivity.this, VolgIdeeActivity.class);
                 startActivity(intent);
             }
         });
