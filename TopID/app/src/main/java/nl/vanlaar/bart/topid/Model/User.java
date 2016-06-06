@@ -10,22 +10,28 @@ import java.util.ArrayList;
  */
 public class User {
     private String name;
-    private int profileImage;
+    private Bitmap profileImage;
     private int tempImage;
     private int postcount;
     private ArrayList<Idee> gevolgeIdeeën = new ArrayList<>();
 
-    public User(String name, int profileImage, int postcount) {
+    public User(String name, Bitmap profileImage, int postcount) {
         this.name = name;
         this.profileImage = profileImage;
         this.postcount = postcount;
     }
 
-    public User(String name, int profileImage) {
+    public User(String name, Bitmap profileImage) {
         this.name = name;
         this.profileImage = profileImage;
+        this.postcount = 0;
     }
 
+    public User(String name, int tempImage, int postcount) {
+        this.name = name;
+        this.tempImage = tempImage;
+        this.postcount = postcount;
+    }
 
     public User(String name) {
         this.name = name;
@@ -47,11 +53,11 @@ public class User {
         this.name = name;
     }
 
-    public int getProfileImage() {
+    public Bitmap getProfileImage() {
         return profileImage;
     }
 
-    public void setProfileImage(int profileImage) {
+    public void setProfileImage(Bitmap profileImage) {
         this.profileImage = profileImage;
     }
 

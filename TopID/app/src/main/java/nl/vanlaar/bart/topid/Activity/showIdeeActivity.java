@@ -8,8 +8,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.ScrollView;
+import android.widget.TextView;
 
 import nl.vanlaar.bart.topid.Model.Idee;
 import nl.vanlaar.bart.topid.Model.IdeeënLijst;
@@ -19,7 +19,6 @@ import nl.vanlaar.bart.topid.View.ReactiesAdapter;
 public class ShowIdeeActivity extends AppCompatActivity {
     public static final String EXTRA_IDEE = "idee";
     public static final String FULL_SCREEN_PICTURE ="FULL SCREEN PICTURE" ;
-    private ListView commentListView;
     private ReactiesAdapter adapter;
     private Button btReageer;
     private ScrollView svReacties;
@@ -29,20 +28,45 @@ public class ShowIdeeActivity extends AppCompatActivity {
     private ImageView menuButton;
     private ImageView ideeImage;
     private ImageView ideeImage_FullScreen;
+    private ImageView ivPosterImage_showIdee;
+    private TextView tvPosterName_showPostcount;
+    private TextView tv_show_idee_name;
+    private TextView tvPosterText_showIdee;
+    private ImageView iv_ImagePost_showIdee;
+
     private Idee idee;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        Intent intent = getIntent();
+        int ideePositie = intent.getIntExtra(EXTRA_IDEE, -1);
+        idee = IdeeënLijst.getInstance().getIdeeën().get(ideePositie);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_idee);
 
 
 
+        tv_show_idee_name = (TextView) findViewById(R.id.tv_show_idee_name);
+        tv_show_idee_name.setText(idee.getTitle());
+
+        tvPosterText_showIdee = (TextView) findViewById(R.id.tvPosterText_showIdee);
+        tvPosterText_showIdee.setText(idee.getMainText());
+
+        iv_ImagePost_showIdee = (ImageView) findViewById(R.id.iv_ImagePost_showIdee);
+        if(idee.getPlaatje()!=null){
+            iv_ImagePost_showIdee.setImageBitmap(idee.getPlaatje());
+        }
 
 
+
+        tvPosterName_showPostcount = (TextView) findViewById(R.id.tvPosterName_showPostcount);
+        tvPosterName_showPostcount.setText("Postcount: " + MainActivity.LOGGED_IN_USER.getPostcount());
+        ivPosterImage_showIdee = (ImageView) findViewById(R.id.ivPosterImage_showIdee);
+        ivPosterImage_showIdee.setImageResource(MainActivity.LOGGED_IN_USER.getTempImage());
+      //  ivPosterImage_showIdee.setImageBitmap(MainActivity.LOGGED_IN_USER.getProfileImage());
 
         menuButton = (ImageView) findViewById(R.id.iv_show_idee_menu);
         menuButton.setOnClickListener(new View.OnClickListener() {
@@ -60,9 +84,7 @@ public class ShowIdeeActivity extends AppCompatActivity {
             }
         });
 
-        Intent intent = getIntent();
-        int ideePositie = intent.getIntExtra(EXTRA_IDEE, -1);
-        idee = IdeeënLijst.getInstance().getIdeeën().get(ideePositie);
+
 
 
         ideeImage  = (ImageView) findViewById(R.id.iv_ImagePost_showIdee);
@@ -88,20 +110,18 @@ public class ShowIdeeActivity extends AppCompatActivity {
         });
 
 
-        upvoteButton = (Button) findViewById(R.id.btUpvote_showIdee);
+        upvoteButton = (Button) findViewById(R.id.btUpvote);
         upvoteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int nieuwGetal = Integer.parseInt(upvoteButton.getText().toString()) + 1;
-                upvoteButton.setText(nieuwGetal + "");
+                idee.addPostPoint();
+                upvoteButton.setText(idee.getPostPoints() + " Upvotes");
             }
         });
 
-        commentListView = (ListView) findViewById(R.id.lvReacties_showIdee);
-        adapter = new ReactiesAdapter(this, ideePositie);
 
-        commentListView.setAdapter(adapter);
-        btReageer = (Button) findViewById(R.id.btReageer_showIdee);
+
+        btReageer = (Button) findViewById(R.id.btReacties);
 
 
         btReageer.setOnClickListener(new View.OnClickListener() {

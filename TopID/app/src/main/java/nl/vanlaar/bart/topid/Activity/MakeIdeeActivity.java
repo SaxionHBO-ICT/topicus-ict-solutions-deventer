@@ -182,7 +182,7 @@ public class MakeIdeeActivity extends AppCompatActivity {
                     Log.d("title",idee.getTitle());
 
                     idee.setPoster(MainActivity.LOGGED_IN_USER);
-
+                    MainActivity.LOGGED_IN_USER.addToPostcount();
                     IdeeënLijst.getInstance().addIdee(idee);
 
                     Intent intent = new Intent(MakeIdeeActivity.this,MainActivity.class);

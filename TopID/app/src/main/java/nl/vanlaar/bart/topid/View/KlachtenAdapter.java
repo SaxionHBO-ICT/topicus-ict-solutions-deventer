@@ -40,12 +40,8 @@ public class KlachtenAdapter extends ArrayAdapter<Idee> {
         tvSummary.setText(idee.getSummaryText());
         title.setText(idee.getTitle());
         posterName.setText(idee.getPoster().getName());
-        ivPoster.setImageResource(idee.getPoster().getProfileImage());
-        /*
-        if(idee.getPoster().getTempImage() != 0 && idee.getPoster().getProfileImage() != null) {
-            ivPoster.setImageResource(idee.getPoster().getTempImage());
-        }
-*/
+        ivPoster.setImageResource(idee.getPoster().getTempImage());
+
 
 
         return  convertView;

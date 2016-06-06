@@ -91,6 +91,9 @@ public class Idee {
     public int getPostPoints() {
         return postPoints;
     }
+    public void addPostPoint(){
+        this.postPoints=+1;
+    }
 
     public void setPostPoints(int postPoints) {
         this.postPoints = postPoints;

@@ -41,13 +41,8 @@ public class IdeeënAdapter extends ArrayAdapter<Idee> {
         tvSummary.setText(idee.getSummaryText());
         title.setText(idee.getTitle());
         posterName.setText(idee.getPoster().getName());
-        ivPoster.setImageResource(idee.getPoster().getProfileImage());
+        ivPoster.setImageResource(idee.getPoster().getTempImage()); // temp non bitmap image
 
-        /*
-        if(idee.getPoster().getTempImage() != 0 && idee.getPoster().getProfileImage() != null) {
-            ivPoster.setImageResource(idee.getPoster().getTempImage());
-        }
-*/
 
 
         return  convertView;

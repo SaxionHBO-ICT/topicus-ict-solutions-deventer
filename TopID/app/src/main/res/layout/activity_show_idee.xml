@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
     tools:context=".Activity.MainActivity">
 
     <RelativeLayout
+        android:id="@+id/relativelayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <ImageView
@@ -33,6 +33,7 @@
                 app:popupTheme="@style/AppTheme.PopupOverlay">
 
                 <RelativeLayout
+                    android:id="@+id/relative"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
@@ -67,11 +68,17 @@
 
 
         </android.support.design.widget.AppBarLayout>
+        <ScrollView
+            android:layout_below="@id/show_idee_appbarlayout"
+            android:layout_above="@+id/relatives"
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/show_idee_appbarlayout">
+            android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/tv_show_idee_name"
@@ -135,47 +142,37 @@
                 android:layout_marginLeft="5sp"
                 android:layout_marginRight="5sp"
                 android:text="Te veek mensen komen met de auto terwijl ze makkelijk met de fiets kunnen" />
-
-            <TextView
-                android:id="@+id/tv_upvotes"
+        </RelativeLayout>
+</ScrollView>
+        <RelativeLayout
+            android:id="@+id/relatives"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true">
+            <Button
+                android:id="@+id/btReacties"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tvPosterText_showIdee"
-                android:layout_toEndOf="@+id/btUpvote_showIdee"
-                android:text="upvotes"
-                android:textColor="#000000"
-                android:textSize="16sp" />
-
+                android:layout_alignParentStart="true"
+                android:text="reacties"/>
             <Button
-                android:id="@+id/btUpvote_showIdee"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tvPosterText_showIdee"
-                android:text="100" />
-
-            <Button
-                android:id="@+id/btReageer_showIdee"
+                android:id="@+id/btUpvote"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:layout_below="@+id/tvPosterText_showIdee"
-                android:layout_marginRight="5sp"
-                android:text="Reageer" />
-
-            <ListView
-                android:id="@+id/lvReacties_showIdee"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_below="@+id/btReageer_showIdee"
-                android:layout_centerVertical="true"
-                tools:layout="@layout/list_item_reaction">
-
-            </ListView>
+                android:text="upvote"/>
+            <Button
+                android:id="@+id/btVerwijderIdee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Verwijder Idee"
+                android:layout_centerInParent="true"/>
 
         </RelativeLayout>
-    </RelativeLayout>
 
-</android.support.design.widget.CoordinatorLayout>
+</RelativeLayout>
 
 
+
+</RelativeLayout>
 

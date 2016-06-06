@@ -1,6 +1,5 @@
 package nl.vanlaar.bart.topid.Activity;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -30,6 +29,7 @@ public class ReageerActivity extends AppCompatActivity {
     private ListView lv;
     private ReactiesAdapter reactiesAdapter;
     private ImageView backArrow;
+    private ListView commentListView;
 
 
 
@@ -43,13 +43,27 @@ public class ReageerActivity extends AppCompatActivity {
         btPlaatsReactie = (Button) findViewById(R.id.btPlaats_reactie);
         etReactie = (EditText) findViewById(R.id.et_reageer_text);
         backArrow = (ImageView) findViewById(R.id.iv_reageren_toolbar_backbutton);
+        commentListView = (ListView) findViewById(R.id.lvReacties_showIdee);
 
         final int ideePositie = getIntent().getIntExtra(ShowIdeeActivity.EXTRA_IDEE,-1);
+
+
+        reactiesAdapter = new ReactiesAdapter(this, ideePositie);
+
+        commentListView.setAdapter(reactiesAdapter);
+
+
+
+
+
+
+
+
+
 
         backArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setResult(Activity.RESULT_CANCELED);
                 finish();
             }
         });
@@ -60,17 +74,17 @@ public class ReageerActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 if(TextUtils.isEmpty(etReactie.getText())){
-                    Toast toast = Toast.makeText(getApplicationContext(),"U mag het textveld niet leeg laten", Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(getApplicationContext(),"U mag geen lege reactie plaatsen", Toast.LENGTH_SHORT);
                     toast.show();
                     return;
                 } else {
                     comment = new Comment(MainActivity.LOGGED_IN_USER.getName(),etReactie.getText().toString(),idee,MainActivity.LOGGED_IN_USER.getTempImage(),MainActivity.LOGGED_IN_USER);
                     commentList.add(comment);
-                    reactiesAdapter = new ReactiesAdapter(ReageerActivity.this,ideePositie);
-
+                    reactiesAdapter.notifyDataSetChanged();
                     Toast toast = Toast.makeText(getApplicationContext(),"Uw Reactie is geplaatst", Toast.LENGTH_SHORT);
                     toast.show();
-                    finish();
+                    etReactie.setText("");
+
 
                 }
 
