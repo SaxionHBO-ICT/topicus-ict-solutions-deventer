@@ -38,7 +38,7 @@ public class VolgIdeeAdapter extends ArrayAdapter<Idee> {
         tvSummary.setText(idee.getSummaryText());
         title.setText(idee.getTitle());
         posterName.setText(idee.getPoster().getName());
-        ivPoster.setImageResource(idee.getPoster().getProfileImage());
+        ivPoster.setImageResource(idee.getPoster().getTempImage());
 
         return convertView;
     }
