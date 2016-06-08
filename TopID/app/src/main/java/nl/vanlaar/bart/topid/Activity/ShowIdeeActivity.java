@@ -115,7 +115,7 @@ public class ShowIdeeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 idee.addPostPoint();
-                upvoteButton.setText(idee.getPostPoints() + " Upvotes");
+                upvoteButton.setText(idee.getPostPoints() + " Upvote(s)");
             }
         });
 

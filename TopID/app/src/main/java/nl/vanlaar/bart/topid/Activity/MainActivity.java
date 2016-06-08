@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
@@ -36,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
     private Context context;
     private Spinner spinnerSort;
     private Toolbar toolbar;
+    private CheckBox nieuwBox;
+    private CheckBox bestBox;
     private ImageView backArrow;
     private ImageView menuButton;
 
@@ -59,6 +62,23 @@ public class MainActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         setAdapter(-1);
+        bestBox = (CheckBox) findViewById(R.id.cb_beste);
+        nieuwBox = (CheckBox) findViewById(R.id.cb_nieuw);
+        bestBox.setChecked(true);
+        bestBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bestBox.setChecked(true);
+                nieuwBox.setChecked(false);
+            }
+        });
+        nieuwBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                nieuwBox.setChecked(true);
+                bestBox.setChecked(false);
+            }
+        });
 
         menuButton = (ImageView) findViewById(R.id.iv_mainActivity_menu);
         menuButton.setOnClickListener(new View.OnClickListener() {
