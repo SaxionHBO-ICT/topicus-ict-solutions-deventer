@@ -3,31 +3,58 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:showIn="@layout/activity_main">
+
     <TextView
         android:id="@+id/tv_lijstType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="5sp"
         android:text="Sorteer op:"
-        android:textSize="20sp"
-        android:layout_margin="5sp"/>
+        android:textSize="20sp" />
+
     <android.support.v7.widget.AppCompatSpinner
         android:id="@+id/spinner_lijst_sorteer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@+id/tv_lijstType"
         android:layout_margin="5sp"
-        >
-
+        android:layout_toEndOf="@+id/tv_lijstType">
     </android.support.v7.widget.AppCompatSpinner>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/cb_beste"
+        android:layout_alignBaseline="@id/cb_beste"
+        android:text="Beste"
+        android:textSize="20sp"/>
+
+    <CheckBox
+        android:id="@+id/cb_beste"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/tv_nieuw"/>
+
+    <TextView
+        android:id="@+id/tv_nieuw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/cb_nieuw"
+        android:layout_alignBaseline="@+id/cb_nieuw"
+        android:text="Nieuw"
+        android:textSize="20sp"/>
+
+    <CheckBox
+        android:id="@+id/cb_nieuw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"/>
 
 
     <ListView
-        android:layout_below="@+id/tv_lijstType"
         android:id="@+id/lvIdeeën"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout="@layout/listlayout"
-        >
-    </ListView>
+        android:layout_below="@+id/tv_lijstType"
+        tools:layout="@layout/listlayout"></ListView>
 
 </RelativeLayout>
