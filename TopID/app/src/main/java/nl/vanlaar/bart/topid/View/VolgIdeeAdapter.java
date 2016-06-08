@@ -1,7 +1,6 @@
 package nl.vanlaar.bart.topid.View;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,18 +14,18 @@ import nl.vanlaar.bart.topid.Model.Idee;
 import nl.vanlaar.bart.topid.R;
 
 /**
- * Created by bart on 18-5-2016.
+ * Created by johan on 6-6-2016.
  */
-public class IdeeënAdapter extends ArrayAdapter<Idee> {
-    private Idee idee;
-    public IdeeënAdapter(Context context, int resource, ArrayList<Idee> objects) {
-        super(context, resource,objects);
+public class VolgIdeeAdapter extends ArrayAdapter<Idee> {
+
+    public VolgIdeeAdapter(Context context, int resource, ArrayList<Idee> objects) {
+        super(context, resource, objects);
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        if(convertView == null){
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.listlayout,parent,false);
+        if (convertView == null) {
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.listlayout, parent, false);
         }
         TextView tvSummary = (TextView) convertView.findViewById(R.id.tvSAMENVATINGLISTITEM);
         TextView title = (TextView) convertView.findViewById(R.id.tvNaamListItem);
@@ -34,17 +33,13 @@ public class IdeeënAdapter extends ArrayAdapter<Idee> {
         ImageView ivPoster = (ImageView) convertView.findViewById(R.id.ivImageListItem);
 
 
-        idee = getItem(position);
-        Log.d("idee", idee.getTitle()
-        );
+        Idee idee = getItem(position);
 
         tvSummary.setText(idee.getSummaryText());
         title.setText(idee.getTitle());
         posterName.setText(idee.getPoster().getName());
-        ivPoster.setImageResource(idee.getPoster().getTempImage()); // temp non bitmap image
+        ivPoster.setImageResource(idee.getPoster().getTempImage());
 
-
-
-        return  convertView;
+        return convertView;
     }
 }

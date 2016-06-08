@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".Activity.MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/inbox_appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:popupTheme="@style/AppTheme.PopupOverlay">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/iv_iedeeën_toolbar_backbutton"
+                        android:layout_width="25sp"
+                        android:layout_height="25sp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/back_button" />
+
+                    <TextView
+                        android:id="@+id/tv_ideeën_toolbar_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:text="Inbox"
+                        android:textSize="20sp" />
+
+                    <ImageView
+                        android:id="@+id/iv_inbox_menu"
+                        android:layout_width="32sp"
+                        android:layout_height="32sp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:paddingRight="15sp"
+                        android:src="@drawable/hamburger_icon"/>
+
+                </RelativeLayout>
+
+            </android.support.v7.widget.Toolbar>
+
+
+        </android.support.design.widget.AppBarLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/inbox_appBarLayout">
+
+            <ListView
+                android:id="@+id/lv_inbox_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></ListView>
+
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+</android.support.design.widget.CoordinatorLayout>

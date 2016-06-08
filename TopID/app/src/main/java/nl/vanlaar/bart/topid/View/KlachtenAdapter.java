@@ -17,9 +17,9 @@ import nl.vanlaar.bart.topid.R;
 /**
  * Created by bart on 18-5-2016.
  */
-public class IdeeënAdapter extends ArrayAdapter<Idee> {
+public class KlachtenAdapter extends ArrayAdapter<Idee> {
     private Idee idee;
-    public IdeeënAdapter(Context context, int resource, ArrayList<Idee> objects) {
+    public KlachtenAdapter(Context context, int resource, ArrayList<Idee> objects) {
         super(context, resource,objects);
     }
 
@@ -35,13 +35,12 @@ public class IdeeënAdapter extends ArrayAdapter<Idee> {
 
 
         idee = getItem(position);
-        Log.d("idee", idee.getTitle()
-        );
+        Log.d("idee", idee.getTitle());
 
         tvSummary.setText(idee.getSummaryText());
         title.setText(idee.getTitle());
         posterName.setText(idee.getPoster().getName());
-        ivPoster.setImageResource(idee.getPoster().getTempImage()); // temp non bitmap image
+        ivPoster.setImageResource(idee.getPoster().getTempImage());
 
 
 

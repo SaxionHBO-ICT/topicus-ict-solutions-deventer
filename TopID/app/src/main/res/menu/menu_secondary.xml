@@ -1,0 +1,34 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".Activity.MainActivity">
+    <item
+        android:id="@+id/topbar_menu"
+        android:orderInCategory="11"
+        android:title="@string/menu"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/topbar_inbox"
+        android:orderInCategory="100"
+        android:title="@string/inbox"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/topbar_GevolgdeIdeeën"
+        android:orderInCategory="10"
+        android:title="Gevolgde Ideeën"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/topbar_uitloggen"
+        android:orderInCategory="100"
+        android:title="@string/uitloggen"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/topbar_ideeën"
+        android:orderInCategory="12"
+        android:title="@string/idee"
+        app:showAsAction="never" />
+</menu>

@@ -3,14 +3,22 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">#ffb438</item>
+        <item name="colorPrimaryDark">#ffb438</item>
+        <item name="colorAccent">#ffb438</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:actionOverflowButtonStyle">@style/CustomOverflowButton</item>
     </style>
 
+    <style name="CustomOverflowButton" parent="@android:style/Widget.Holo.Light.ActionButton.Overflow">
+        <item name="android:src">@drawable/hamburger_icon</item>
+    </style>
+    
     <style name="AppTheme.NoActionBar">
-        <item name="windowActionBar">false</item>
+        <item name="windowActionBar">true</item>
         <item name="windowNoTitle">true</item>
+
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
