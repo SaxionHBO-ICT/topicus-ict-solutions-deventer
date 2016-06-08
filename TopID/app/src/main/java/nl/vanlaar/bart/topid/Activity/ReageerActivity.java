@@ -31,36 +31,27 @@ public class ReageerActivity extends AppCompatActivity {
     private ImageView backArrow;
     private ListView commentListView;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reageer);
-        idee = ideeënLijst.get(getIntent().getIntExtra(ShowIdeeActivity.EXTRA_IDEE,-1));
-        commentList = ideeënLijst.get(getIntent().getIntExtra(ShowIdeeActivity.EXTRA_IDEE,-1)).getComments();
 
+        //idee en ideeënlijst vullen
+        idee = ideeënLijst.get(getIntent().getIntExtra(ShowIdeeActivity.EXTRA_IDEE, -1));
+        commentList = ideeënLijst.get(getIntent().getIntExtra(ShowIdeeActivity.EXTRA_IDEE, -1)).getComments();
+
+        //kopelen aan views
         btPlaatsReactie = (Button) findViewById(R.id.btPlaats_reactie);
         etReactie = (EditText) findViewById(R.id.et_reageer_text);
         backArrow = (ImageView) findViewById(R.id.iv_reageren_toolbar_backbutton);
         commentListView = (ListView) findViewById(R.id.lvReacties_showIdee);
 
-        final int ideePositie = getIntent().getIntExtra(ShowIdeeActivity.EXTRA_IDEE,-1);
-
-
+        //adapter configuratie
+        final int ideePositie = getIntent().getIntExtra(ShowIdeeActivity.EXTRA_IDEE, -1);
         reactiesAdapter = new ReactiesAdapter(this, ideePositie);
-
         commentListView.setAdapter(reactiesAdapter);
 
-
-
-
-
-
-
-
-
-
+        //als de terug knop wordt ingedrukt ga dan naar de vorige activity
         backArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,30 +59,25 @@ public class ReageerActivity extends AppCompatActivity {
             }
         });
 
-
+        //onclicklisnter voor de post knop
         btPlaatsReactie.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                if(TextUtils.isEmpty(etReactie.getText())){
-                    Toast toast = Toast.makeText(getApplicationContext(),"U mag geen lege reactie plaatsen", Toast.LENGTH_SHORT);
+                //als er nog velden leeg zijn laat dat aan de user zien
+                if (TextUtils.isEmpty(etReactie.getText())) {
+                    Toast toast = Toast.makeText(getApplicationContext(), "U mag geen lege reactie plaatsen", Toast.LENGTH_SHORT);
                     toast.show();
                     return;
+                    //maak een comment, vul hem met de velden en voeg hem toe aan een idee
                 } else {
-                    comment = new Comment(MainActivity.LOGGED_IN_USER.getName(),etReactie.getText().toString(),idee,MainActivity.LOGGED_IN_USER.getTempImage(),MainActivity.LOGGED_IN_USER);
+                    comment = new Comment(MainActivity.LOGGED_IN_USER.getName(), etReactie.getText().toString(), idee, MainActivity.LOGGED_IN_USER.getTempImage(), MainActivity.LOGGED_IN_USER);
                     commentList.add(comment);
                     reactiesAdapter.notifyDataSetChanged();
-                    Toast toast = Toast.makeText(getApplicationContext(),"Uw Reactie is geplaatst", Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(getApplicationContext(), "Uw Reactie is geplaatst", Toast.LENGTH_SHORT);
                     toast.show();
                     etReactie.setText("");
-
-
                 }
-
-
-
             }
         });
     }
-
 }

@@ -16,6 +16,11 @@ import nl.vanlaar.bart.topid.Model.IdeeënLijst;
 import nl.vanlaar.bart.topid.R;
 import nl.vanlaar.bart.topid.View.ReactiesAdapter;
 
+/**
+ * de showIdeeActivity laat een idee zien van de MainActivity in meerr detail en geeft de mogelijkheid om
+ * meer
+ * dit idee te upvoten, te reageren op heet
+ */
 public class ShowIdeeActivity extends AppCompatActivity {
     public static final String EXTRA_IDEE = "idee";
     public static final String FULL_SCREEN_PICTURE ="FULL SCREEN PICTURE" ;
@@ -33,42 +38,43 @@ public class ShowIdeeActivity extends AppCompatActivity {
     private TextView tv_show_idee_name;
     private TextView tvPosterText_showIdee;
     private ImageView iv_ImagePost_showIdee;
-
     private Idee idee;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_show_idee);
+
+        //set our custom toolbar
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        //full het idee met het meegegeven idee
         Intent intent = getIntent();
         int ideePositie = intent.getIntExtra(EXTRA_IDEE, -1);
         idee = IdeeënLijst.getInstance().getIdeeën().get(ideePositie);
 
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_show_idee);
-
-
-
+        //kopelen van views
         tv_show_idee_name = (TextView) findViewById(R.id.tv_show_idee_name);
-        tv_show_idee_name.setText(idee.getTitle());
-
         tvPosterText_showIdee = (TextView) findViewById(R.id.tvPosterText_showIdee);
-        tvPosterText_showIdee.setText(idee.getMainText());
-
         iv_ImagePost_showIdee = (ImageView) findViewById(R.id.iv_ImagePost_showIdee);
+        tvPosterName_showPostcount = (TextView) findViewById(R.id.tvPosterName_showPostcount);
+        ivPosterImage_showIdee = (ImageView) findViewById(R.id.ivPosterImage_showIdee);
+        menuButton = (ImageView) findViewById(R.id.iv_show_idee_menu);
+        backArrow = (ImageView) findViewById(R.id.iv_iedeeën_toolbar_backbutton);
+        ideeImage  = (ImageView) findViewById(R.id.iv_ImagePost_showIdee);
+        ideeImage_FullScreen = (ImageView) findViewById(R.id.iv_ImagePost_FullScreen_showIdee);
+
+        //set alle views met info van het idee
+        tv_show_idee_name.setText(idee.getTitle());
+        tvPosterText_showIdee.setText(idee.getMainText());
         if(idee.getPlaatje()!=null){
             iv_ImagePost_showIdee.setImageBitmap(idee.getPlaatje());
         }
-
-
-
-        tvPosterName_showPostcount = (TextView) findViewById(R.id.tvPosterName_showPostcount);
         tvPosterName_showPostcount.setText("Postcount: " + MainActivity.LOGGED_IN_USER.getPostcount());
-        ivPosterImage_showIdee = (ImageView) findViewById(R.id.ivPosterImage_showIdee);
         ivPosterImage_showIdee.setImageResource(MainActivity.LOGGED_IN_USER.getTempImage());
-      //  ivPosterImage_showIdee.setImageBitmap(MainActivity.LOGGED_IN_USER.getProfileImage());
 
-        menuButton = (ImageView) findViewById(R.id.iv_show_idee_menu);
+        //als er op de menu knop wordt gedrukt ga dan naar het menu
         menuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,20 +82,20 @@ public class ShowIdeeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        backArrow = (ImageView) findViewById(R.id.iv_iedeeën_toolbar_backbutton);
+
+        //als er op de terug knop wordt gedrukt ga dan terug naar de vorige activity
         backArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            finish();
+                finish();
             }
         });
 
 
 
 
-        ideeImage  = (ImageView) findViewById(R.id.iv_ImagePost_showIdee);
+        ////////////////////////////////////////////////////////////////////////
         ideeImage.setClickable(true);
-        ideeImage_FullScreen = (ImageView) findViewById(R.id.iv_ImagePost_FullScreen_showIdee);
         ideeImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -101,6 +107,7 @@ public class ShowIdeeActivity extends AppCompatActivity {
                 }
             }
         });
+        ////////////////////////////////////////////////////////////////
         ideeImage_FullScreen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
