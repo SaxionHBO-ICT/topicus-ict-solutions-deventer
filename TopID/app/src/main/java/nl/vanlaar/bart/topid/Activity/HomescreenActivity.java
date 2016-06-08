@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import nl.vanlaar.bart.topid.R;
@@ -19,18 +20,26 @@ public class HomescreenActivity extends AppCompatActivity {
     private TextView gevolgdeIdeeën;
     private Toolbar toolbar;
     private TextView tvIngelogdeUser;
-
+    private ImageView userImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homescreen);
+
+        //set onze custom toolbar
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
+        //set de naam van de ingelogte user
         tvIngelogdeUser = (TextView) findViewById(R.id.tv_homescreen_user_name);
         tvIngelogdeUser.setText(MainActivity.LOGGED_IN_USER.getName());
+
+        //set de profiel foto van de ingelogte user
+        userImage = (ImageView) findViewById(R.id.iv_homescreen_user);
+        userImage.setImageResource(MainActivity.LOGGED_IN_USER.getTempImage());
+
+        //alle opties in het menu met onClickListners
         uitloggen = (TextView) findViewById(R.id.tv_homescreen_uitloggen);
         uitloggen.setOnClickListener(new View.OnClickListener() {
             @Override

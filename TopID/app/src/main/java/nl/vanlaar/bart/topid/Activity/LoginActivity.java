@@ -70,7 +70,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         // Set up the login form.
         mEmailView = (EditText) findViewById(R.id.tv_login_email);
-
         mPasswordView = (EditText) findViewById(R.id.et_login_password);
 
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {

@@ -29,6 +29,7 @@ public class InboxActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        //de knop naar het menu
         menuButton = (ImageView) findViewById(R.id.iv_inbox_menu);
         menuButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,6 +38,8 @@ public class InboxActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        //de terug knop
         backArrow = (ImageView) findViewById(R.id.iv_iedeeën_toolbar_backbutton);
         backArrow.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,9 +48,12 @@ public class InboxActivity extends AppCompatActivity {
             }
         });
 
+
         listView = (ListView) findViewById(R.id.lv_inbox_list);
         inboxAdapter = new InboxAdapter(this);
         listView.setAdapter(inboxAdapter);
+
+        //start de showIdee activity met het aangeklikte idee
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -57,6 +63,4 @@ public class InboxActivity extends AppCompatActivity {
             }
         });
     }
-
-
 }

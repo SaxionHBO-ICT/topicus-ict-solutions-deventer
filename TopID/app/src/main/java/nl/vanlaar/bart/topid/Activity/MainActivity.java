@@ -55,13 +55,18 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
         ideeAdapter = new IdeeënAdapter(this, R.layout.fragment_main, IdeeënLijst.getInstance().sortByIdee());
         klachtenAdapter = new KlachtenAdapter(this, R.layout.fragment_main, IdeeënLijst.getInstance().sortByKlacht());
         ideeënLijst = IdeeënLijst.getInstance().getIdeeën();
-        setContentView(R.layout.activity_main);
+
+        //set onze custom toolbar
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         setAdapter(-1);
+
+        //De checkboxes, er kan er maar één aangevinkt zijn
         bestBox = (CheckBox) findViewById(R.id.cb_beste);
         nieuwBox = (CheckBox) findViewById(R.id.cb_nieuw);
         bestBox.setChecked(true);
@@ -80,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //de menu knop
         menuButton = (ImageView) findViewById(R.id.iv_mainActivity_menu);
         menuButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,6 +94,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        //de terug knop
         backArrow = (ImageView) findViewById(R.id.iv_iedeeën_toolbar_backbutton);
         backArrow.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,6 +109,7 @@ public class MainActivity extends AppCompatActivity {
         lvIdeeën = (ListView) findViewById(R.id.lvIdeeën);
         spinnerSort = (Spinner) findViewById(R.id.spinner_lijst_sorteer);
 
+        //als er geen user ingelogt is ga dan terug naar de login pagina
         if (ingelogd == false) {
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
@@ -138,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+        //als de knop ingedrukt is ga naar de MakeIdeeActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
