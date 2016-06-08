@@ -8,16 +8,17 @@
         android:id="@+id/tv_lijstType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5sp"
+        android:layout_marginLeft="5sp"
+        android:layout_alignBaseline="@+id/cb_nieuw"
         android:text="Sorteer op:"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textColor="@color/black"/>
 
     <android.support.v7.widget.AppCompatSpinner
         android:id="@+id/spinner_lijst_sorteer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5sp"
+        android:layout_alignBaseline="@id/tv_lijstType"
         android:layout_toEndOf="@+id/tv_lijstType">
     </android.support.v7.widget.AppCompatSpinner>
 
@@ -34,7 +35,7 @@
         android:layout_toLeftOf="@id/cb_beste"
         android:layout_alignBaseline="@id/cb_beste"
         android:text="Beste"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textColor="@color/black"/>
 
     <TextView
@@ -44,7 +45,7 @@
         android:layout_toLeftOf="@+id/cb_nieuw"
         android:layout_alignBaseline="@+id/cb_nieuw"
         android:text="Nieuw"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textColor="@color/black"/>
 
     <CheckBox
