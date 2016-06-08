@@ -35,12 +35,17 @@ public class KlachtenAdapter extends ArrayAdapter<Idee> {
 
 
         idee = getItem(position);
-        Log.d("idee", idee.getTitle());
 
         tvSummary.setText(idee.getSummaryText());
         title.setText(idee.getTitle());
         posterName.setText(idee.getPoster().getName());
-        ivPoster.setImageResource(idee.getPoster().getTempImage());
+        if(idee.getAnoniem()){
+            ivPoster.setImageResource(R.drawable.anoniem);
+            posterName.setText("Anoniem");
+        }else{
+            posterName.setText(idee.getPoster().getName());
+            ivPoster.setImageResource(idee.getPoster().getTempImage()); // temp non bitmap image
+        }
 
 
 

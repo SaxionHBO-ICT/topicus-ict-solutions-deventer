@@ -39,6 +39,8 @@ public class HomescreenActivity extends AppCompatActivity {
         userImage = (ImageView) findViewById(R.id.iv_homescreen_user);
         userImage.setImageResource(MainActivity.LOGGED_IN_USER.getTempImage());
 
+
+
         //alle opties in het menu met onClickListners
         uitloggen = (TextView) findViewById(R.id.tv_homescreen_uitloggen);
         uitloggen.setOnClickListener(new View.OnClickListener() {
@@ -66,7 +68,6 @@ public class HomescreenActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
         gevolgdeIdeeën = (TextView) findViewById(R.id.tv_homescreen_gevolgdeIdeeën);
         gevolgdeIdeeën.setOnClickListener(new View.OnClickListener() {
             @Override

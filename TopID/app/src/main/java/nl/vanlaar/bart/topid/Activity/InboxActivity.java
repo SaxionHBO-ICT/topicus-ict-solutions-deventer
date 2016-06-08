@@ -26,11 +26,17 @@ public class InboxActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inbox);
+
+        //set onze custom toolbar
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        //de knop naar het menu
+        //koppelen aan views
+        listView = (ListView) findViewById(R.id.lv_inbox_list);
         menuButton = (ImageView) findViewById(R.id.iv_inbox_menu);
+        backArrow = (ImageView) findViewById(R.id.iv_iedeeën_toolbar_backbutton);
+
+        //als de menu knop is ingedrukt ga dan naar het menu
         menuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -39,8 +45,7 @@ public class InboxActivity extends AppCompatActivity {
             }
         });
 
-        //de terug knop
-        backArrow = (ImageView) findViewById(R.id.iv_iedeeën_toolbar_backbutton);
+        //als de terug knop is ingedrukt ga dan naar de vorige activity
         backArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,12 +53,10 @@ public class InboxActivity extends AppCompatActivity {
             }
         });
 
-
-        listView = (ListView) findViewById(R.id.lv_inbox_list);
         inboxAdapter = new InboxAdapter(this);
         listView.setAdapter(inboxAdapter);
 
-        //start de showIdee activity met het aangeklikte idee
+        //als er op een een idee wordt gedrukt laat dat idee zien
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

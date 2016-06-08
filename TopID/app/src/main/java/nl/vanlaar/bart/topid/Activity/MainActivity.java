@@ -162,6 +162,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * on resume resume
+     */
     @Override
     protected void onResume() {
         super.onResume();

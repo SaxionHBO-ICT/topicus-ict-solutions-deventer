@@ -10,6 +10,7 @@ import java.util.Date;
  * Created by bart on 18-5-2016.
  */
 public class Idee {
+    private Boolean anoniem;
     private User poster;
     private String title;
     private String mainText;
@@ -166,6 +167,14 @@ public class Idee {
 
     public ArrayList<Comment> getComments() {
         return comments;
+    }
+
+    public Boolean getAnoniem() {
+        return anoniem;
+    }
+
+    public void setAnoniem(Boolean anoniem) {
+        this.anoniem = anoniem;
     }
 }
 
