@@ -27,6 +27,7 @@ public class VolgIdeeActivity extends AppCompatActivity {
         backArrow = (ImageView) findViewById(R.id.iv_volg_idee_toolbar_backbutton);
         menuButton = (ImageView) findViewById(R.id.iv_volg_idee_menu);
 
+        //what to do when back button is pressed
         backArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
