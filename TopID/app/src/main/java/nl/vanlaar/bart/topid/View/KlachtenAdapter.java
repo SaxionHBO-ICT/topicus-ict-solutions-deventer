@@ -1,7 +1,6 @@
 package nl.vanlaar.bart.topid.View;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,7 +39,7 @@ public class KlachtenAdapter extends ArrayAdapter<Idee> {
         title.setText(idee.getTitle());
         posterName.setText(idee.getPoster().getName());
         if(idee.getAnoniem()){
-            ivPoster.setImageResource(R.drawable.anoniem);
+         //     ivPoster.setImageResource(R.drawable.anoniem);
             posterName.setText("Anoniem");
         }else{
             posterName.setText(idee.getPoster().getName());

@@ -41,7 +41,7 @@ public class IdeeënAdapter extends ArrayAdapter<Idee> {
         tvSummary.setText(idee.getSummaryText());
         title.setText(idee.getTitle());
         if(idee.getAnoniem()){
-            ivPoster.setImageResource(R.drawable.anoniem);
+           // ivPoster.setImageResource(R.drawable.anoniem);
             posterName.setText("Anoniem");
         }else{
             posterName.setText(idee.getPoster().getName());

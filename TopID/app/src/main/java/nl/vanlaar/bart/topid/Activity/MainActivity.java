@@ -25,7 +25,7 @@ import nl.vanlaar.bart.topid.View.KlachtenAdapter;
 
 public class MainActivity extends AppCompatActivity {
     private ArrayList<Idee> ideeënLijst;
-    public static User LOGGED_IN_USER = new User("henk",R.drawable.gabenewell,0);
+    public static User LOGGED_IN_USER = new User("henk", R.drawable.gabenewell, 0);
     public static final int IDEE_REQUESTCODE = 1337;
     public static boolean dataChanged = false;
     public static boolean ingelogd = true;
@@ -91,14 +91,12 @@ public class MainActivity extends AppCompatActivity {
         bestBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                bestBox.setChecked(true);
                 nieuwBox.setChecked(false);
             }
         });
         nieuwBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                nieuwBox.setChecked(true);
                 bestBox.setChecked(false);
             }
         });
@@ -141,6 +139,7 @@ public class MainActivity extends AppCompatActivity {
                     lvIdeeën.setAdapter(klachtenAdapter);
                 }
             }
+
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 //DO NOTHING
