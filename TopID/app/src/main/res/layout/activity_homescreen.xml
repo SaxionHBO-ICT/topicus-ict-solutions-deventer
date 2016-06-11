@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/homeScreenBackground">
+    android:background="@color/homeScreenBackground"
+    android:orientation="vertical">
 
 
     <android.support.design.widget.AppBarLayout
@@ -13,88 +13,89 @@
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        app:popupTheme="@style/AppTheme.PopupOverlay">
-
-        <RelativeLayout
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
 
-            <TextView
-                android:id="@+id/tv_ideeën_toolbar_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:text="Menu"
-                android:textSize="20sp" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-        </RelativeLayout>
+                <TextView
+                    android:id="@+id/tv_ideeën_toolbar_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:text="Menu"
+                    android:textSize="20sp" />
 
-    </android.support.v7.widget.Toolbar>
+            </RelativeLayout>
+
+        </android.support.v7.widget.Toolbar>
     </android.support.design.widget.AppBarLayout>
 
     <ImageView
         android:id="@+id/iv_homescreen_user"
         android:layout_width="75sp"
         android:layout_height="75sp"
-        android:layout_centerHorizontal="true"
         android:layout_below="@+id/tv_homescreen_user_name"
+        android:layout_centerHorizontal="true"
         android:src="@drawable/gabenewell" />
 
     <TextView
-        android:layout_below="@+id/homescreen_appbarlayout"
         android:id="@+id/tv_homescreen_user_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/homescreen_appbarlayout"
         android:layout_centerHorizontal="true"
         android:text="ingelogde user"
-        android:textColor="@color/white"/>
+        android:textColor="@color/white" />
 
     <TextView
         android:id="@+id/tv_homescreen_inbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="45sp"
         android:layout_below="@+id/iv_homescreen_user"
-        android:text="@string/inbox"
         android:layout_marginLeft="25sp"
-        android:textSize="25sp"
-        android:textColor="@color/white"/>
+        android:layout_marginTop="45sp"
+        android:text="@string/inbox"
+        android:textColor="@color/white"
+        android:textSize="25sp" />
 
     <TextView
         android:id="@+id/tv_homescreen_ideeën"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/ideeën"
+        android:layout_below="@id/tv_homescreen_inbox"
         android:layout_marginLeft="25sp"
-        android:textSize="25sp"
+        android:text="@string/ideeën"
         android:textColor="@color/white"
-        android:layout_below="@id/tv_homescreen_inbox"/>
+        android:textSize="25sp" />
 
 
     <TextView
         android:id="@+id/tv_homescreen_gevolgdeIdeeën"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_homescreen_ideeën"
         android:layout_marginLeft="25sp"
         android:text="@string/GevolgdeIdeeën"
-        android:textSize="25sp"
         android:textColor="@color/white"
-        android:layout_below="@+id/tv_homescreen_ideeën"/>
+        android:textSize="25sp" />
+
     <TextView
         android:id="@+id/tv_homescreen_uitloggen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/uitloggen"
         android:layout_below="@id/tv_homescreen_gevolgdeIdeeën"
         android:layout_marginLeft="25sp"
-        android:textSize="25sp"
-        android:textColor="@color/white"/>
+        android:text="@string/uitloggen"
+        android:textColor="@color/white"
+        android:textSize="25sp" />
 
 
 </RelativeLayout>
