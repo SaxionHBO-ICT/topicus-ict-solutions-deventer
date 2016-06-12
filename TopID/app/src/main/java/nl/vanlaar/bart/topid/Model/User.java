@@ -3,14 +3,11 @@ package nl.vanlaar.bart.topid.Model;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 
-import com.j256.ormlite.table.DatabaseTable;
-
 import java.util.ArrayList;
 
 /**
  * Created by bart on 25-5-2016.
  */
-@DatabaseTable(tableName = "Gebruiker")
 public class User {
     private String name;
     private Bitmap profileImage;

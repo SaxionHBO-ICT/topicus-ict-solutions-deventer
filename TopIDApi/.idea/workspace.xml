@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d2e3e27a-5c5c-4679-938e-1eb44ec6cf21" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/ormlite-core-4.49-SNAPSHOT.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/ormlite-jdbc-4.49-SNAPSHOT.jar" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Model/Comment.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Model/Idee.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/Model/User.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/ormlite_core_4_48.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/ormlite_jdbc_4_48.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TopIDApi.iml" afterPath="$PROJECT_DIR$/TopIDApi.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Main.java" afterPath="$PROJECT_DIR$/src/main/java/Main.java" />
     </list>
@@ -152,8 +156,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="840" />
-    <option name="y" value="106" />
+    <option name="x" value="176" />
+    <option name="y" value="121" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
   </component>
@@ -328,6 +332,9 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\bart\Desktop\HBO-ICT\Project_HBO_ICT_BV\topicus-ict-solutions-deventer\TopIDApi\.idea\libraries" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\bart\Desktop\HBO-ICT\Project_HBO_ICT_BV\topicus-ict-solutions-deventer\TopIDApi\src\main\java\Model" />
     </key>
@@ -593,7 +600,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="840" y="106" width="974" height="1047" extended-state="0" />
+    <frame x="176" y="121" width="974" height="1047" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
