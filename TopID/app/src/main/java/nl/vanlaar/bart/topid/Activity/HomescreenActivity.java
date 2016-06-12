@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import nl.vanlaar.bart.topid.Database.DatabaseHelper;
 import nl.vanlaar.bart.topid.R;
 
 /**
@@ -25,6 +26,8 @@ public class HomescreenActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        DatabaseHelper dbhelper = DatabaseHelper.getInstance();
+
         setContentView(R.layout.activity_homescreen);
 
         //set onze custom toolbar
