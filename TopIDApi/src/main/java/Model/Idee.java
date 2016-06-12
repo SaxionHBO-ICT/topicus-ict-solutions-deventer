@@ -1,7 +1,7 @@
 package Model;
 
-import android.graphics.Bitmap;
-import android.os.Bundle;
+
+import com.j256.ormlite.table.DatabaseTable;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -9,11 +9,12 @@ import java.util.Date;
 /**
  * Created by bart on 18-5-2016.
  */
+@DatabaseTable (tableName = "Idee")
 public class Idee {
     private User poster;
     private String title;
     private String mainText;
-    private Bitmap plaatje;
+    private String plaatje;
     private int postPoints;
     private String summaryText;
     private Date postDate;
@@ -40,7 +41,7 @@ public class Idee {
         this.tempPlaatje = tempPlaatje;
     }
 
-    public Idee(User poster, String text, Bitmap plaatje) {
+    public Idee(User poster, String text, String plaatje) {
         this.poster = poster;
         this.mainText = text;
         this.plaatje = plaatje;
@@ -125,11 +126,11 @@ public class Idee {
         this.poster = poster;
     }
 
-    public Bitmap getPlaatje() {
+    public String getPlaatje() {
         return plaatje;
     }
 
-    public void setPlaatje(Bitmap plaatje) {
+    public void setPlaatje(String plaatje) {
         this.plaatje = plaatje;
     }
 
@@ -151,13 +152,7 @@ public class Idee {
 public boolean getAnonymous(){
     return anonymous;
 }
-    public Bundle toBundle() {
-        Bundle b = new Bundle();
-        b.putBundle("User", this.poster.toBundle());
 
-
-        return b;
-    }
 
     public void addComment(Comment comment) {
         comments.add(comment);

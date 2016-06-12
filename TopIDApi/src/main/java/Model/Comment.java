@@ -1,8 +1,11 @@
 package Model;
 
+import com.j256.ormlite.table.DatabaseTable;
+
 /**
  * Created by Sander on 25-5-2016.
  */
+@DatabaseTable(tableName = "Reactie")
 public class Comment {
     private String userName;
     private String ideeName;
