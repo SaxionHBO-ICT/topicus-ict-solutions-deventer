@@ -11,7 +11,6 @@ import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -165,9 +164,9 @@ public class MakeIdeeActivity extends AppCompatActivity {
                     idee.setMainText(etIdeeText.getText().toString());
                     //als anoniem is aangevinkt maak de user van het idee null anders maak de user de ingelogte user
                     if (cbAnoniem.isChecked()) {
-                        idee.setAnoniem(true);
+                        idee.setAnonymous(true);
                     } else {
-                        idee.setAnoniem(false);
+                        idee.setAnonymous(false);
                     }
                     idee.setPoster(MainActivity.LOGGED_IN_USER);
                     MainActivity.LOGGED_IN_USER.addToPostcount();

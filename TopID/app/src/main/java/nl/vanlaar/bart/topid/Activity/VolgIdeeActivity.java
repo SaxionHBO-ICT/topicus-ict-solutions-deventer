@@ -44,6 +44,6 @@ public class VolgIdeeActivity extends AppCompatActivity {
 
         user = new User("henk");
         listView = (ListView) findViewById(R.id.lv_volg_idee_list);
-        adapter = new VolgIdeeAdapter(this, R.layout.activity_volg_idee, user.getGevolgeIdeeën());
+        adapter = new VolgIdeeAdapter(this, R.layout.activity_volg_idee, user.getGevolgdeIdeeën());
     }
 }

@@ -10,7 +10,6 @@ import java.util.Date;
  * Created by bart on 18-5-2016.
  */
 public class Idee {
-    private Boolean anoniem;
     private User poster;
     private String title;
     private String mainText;
@@ -29,7 +28,7 @@ public class Idee {
     public static final int KLACHT = 1;
     public static final int IDEE = 2;
 
-    public Idee(){
+    public Idee() {
 
     }
 
@@ -47,6 +46,7 @@ public class Idee {
         this.plaatje = plaatje;
         this.postPoints = 0;
     }
+
     public Idee(User poster, String title, String text, int plaatje, int soortIdee) {
         this.poster = poster;
         this.title = title;
@@ -55,7 +55,6 @@ public class Idee {
         this.postPoints = 0;
         this.soortIdee = soortIdee;
     }
-
 
 
     public Idee(String mainText, String summaryText) {
@@ -79,7 +78,7 @@ public class Idee {
     }
 
     public String getSoortIdee() {
-        if(this.soortIdee == KLACHT){
+        if (this.soortIdee == KLACHT) {
             return "klacht";
         }
         return "idee";
@@ -92,8 +91,9 @@ public class Idee {
     public int getPostPoints() {
         return postPoints;
     }
-    public void addPostPoint(){
-        this.postPoints=+1;
+
+    public void addPostPoint() {
+        this.postPoints = +1;
     }
 
     public void setPostPoints(int postPoints) {
@@ -148,20 +148,18 @@ public class Idee {
     public void setAnonymous(boolean anonymous) {
         this.anonymous = anonymous;
     }
-    public Bundle toBundle(){
+public boolean getAnonymous(){
+    return anonymous;
+}
+    public Bundle toBundle() {
         Bundle b = new Bundle();
-        b.putBundle("User",this.poster.toBundle());
+        b.putBundle("User", this.poster.toBundle());
 
 
-
-
-
-
-
-        return  b;
+        return b;
     }
 
-    public void addComment(Comment comment){
+    public void addComment(Comment comment) {
         comments.add(comment);
     }
 
@@ -169,13 +167,7 @@ public class Idee {
         return comments;
     }
 
-    public Boolean getAnoniem() {
-        return anoniem;
-    }
-
-    public void setAnoniem(Boolean anoniem) {
-        this.anoniem = anoniem;
-    }
 }
+
 
 
