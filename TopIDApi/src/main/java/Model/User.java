@@ -26,6 +26,9 @@ public class User {
     @DatabaseField
     private String Gebruiker_plaatje_url;
 
+    public User() {
+    }
+
     public User(String name, String profileImage, int postcount) {
         this.name = name;
         this.profileImage = profileImage;

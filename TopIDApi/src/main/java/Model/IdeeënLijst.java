@@ -28,7 +28,7 @@ public class IdeeënLijst {
         ArrayList<Idee> array = new ArrayList<>(ideeën);
         return array;
     }
-
+/*
     public ArrayList<Idee> sortByIdee(){
         ArrayList<Idee> unsortedArray = new ArrayList<>(ideeën);
         ArrayList<Idee> sortedArray = new ArrayList<>();
@@ -54,5 +54,5 @@ public class IdeeënLijst {
 
     }
 
-
+*/
 }
