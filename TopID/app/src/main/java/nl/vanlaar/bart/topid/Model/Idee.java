@@ -22,7 +22,7 @@ public class Idee {
     private ArrayList<Comment> comments = new ArrayList<>();
 
 
-    private int tempPlaatje; // temp plaatje voor int.
+    private int tempPlaatje; // temp plaatje voor i
 
 
     public static final int KLACHT = 1;
@@ -55,7 +55,6 @@ public class Idee {
         this.postPoints = 0;
         this.soortIdee = soortIdee;
     }
-
 
     public Idee(String mainText, String summaryText) {
         this.mainText = mainText;
