@@ -31,7 +31,7 @@ public class Comment {
     public Comment() {
     }
 
-    public Comment(String userName, String ideeName, String comment, int userPicture, String date) {
+    public Comment(String userName, String ideeName, String comment, String date) {
         this.userName = userName;
         this.ideeName = ideeName;
         this.comment = comment;

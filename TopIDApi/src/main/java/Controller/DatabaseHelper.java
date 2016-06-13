@@ -14,13 +14,15 @@ import java.sql.SQLException;
  * Created by bart on 12-6-2016.
  */
 public class DatabaseHelper {
-
+    // database variables
     private static DatabaseHelper dbHelper;
-    private static final String DB_URL = "jbdc:mysql://127.0.0.1:3306/topicusdb";
+    private static final String DB_URL = "jdbc:mysql://127.0.0.1:3306/topicusdb";
     private static final String DB_USERNAME = "root";
     private static final String DB_PASSWORD = "root";
 
-    // create a connection source to our databse
+
+
+    // create a connection source to our database
     private ConnectionSource connectionSource;
 
     // data access objects
@@ -49,4 +51,48 @@ public class DatabaseHelper {
             System.out.println(e.getMessage() + "    " + e.getErrorCode());
         }
     }
+<<<<<<< Updated upstream
+=======
+
+    /**
+     * alle get methodes.
+     * */
+    public User getUserByEmail(String username){
+        User user = null;
+        try {
+            user = userDao.queryForId(username);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return user;
+    }
+
+    /**
+     * alle add methodes.
+     * */
+    public boolean addIdeeToDatabase(Idee idee){
+        try {
+            ideeDao.create(idee);
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+
+    /**
+     * alle update methods.
+     * */
+    public boolean updateIdeeInDatabase(Idee idee){
+        try{
+            ideeDao.update(idee);
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+>>>>>>> Stashed changes
 }
