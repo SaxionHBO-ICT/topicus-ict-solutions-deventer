@@ -1,12 +1,12 @@
 package Controller;
 
-import Model.Comment;
-import Model.Idee;
-import Model.User;
+import Model.*;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.jdbc.JdbcConnectionSource;
 import com.j256.ormlite.support.ConnectionSource;
+import spark.Request;
+import spark.Response;
 
 import java.sql.SQLException;
 
@@ -39,10 +39,9 @@ public class DatabaseHelper {
         return dbHelper;
     }
 
-
     private void initializeDatabaseLink(){
         try {
-            connectionSource = new JdbcConnectionSource(DB_URL,DB_USERNAME,DB_PASSWORD);
+            connectionSource = new JdbcConnectionSource(DB_URL,DB_USERNAME, DB_PASSWORD);
             commentDao = DaoManager.createDao(connectionSource, Comment.class);
             ideeDao = DaoManager.createDao(connectionSource,Idee.class);
             userDao = DaoManager.createDao(connectionSource,User.class);
@@ -50,6 +49,4 @@ public class DatabaseHelper {
             System.out.println(e.getMessage() + "    " + e.getErrorCode());
         }
     }
-
-
 }
