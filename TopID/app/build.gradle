@@ -32,4 +32,5 @@ dependencies {
     compile 'com.android.support:design:23.2.0'
     compile files('libs/ormlite-core-4.49-SNAPSHOT.jar')
     compile files('libs/ormlite-jdbc-4.49-SNAPSHOT.jar')
+    compile 'com.google.code.gson:gson:2.6.2'
 }
