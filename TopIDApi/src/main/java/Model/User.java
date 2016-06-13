@@ -9,6 +9,7 @@ import java.util.ArrayList;
  */
 public class User {
     private String name;
+    private String email_adres;
     private String profileImage;
     private int tempImage;
     private int postcount;

@@ -14,6 +14,7 @@ public class Comment {
     private int userPicture;
     private User user;
     private String date;
+    private Integer reactieID;
 
     public Comment() {
     }
