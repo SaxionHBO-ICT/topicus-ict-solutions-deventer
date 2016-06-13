@@ -51,8 +51,6 @@ public class DatabaseHelper {
             System.out.println(e.getMessage() + "    " + e.getErrorCode());
         }
     }
-<<<<<<< Updated upstream
-=======
 
     /**
      * alle get methodes.
@@ -94,5 +92,5 @@ public class DatabaseHelper {
         return false;
     }
 
->>>>>>> Stashed changes
+
 }

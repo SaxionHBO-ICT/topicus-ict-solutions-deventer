@@ -23,12 +23,12 @@ public class CommentList {
     public void addComment(Comment comment){
         comments.add(comment);
     }
-
+/*
     public void addComment(String userName, String ideeName, String comment, int userPic, String date){
         Comment commentAdded = new Comment(userName, ideeName, comment, userPic, date);
         addComment(commentAdded);
     }
-
+*/
     public ArrayList<Comment> getComments() {
         ArrayList<Comment> commentss = new ArrayList<>(comments);
         return commentss;

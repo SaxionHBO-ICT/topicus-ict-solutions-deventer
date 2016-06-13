@@ -52,6 +52,9 @@ public class Idee {
         this.Idee_points = idee_points;
     }
 
+    public Idee() {
+    }
+
     public void addComment(Comment comment) {
         comments.add(comment);
     }
