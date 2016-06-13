@@ -1,5 +1,10 @@
 package Controller;
 
+import Model.Comment;
+import Model.Idee;
+import Model.User;
+import com.j256.ormlite.dao.Dao;
+import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.jdbc.JdbcConnectionSource;
 import com.j256.ormlite.support.ConnectionSource;
 
@@ -18,6 +23,11 @@ public class DatabaseHelper {
     // create a connection source to our databse
     private ConnectionSource connectionSource;
 
+    // data access objects
+    private Dao<Comment,Integer> commentDao;
+    private Dao<Idee,Integer> ideeDao;
+    private Dao<User,String> userDao;
+
     private DatabaseHelper(){
         initializeDatabaseLink();
     }
@@ -33,8 +43,13 @@ public class DatabaseHelper {
     private void initializeDatabaseLink(){
         try {
             connectionSource = new JdbcConnectionSource(DB_URL,DB_USERNAME,DB_PASSWORD);
+            commentDao = DaoManager.createDao(connectionSource, Comment.class);
+            ideeDao = DaoManager.createDao(connectionSource,Idee.class);
+            userDao = DaoManager.createDao(connectionSource,User.class);
         } catch (SQLException e) {
             System.out.println(e.getMessage() + "    " + e.getErrorCode());
         }
     }
+
+
 }

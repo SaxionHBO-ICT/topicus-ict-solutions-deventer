@@ -20,6 +20,7 @@ public class Idee {
     private Date postDate;
     private boolean anonymous;
     private int soortIdee;
+    private Integer ideeID;
     private ArrayList<Comment> comments = new ArrayList<>();
 
 
