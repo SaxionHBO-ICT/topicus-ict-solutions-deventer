@@ -1,6 +1,7 @@
 package Model;
 
 
+import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
 import java.util.ArrayList;
@@ -11,149 +12,45 @@ import java.util.Date;
  */
 @DatabaseTable (tableName = "Idee")
 public class Idee {
-    private User poster;
-    private String title;
-    private String mainText;
-    private String plaatje;
-    private int postPoints;
-    private String summaryText;
-    private Date postDate;
-    private boolean anonymous;
-    private int soortIdee;
-    private Integer ideeID;
     private ArrayList<Comment> comments = new ArrayList<>();
-
-
-    private int tempPlaatje; // temp plaatje voor int.
-
 
     public static final int KLACHT = 1;
     public static final int IDEE = 2;
 
-    public Idee() {
+    @DatabaseField(id = true)
+    private String idIdee;
+    @DatabaseField(canBeNull = false)
+    private String Idee_title;
+    @DatabaseField(canBeNull = false)
+    private String Idee_samenvatting;
+    @DatabaseField(canBeNull = false)
+    private String Idee_datum;
+    @DatabaseField(canBeNull = false)
+    private int Idee_cat;
+    @DatabaseField(canBeNull = false)
+    private String Email_Adress;
+    @DatabaseField(canBeNull = false)
+    private String Idee_text;
+    @DatabaseField
+    private String Idee_plaat_url;
+    @DatabaseField
+    private boolean Idee_anoniem;
+    @DatabaseField(canBeNull = false)
+    private int Idee_points;
 
+
+    public Idee(String idIdee, String idee_title, String idee_samenvatting, String idee_datum, int idee_cat, String email_Adress, String idee_text, String idee_plaat_url, boolean idee_anoniem, int idee_points) {
+        this.idIdee = idIdee;
+        this.Idee_title = idee_title;
+        this.Idee_samenvatting = idee_samenvatting;
+        this.Idee_datum = idee_datum;
+        this.Idee_cat = idee_cat;
+        this.Email_Adress = email_Adress;
+        this.Idee_text = idee_text;
+        this.Idee_plaat_url = idee_plaat_url;
+        this.Idee_anoniem = idee_anoniem;
+        this.Idee_points = idee_points;
     }
-
-    public int getTempPlaatje() {
-        return tempPlaatje;
-    }
-
-    public void setTempPlaatje(int tempPlaatje) {
-        this.tempPlaatje = tempPlaatje;
-    }
-
-    public Idee(User poster, String text, String plaatje) {
-        this.poster = poster;
-        this.mainText = text;
-        this.plaatje = plaatje;
-        this.postPoints = 0;
-    }
-
-    public Idee(User poster, String title, String text, int plaatje, int soortIdee) {
-        this.poster = poster;
-        this.title = title;
-        this.mainText = text;
-        this.tempPlaatje = plaatje;
-        this.postPoints = 0;
-        this.soortIdee = soortIdee;
-    }
-
-
-    public Idee(String mainText, String summaryText) {
-        this.mainText = mainText;
-        this.summaryText = summaryText;
-    }
-
-    public Idee(String title, String mainText, String summaryText) {
-        this.title = title;
-        this.mainText = mainText;
-        this.summaryText = summaryText;
-
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getSoortIdee() {
-        if (this.soortIdee == KLACHT) {
-            return "klacht";
-        }
-        return "idee";
-    }
-
-    public void setSoortIdee(int soortIdee) {
-        this.soortIdee = soortIdee;
-    }
-
-    public int getPostPoints() {
-        return postPoints;
-    }
-
-    public void addPostPoint() {
-        this.postPoints = +1;
-    }
-
-    public void setPostPoints(int postPoints) {
-        this.postPoints = postPoints;
-    }
-
-
-    public String getMainText() {
-        return mainText;
-    }
-
-    public void setMainText(String mainText) {
-        this.mainText = mainText;
-    }
-
-    public String getSummaryText() {
-        return summaryText;
-    }
-
-    public void setSummaryText(String summaryText) {
-        this.summaryText = summaryText;
-    }
-
-    public User getPoster() {
-        return poster;
-    }
-
-    public void setPoster(User poster) {
-        this.poster = poster;
-    }
-
-    public String getPlaatje() {
-        return plaatje;
-    }
-
-    public void setPlaatje(String plaatje) {
-        this.plaatje = plaatje;
-    }
-
-    public Date getPostDate() {
-        return postDate;
-    }
-
-    public void setPostDate(Date postDate) {
-        this.postDate = postDate;
-    }
-
-    public boolean isAnonymous() {
-        return anonymous;
-    }
-
-    public void setAnonymous(boolean anonymous) {
-        this.anonymous = anonymous;
-    }
-public boolean getAnonymous(){
-    return anonymous;
-}
-
 
     public void addComment(Comment comment) {
         comments.add(comment);

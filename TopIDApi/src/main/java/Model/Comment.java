@@ -1,5 +1,6 @@
 package Model;
 
+import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
 /**
@@ -15,6 +16,17 @@ public class Comment {
     private User user;
     private String date;
     private Integer reactieID;
+
+    @DatabaseField(id = true)
+    private int id_Reactie;
+    @DatabaseField(canBeNull = false)
+    private String Reactie_content;
+    @DatabaseField(canBeNull = false)
+    private String Reactie_datum;
+    @DatabaseField(canBeNull = false)
+    private String Gebtuiker_Gebruiker_id;
+    @DatabaseField(canBeNull = false)
+    private int Idee_idIdee;
 
     public Comment() {
     }
@@ -34,6 +46,8 @@ public class Comment {
         this.userPicture = userPicture;
         this.user = user;
     }
+
+
 
     public Idee getParentIdee() {
         return parentIdee;

@@ -2,6 +2,8 @@ package Model;
 
 
 
+import com.j256.ormlite.field.DatabaseField;
+
 import java.util.ArrayList;
 
 /**
@@ -14,6 +16,15 @@ public class User {
     private int tempImage;
     private int postcount;
     private ArrayList<Idee> gevolgdeIdeeën = new ArrayList<>();
+
+    @DatabaseField(id = true)
+    private String EMail_adres;
+    @DatabaseField(canBeNull = false)
+    private String Gebruikersnaam;
+    @DatabaseField(canBeNull = false)
+    private String Wachtwoord;
+    @DatabaseField
+    private String Gebruiker_plaatje_url;
 
     public User(String name, String profileImage, int postcount) {
         this.name = name;
