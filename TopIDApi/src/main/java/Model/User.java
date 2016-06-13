@@ -1,7 +1,6 @@
-package nl.vanlaar.bart.topid.Model;
+package Model;
 
-import android.graphics.Bitmap;
-import android.os.Bundle;
+
 
 import java.util.ArrayList;
 
@@ -10,18 +9,18 @@ import java.util.ArrayList;
  */
 public class User {
     private String name;
-    private Bitmap profileImage;
+    private String profileImage;
     private int tempImage;
     private int postcount;
     private ArrayList<Idee> gevolgdeIdeeën = new ArrayList<>();
 
-    public User(String name, Bitmap profileImage, int postcount) {
+    public User(String name, String profileImage, int postcount) {
         this.name = name;
         this.profileImage = profileImage;
         this.postcount = postcount;
     }
 
-    public User(String name, Bitmap profileImage) {
+    public User(String name, String profileImage) {
         this.name = name;
         this.profileImage = profileImage;
         this.postcount = 0;
@@ -53,11 +52,11 @@ public class User {
         this.name = name;
     }
 
-    public Bitmap getProfileImage() {
+    public String getProfileImage() {
         return profileImage;
     }
 
-    public void setProfileImage(Bitmap profileImage) {
+    public void setProfileImage(String profileImage) {
         this.profileImage = profileImage;
     }
 
@@ -72,13 +71,6 @@ public class User {
         this.postcount =+1;
     }
 
-    public Bundle toBundle(){
-        Bundle b = new Bundle();
-
-
-
-        return b;
-    }
 
     public ArrayList<Idee> getGevolgdeIdeeën() {
         return gevolgdeIdeeën;
