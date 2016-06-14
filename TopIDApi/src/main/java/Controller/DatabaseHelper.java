@@ -78,6 +78,17 @@ public class DatabaseHelper {
         return false;
     }
 
+    public boolean addUserToDatabase(User user){
+        try {
+            userDao.create(user);
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+        return false;
+    }
+
 
     /**
      * alle update methods.
@@ -89,7 +100,7 @@ public class DatabaseHelper {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return false;
+         return false;
     }
 
 

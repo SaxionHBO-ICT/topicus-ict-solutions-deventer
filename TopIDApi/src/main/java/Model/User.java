@@ -18,7 +18,7 @@ public class User {
     private ArrayList<Idee> gevolgdeIdeeën = new ArrayList<>();
 
     @DatabaseField(id = true)
-    private String EMail_adres;
+    private String Email_adres;
     @DatabaseField(canBeNull = false)
     private String Gebruikersnaam;
     @DatabaseField(canBeNull = false)
@@ -89,6 +89,22 @@ public class User {
 
     public ArrayList<Idee> getGevolgdeIdeeën() {
         return gevolgdeIdeeën;
+    }
+
+    public String getEmail_adres() {
+        return Email_adres;
+    }
+
+    public void setEmail_adres(String email_adres) {
+        this.Email_adres = email_adres;
+    }
+
+    public String getGebruiker_plaatje_url() {
+        return Gebruiker_plaatje_url;
+    }
+
+    public void setGebruiker_plaatje_url(String gebruiker_plaatje_url) {
+        Gebruiker_plaatje_url = gebruiker_plaatje_url;
     }
 }
 
