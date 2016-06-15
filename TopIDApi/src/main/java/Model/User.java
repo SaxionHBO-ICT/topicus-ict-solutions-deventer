@@ -15,7 +15,7 @@ public class User {
 
     private String profileImage;
     private int tempImage;
-    private int postcount;
+
     private ArrayList<Idee> gevolgdeIdeeën = new ArrayList<>();
 
     @DatabaseField(id = true,canBeNull = false)
@@ -24,6 +24,8 @@ public class User {
     private String name;
     @DatabaseField
     private String gebruiker_plaatje_url;
+    @DatabaseField
+    private int postcount;
 
     public User() {
     }

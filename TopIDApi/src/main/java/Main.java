@@ -54,17 +54,20 @@ public class Main {
             @Override
             public Object handle(Request request, Response response) throws Exception {
                 String name = request.queryParams("name");
-                System.out.println(name);
+
                 String email_adres = request.queryParams("email_adres");
-                String Gebruiker_plaatje_url = request.queryParams("Gebruiker_plaatje_url");
+                String Gebruiker_plaatje_url = request.queryParams("gebruiker_plaatje_url");
                 int postcount = Integer.parseInt(request.queryParams("postcount"));
 
                 User user = new User();
             //    user.setName(name);
                 user.setEmail_adres(email_adres);
                 user.setName(name);
+                if(request.queryParams("postcount") != null){
+                    user.setPostcount(postcount);
+                }
                 user.setPostcount(postcount);
-
+                System.out.println(user.getName());
                 System.out.println(user.getEmail_adres() + user.getName()+ user.getPostcount());
                 if(Gebruiker_plaatje_url != null) {
                     user.setGebruiker_plaatje_url(Gebruiker_plaatje_url);
@@ -86,8 +89,23 @@ public class Main {
             @Override
             public Object handle(Request request, Response response) throws Exception {
 
-                Idee idee = new Idee();
+                String title = request.queryParams("idee_title");
+                String text = request.queryParams("idee_text");
+                String samenvatting = request.queryParams("idee_samenvatting");
+                String email_gebruiker = request.queryParams("email_adres_gebruiker");
+                String idee_plaatje_url = request.queryParams("idee_plaatje_url");
+                boolean idee_anoniem = Boolean.parseBoolean(request.queryParams("idee_anoniem"));
+                int idee_points = Integer.parseInt(request.queryParams("idee_points"));
+                int idee_cat = Integer.parseInt(request.queryParams("idee_cat"));
 
+//http://localhost:1234/idee?idee_title=Hans&idee_text= hoi&idee_samenvatting=hoii&email_adres_gebruiker=henk@live.nl&idee_anoniem=false&idee_points=0&idee_cat=1
+                Idee idee = new Idee(title,samenvatting,idee_cat, email_gebruiker,text, idee_anoniem,idee_points);
+
+                if(idee_plaatje_url!= null) {
+                    idee.setIdee_plaatje_url(idee_plaatje_url);
+                }
+
+                System.out.println(idee.getEmail_adres_gebruiker());
                 if (dbHelper.addIdeeToDatabase(idee)) {
                     response.status(201);
                     return "idee succesvol gepost/geupdate";
@@ -103,7 +121,7 @@ public class Main {
     }
 }
 
-
+//querybuilder
 // ormlite.com documentation getting started
 //mysql connector
 //Gson library // in app en  deze.
