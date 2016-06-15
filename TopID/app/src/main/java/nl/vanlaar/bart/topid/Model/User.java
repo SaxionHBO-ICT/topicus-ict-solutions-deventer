@@ -11,6 +11,7 @@ import nl.vanlaar.bart.topid.R;
  * Created by bart on 25-5-2016.
  */
 public class User {
+    private String emailAdres;
     private String name;
     private Bitmap profileImage;
     private int tempImage = R.drawable.anoniem;
@@ -35,7 +36,11 @@ public class User {
         this.postcount = postcount;
     }
 
-
+    public User(String name, String emailAdres, int tempImage,int postcount) {
+        this.name = name;
+        this.emailAdres = emailAdres;
+        this.tempImage = tempImage;
+    }
 
     public User(String name) {
         this.name = name;

@@ -29,7 +29,7 @@ import nl.vanlaar.bart.topid.View.KlachtenAdapter;
  */
 public class MainActivity extends AppCompatActivity {
     private ArrayList<Idee> ideeënLijst;
-    public static User LOGGED_IN_USER = new User("henk", R.drawable.gabenewell, 0);
+    public static User LOGGED_IN_USER = new User("henk","henk@live.nl", R.drawable.gabenewell, 0);
     public static final int IDEE_REQUESTCODE = 1337;
     public static boolean dataChanged = false;
     public static boolean ingelogd = true;
