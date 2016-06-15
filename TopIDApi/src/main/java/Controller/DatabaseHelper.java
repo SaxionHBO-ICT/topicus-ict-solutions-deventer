@@ -9,6 +9,8 @@ import spark.Request;
 import spark.Response;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by bart on 12-6-2016.
@@ -47,6 +49,7 @@ public class DatabaseHelper {
             commentDao = DaoManager.createDao(connectionSource, Comment.class);
             ideeDao = DaoManager.createDao(connectionSource,Idee.class);
             userDao = DaoManager.createDao(connectionSource,User.class);
+
         } catch (SQLException e) {
             System.out.println(e.getMessage() + "    " + e.getErrorCode());
         }
@@ -63,6 +66,16 @@ public class DatabaseHelper {
             e.printStackTrace();
         }
         return user;
+    }
+
+    public Idee getIdeeById(int id){
+        Idee idee = null;
+        try {
+            idee = ideeDao.queryForId(id);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return idee;
     }
 
     /**
@@ -103,5 +116,94 @@ public class DatabaseHelper {
          return false;
     }
 
+    public boolean upvoteIdee(Idee idee, User user){
+        idee.like();///////////////////////////////////////////////////////////////////////////////////////////////////////////
+        return true;
+    }
 
+    public ArrayList<Idee> getNieuwsteIdeeën(boolean isIdee){
+        try {
+            List<Idee> list = ideeDao.queryForAll();
+            ArrayList<Idee> ideeën = new ArrayList<>();
+            ideeën.addAll(list);
+            for (Idee idee: ideeën){
+                if (isIdee){
+                    if (idee.getIdee_cat() == 1){
+                        ideeën.remove(idee);
+                    }
+                } else {
+                    if (idee.getIdee_cat() == 2){
+                        ideeën.remove(idee);
+                    }
+                }
+            }
+            ideeën = customNieuwsteIdeeënSorter(ideeën);
+            return ideeën;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public ArrayList<Idee> getBesteIdeeën(boolean isIdee){
+        try{
+            List<Idee> list = ideeDao.queryForAll();
+            ArrayList<Idee> ideeën = new ArrayList<>();
+            ideeën.addAll(list);
+            for (Idee idee: ideeën){
+                if (isIdee){
+                    if (idee.getIdee_cat() == 1){
+                        ideeën.remove(idee);
+                    }
+                } else {
+                    if (idee.getIdee_cat() == 2){
+                        ideeën.remove(idee);
+                    }
+                }
+            }
+            ideeën = customBesteIdeeënSorter(ideeën);
+            return ideeën;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private ArrayList<Idee> customBesteIdeeënSorter(ArrayList<Idee> ideeën){
+        ArrayList<Idee> gesorteerdeIdeeën = ideeën;
+        boolean aangepast = true;
+        while (aangepast) {
+            int changeCounter = 0;
+            for (int i = 0; i < gesorteerdeIdeeën.size(); i++) {
+                if (gesorteerdeIdeeën.get(i).getIdee_points() < gesorteerdeIdeeën.get(i + 1).getIdee_points()) {
+                    Idee idee = gesorteerdeIdeeën.get(i);
+                    gesorteerdeIdeeën.remove(i);
+                    gesorteerdeIdeeën.add(i + 1, idee);
+                    changeCounter++;
+                }
+            }
+            if (changeCounter == 0){
+                aangepast = false;
+            }
+        }
+        return gesorteerdeIdeeën;
+    }
+
+    private ArrayList<Idee> customNieuwsteIdeeënSorter(ArrayList<Idee> ideeën){
+        ArrayList<Idee> gesorteerdeIdeeën = ideeën;
+        boolean aangepast = true;
+        while (aangepast) {
+            int changeCounter = 0;
+            for (int i = 0; i < gesorteerdeIdeeën.size(); i++) {
+                if (gesorteerdeIdeeën.get(i).getIdee_datum().compareTo(gesorteerdeIdeeën.get(i + 1).getIdee_datum()) > 1) {
+                    Idee idee = gesorteerdeIdeeën.get(i);
+                    gesorteerdeIdeeën.remove(i);
+                    gesorteerdeIdeeën.add(i + 1, idee);
+                    changeCounter++;
+                }
+            }
+            if (changeCounter == 0){
+                aangepast = false;
+            }
+        }
+        return gesorteerdeIdeeën;
+    }
 }

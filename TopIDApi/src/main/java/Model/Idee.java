@@ -65,6 +65,7 @@ public class Idee {
         return comments;
     }
 
+<<<<<<< HEAD
 
     public void setComments(ArrayList<Comment> comments) {
         this.comments = comments;
@@ -163,6 +164,23 @@ public class Idee {
         return sdf.format(new Date());
     }
 
+=======
+    public void like(){
+        Idee_points++;
+    }
+
+    public int getIdee_points() {
+        return Idee_points;
+    }
+
+    public String getIdee_datum() {
+        return Idee_datum;
+    }
+
+    public int getIdee_cat() {
+        return Idee_cat;
+    }
+>>>>>>> 47d603ab6379284a7c84a0328493ac548d99e817
 }
 
 
