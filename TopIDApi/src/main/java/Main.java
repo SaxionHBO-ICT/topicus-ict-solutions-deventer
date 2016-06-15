@@ -85,20 +85,71 @@ public class Main {
         post("/idee", new Route() {
             @Override
             public Object handle(Request request, Response response) throws Exception {
-
                 Idee idee = new Idee();
-
                 if (dbHelper.addIdeeToDatabase(idee)) {
                     response.status(201);
                     return "idee succesvol gepost/geupdate";
-
                 } else {
                     response.status(403);
                     return "idee onsuccesvol gepost";
                 }
-
             }
         });
+
+        /**
+         * like een idee
+         */
+        put("/idee/like/:ididee/:iduser", new Route() {
+            @Override
+            public Object handle(Request request, Response response) throws Exception {
+                User user = dbHelper.getUserByEmail(request.params(":emailadres"));
+                Idee idee = dbHelper.getIdeeById(Integer.parseInt(request.params(":id")));
+                if (dbHelper.updateIdeeInDatabase(idee))
+            }
+        });
+
+        /**
+         * get beste ideeën
+         */
+        get("ideeën/beste", new Route() {
+            @Override
+            public Object handle(Request request, Response response) throws Exception {
+                ArrayList<Idee> ideeën = dbHelper.getBesteIdeeën(true);
+                response.status(200);
+                return JSONParser.ideeënToJson(ideeën);
+            }
+        });
+
+        /**
+         * get nieuwste ideeën
+         */
+        get("ideeën/nieuwste", new Route() {
+            @Override
+            public Object handle(Request request, Response response) throws Exception {
+                ArrayList<Idee> ideeën = dbHelper.getNieuwsteIdeeën(true);
+                response.status(200);
+                return JSONParser.ideeënToJson(ideeën);
+            }
+        });
+
+        get("klachten/beste", new Route() {
+            @Override
+            public Object handle(Request request, Response response) throws Exception {
+                ArrayList<Idee> ideeën = dbHelper.getBesteIdeeën(false);
+                response.status(200);
+                return JSONParser.ideeënToJson(ideeën);
+            }
+        });
+
+        get("klachten/nieuwste", new Route() {
+            @Override
+            public Object handle(Request request, Response response) throws Exception {
+                ArrayList<Idee> ideeën = dbHelper.getNieuwsteIdeeën(false);
+                response.status(200);
+                return JSONParser.ideeënToJson(ideeën);
+            }
+        });
+
 
     }
 }

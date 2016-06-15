@@ -63,6 +63,21 @@ public class Idee {
         return comments;
     }
 
+    public void like(){
+        Idee_points++;
+    }
+
+    public int getIdee_points() {
+        return Idee_points;
+    }
+
+    public String getIdee_datum() {
+        return Idee_datum;
+    }
+
+    public int getIdee_cat() {
+        return Idee_cat;
+    }
 }
 
 

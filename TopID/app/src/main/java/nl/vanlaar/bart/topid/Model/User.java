@@ -5,13 +5,15 @@ import android.os.Bundle;
 
 import java.util.ArrayList;
 
+import nl.vanlaar.bart.topid.R;
+
 /**
  * Created by bart on 25-5-2016.
  */
 public class User {
     private String name;
     private Bitmap profileImage;
-    private int tempImage;
+    private int tempImage = R.drawable.anoniem;
     private int postcount;
     private ArrayList<Idee> gevolgdeIdeeën = new ArrayList<>();
 
@@ -32,6 +34,8 @@ public class User {
         this.tempImage = tempImage;
         this.postcount = postcount;
     }
+
+
 
     public User(String name) {
         this.name = name;
