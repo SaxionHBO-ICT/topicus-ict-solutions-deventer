@@ -10,7 +10,7 @@ import java.util.Date;
 /**
  * Created by bart on 18-5-2016.
  */
-@DatabaseTable (tableName = "Idee")
+@DatabaseTable (tableName = "Reactie")
 public class Idee {
     private ArrayList<Comment> comments = new ArrayList<>();
 
@@ -18,12 +18,12 @@ public class Idee {
     public static final int IDEE = 2;
 
     @DatabaseField(id = true)
-    private String idIdee;
+    private int idIdee;
     @DatabaseField(canBeNull = false)
     private String Idee_title;
     @DatabaseField(canBeNull = false)
     private String Idee_samenvatting;
-    @DatabaseField(canBeNull = false)
+    @DatabaseField(canBeNull = true)
     private String Idee_datum;
     @DatabaseField(canBeNull = false)
     private int Idee_cat;
@@ -39,7 +39,7 @@ public class Idee {
     private int Idee_points;
 
 
-    public Idee(String idIdee, String idee_title, String idee_samenvatting, String idee_datum, int idee_cat, String email_Adress, String idee_text, String idee_plaat_url, boolean idee_anoniem, int idee_points) {
+    public Idee(int idIdee, String idee_title, String idee_samenvatting, String idee_datum, int idee_cat, String email_Adress, String idee_text, String idee_plaat_url, boolean idee_anoniem, int idee_points) {
         this.idIdee = idIdee;
         this.Idee_title = idee_title;
         this.Idee_samenvatting = idee_samenvatting;

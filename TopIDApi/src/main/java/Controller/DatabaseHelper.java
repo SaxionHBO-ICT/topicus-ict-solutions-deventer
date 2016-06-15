@@ -16,9 +16,9 @@ import java.sql.SQLException;
 public class DatabaseHelper {
     // database variables
     private static DatabaseHelper dbHelper;
-    private static final String DB_URL = "jdbc:mysql://127.0.0.1:3306/topicusdb";
+    private static final String DB_URL = "jdbc:mysql://127.0.0.1:3307/topicusdb";
     private static final String DB_USERNAME = "root";
-    private static final String DB_PASSWORD = "root";
+    private static final String DB_PASSWORD = "usbw";
 
 
 
@@ -78,9 +78,9 @@ public class DatabaseHelper {
         return false;
     }
 
-    public boolean addUserToDatabase(User user){
+    public boolean addUserToDatabase(User gebruiker){
         try {
-            userDao.create(user);
+            userDao.create(gebruiker);
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
