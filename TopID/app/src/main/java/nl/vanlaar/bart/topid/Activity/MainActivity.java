@@ -23,6 +23,10 @@ import nl.vanlaar.bart.topid.R;
 import nl.vanlaar.bart.topid.View.IdeeënAdapter;
 import nl.vanlaar.bart.topid.View.KlachtenAdapter;
 
+/**
+ * De MainActivity laat een lijst zien van ideeën of klachten en geeft de
+ * mogelijkhijd om te sorteren op beste en nieuwste
+ */
 public class MainActivity extends AppCompatActivity {
     private ArrayList<Idee> ideeënLijst;
     public static User LOGGED_IN_USER = new User("henk", R.drawable.gabenewell, 0);

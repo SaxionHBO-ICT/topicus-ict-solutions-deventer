@@ -168,7 +168,7 @@
                 android:layout_below="@id/etIdeeSamenvattingText_makeIdee"
                 android:layout_marginLeft="20sp"
                 android:layout_toEndOf="@id/cbAnoniem_makeIdee"
-                android:text="Klacht" />
+                android:text="Vraag" />
 
             <CheckBox
                 android:id="@+id/cbKlacht_makeIdee"

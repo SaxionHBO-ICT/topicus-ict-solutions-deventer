@@ -14,6 +14,10 @@ import nl.vanlaar.bart.topid.R;
 /**
  * Created by Sander on 25-5-2016.
  */
+
+/**
+ * De HomescreenActivity laat een menu zien met de mogelijkheden van de app
+ */
 public class HomescreenActivity extends AppCompatActivity {
     private TextView uitloggen;
     private TextView inbox;
@@ -26,7 +30,6 @@ public class HomescreenActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        DatabaseHelper dbhelper = DatabaseHelper.getInstance();
 
         setContentView(R.layout.activity_homescreen);
 

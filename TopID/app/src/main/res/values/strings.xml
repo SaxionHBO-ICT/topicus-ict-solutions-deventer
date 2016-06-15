@@ -3,7 +3,7 @@
     <string name="app_name">TopID</string>
     <string name="menu">Menu</string>
     <string name="title_activity_login">Log in</string>
-    <string name="idee">Ideeën en klachten</string>
+    <string name="idee">Ideeën en vragen</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
@@ -16,7 +16,7 @@
     <string name="inbox">Inbox</string>
     <string name="uitloggen">Uitloggen</string>
     <string name="title_activity_homescreen">Homescreen</string>
-    <string name="ideeën">Ideeën en Klachten</string>
+    <string name="ideeën">Ideeën en Vragen</string>
     <string name="GevolgdeIdeeën">Gevolgde Ideeën</string>
     <string name="error_invalid_password">This password is too short</string>
     <string name="permission_rationale">"Contacts permissions are needed for providing email

@@ -28,6 +28,9 @@ import nl.vanlaar.bart.topid.Model.IdeeënLijst;
 import nl.vanlaar.bart.topid.Model.User;
 import nl.vanlaar.bart.topid.R;
 
+/**
+ * De MakeIdeeActivity laat de user een idee/klacht maken
+ */
 public class MakeIdeeActivity extends AppCompatActivity {
     private ArrayList<Idee> ideeën = IdeeënLijst.getInstance().getIdeeën();
     private static final int IMAGE_REQUEST_CODE = 1337;

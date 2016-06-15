@@ -123,6 +123,7 @@ public class DatabaseHelper {
 
     public ArrayList<Idee> getNieuwsteIdeeën(boolean isIdee){
         try {
+
             List<Idee> list = ideeDao.queryForAll();
             ArrayList<Idee> ideeën = new ArrayList<>();
             ideeën.addAll(list);

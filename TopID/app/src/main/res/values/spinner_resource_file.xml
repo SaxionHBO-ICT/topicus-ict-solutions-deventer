@@ -2,6 +2,6 @@
 <resources>
     <string-array name="sort_lijst">
         <item>Ideeën</item>
-        <item>Klachten</item>
+        <item>Vragen</item>
     </string-array>
 </resources>
