@@ -17,6 +17,7 @@ import spark.Route;
 import javax.xml.crypto.Data;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static spark.Spark.*;
 
@@ -82,13 +83,27 @@ public class Main {
 
             }
         });
+        get("/idee", new Route() {
+            @Override
+            public Object handle(Request request, Response response) throws Exception {
+                List<Idee> ideeën = dbHelper.getAllIdee();
+
+                if(ideeën != null){
+                    response.status(200);
+                    return parser.ideeënToJson(ideeën);
+                } else {
+                    response.status(403);
+                    return "kan posts niet teruggeven";
+                }
+            }
+        });
 
 
 
         post("/idee", new Route() {
             @Override
             public Object handle(Request request, Response response) throws Exception {
-<<<<<<< HEAD
+
 
                 String title = request.queryParams("idee_title");
                 String text = request.queryParams("idee_text");
@@ -107,9 +122,7 @@ public class Main {
                 }
 
                 System.out.println(idee.getEmail_adres_gebruiker());
-=======
-                Idee idee = new Idee();
->>>>>>> 47d603ab6379284a7c84a0328493ac548d99e817
+
                 if (dbHelper.addIdeeToDatabase(idee)) {
                     response.status(201);
                     return "idee succesvol gepost/geupdate";
@@ -123,15 +136,17 @@ public class Main {
         /**
          * like een idee
          */
+        /*
         put("/idee/like/:ididee/:iduser", new Route() {
             @Override
             public Object handle(Request request, Response response) throws Exception {
                 User user = dbHelper.getUserByEmail(request.params(":emailadres"));
                 Idee idee = dbHelper.getIdeeById(Integer.parseInt(request.params(":id")));
                 if (dbHelper.updateIdeeInDatabase(idee))
+                }
             }
         });
-
+*/
         /**
          * get beste ideeën
          */
@@ -150,7 +165,10 @@ public class Main {
         get("ideeën/nieuwste", new Route() {
             @Override
             public Object handle(Request request, Response response) throws Exception {
+                System.out.println("method reached");
                 ArrayList<Idee> ideeën = dbHelper.getNieuwsteIdeeën(true);
+                System.out.println("method reached");
+
                 response.status(200);
                 return JSONParser.ideeënToJson(ideeën);
             }
@@ -159,16 +177,29 @@ public class Main {
         get("klachten/beste", new Route() {
             @Override
             public Object handle(Request request, Response response) throws Exception {
+
                 ArrayList<Idee> ideeën = dbHelper.getBesteIdeeën(false);
-                response.status(200);
-                return JSONParser.ideeënToJson(ideeën);
+
+                if(ideeën != null) {
+                    response.status(200);
+                    return JSONParser.ideeënToJson(ideeën);
+
+                } else {
+                    response.status(403);
+                }
+                return  null;
             }
+
         });
 
         get("klachten/nieuwste", new Route() {
+
+
             @Override
             public Object handle(Request request, Response response) throws Exception {
+
                 ArrayList<Idee> ideeën = dbHelper.getNieuwsteIdeeën(false);
+
                 response.status(200);
                 return JSONParser.ideeënToJson(ideeën);
             }

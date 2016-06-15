@@ -67,10 +67,24 @@ public class DatabaseHelper {
         }
         return user;
     }
+    public List<Idee> getAllIdee() {
+        List<Idee> idee = new ArrayList<>();
+
+        try {
+            idee = ideeDao.queryForAll();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+            return idee;
+    }
+
+
+
 
     public Idee getIdeeById(int id){
         Idee idee = null;
         try {
+
             idee = ideeDao.queryForId(id);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -142,6 +156,7 @@ public class DatabaseHelper {
             return ideeën;
         } catch (SQLException e) {
             e.printStackTrace();
+            return null;
         }
     }
 
@@ -165,6 +180,7 @@ public class DatabaseHelper {
             return ideeën;
         } catch (SQLException e) {
             e.printStackTrace();
+            return null;
         }
     }
 

@@ -65,7 +65,7 @@ public class Idee {
         return comments;
     }
 
-<<<<<<< HEAD
+
 
     public void setComments(ArrayList<Comment> comments) {
         this.comments = comments;
@@ -103,17 +103,13 @@ public class Idee {
         this.idee_samenvatting = idee_samenvatting;
     }
 
-    public String getIdee_datum() {
-        return idee_datum;
-    }
+
 
     public void setIdee_datum(String idee_datum) {
         this.idee_datum = idee_datum;
     }
 
-    public int getIdee_cat() {
-        return idee_cat;
-    }
+
 
     public void setIdee_cat(int idee_cat) {
         this.idee_cat = idee_cat;
@@ -151,9 +147,7 @@ public class Idee {
         this.idee_anoniem = idee_anoniem;
     }
 
-    public int getIdee_points() {
-        return idee_points;
-    }
+
 
     public void setIdee_points(int idee_points) {
         this.idee_points = idee_points;
@@ -164,23 +158,23 @@ public class Idee {
         return sdf.format(new Date());
     }
 
-=======
+
     public void like(){
-        Idee_points++;
+        idee_points++;
     }
 
     public int getIdee_points() {
-        return Idee_points;
+        return idee_points;
     }
 
     public String getIdee_datum() {
-        return Idee_datum;
+        return idee_datum;
     }
 
     public int getIdee_cat() {
-        return Idee_cat;
+        return idee_cat;
     }
->>>>>>> 47d603ab6379284a7c84a0328493ac548d99e817
+
 }
 
 
