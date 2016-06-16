@@ -27,7 +27,7 @@ public class ASyncGetIdeesTask extends AsyncTask<Void,Void,JSONArray> {
         URL url = null;
         HttpURLConnection connection = null;
         try {
-            url = new URL("http://localhost:1234/idee");
+            url = new URL("http://145.2.236.36:1234/idee");
             connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
             connection.setDoOutput(true);

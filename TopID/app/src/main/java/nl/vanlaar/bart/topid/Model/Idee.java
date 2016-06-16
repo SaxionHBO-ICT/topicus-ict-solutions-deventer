@@ -2,7 +2,10 @@ package nl.vanlaar.bart.topid.Model;
 
 import android.graphics.Bitmap;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
 
 /**
  * Created by bart on 18-5-2016.
@@ -15,7 +18,7 @@ public class Idee {
     private Bitmap plaatje;
     private int postPoints;
     private String summaryText;
-    private String idee_datum;
+    private String idee_Datum;
     private boolean idee_anoniem;
     private int soortIdee;
     private ArrayList<Comment> comments = new ArrayList<>();
@@ -133,21 +136,18 @@ public class Idee {
     }
 
     public String getPostDate() {
-        return idee_datum;
+        return idee_Datum;
     }
 
     public void setPostDate(String postDate) {
-        this.idee_datum = postDate;
+        this.idee_Datum = postDate;
     }
 
-    public boolean isAnonymous() {
-        return idee_anoniem;
-    }
 
     public void setAnonymous(boolean anonymous) {
         this.idee_anoniem = anonymous;
     }
-public boolean getAnonymous(){
+    public boolean getAnonymous(){
     return idee_anoniem;
 }
 
@@ -158,6 +158,14 @@ public boolean getAnonymous(){
 
     public ArrayList<Comment> getComments() {
         return comments;
+    }
+    public void setidee_Datum(){
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy HH:mm", Locale.GERMANY);
+        this.idee_Datum =  sdf.format(new Date());
+    }
+
+    public String getidee_Datum() {
+        return idee_Datum;
     }
 
 }

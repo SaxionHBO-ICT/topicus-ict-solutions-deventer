@@ -78,7 +78,7 @@ public class User {
         this.postcount = postcount;
     }
     public void addToPostcount(){
-        this.postcount =+1;
+        this.postcount =postcount+1;
     }
 
     public Bundle toBundle(){

@@ -21,7 +21,6 @@ import nl.vanlaar.bart.topid.Model.IdeeënLijst;
 import nl.vanlaar.bart.topid.Model.User;
 import nl.vanlaar.bart.topid.R;
 import nl.vanlaar.bart.topid.View.IdeeënAdapter;
-import nl.vanlaar.bart.topid.View.KlachtenAdapter;
 
 /**
  * De MainActivity laat een lijst zien van ideeën of klachten en geeft de
@@ -36,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private ListView lvIdeeën;
     private FloatingActionButton fab;
     private static IdeeënAdapter ideeAdapter;
-    private static KlachtenAdapter klachtenAdapter;
+    private static IdeeënAdapter klachtenAdapter;
     private Context context;
     private Spinner spinnerSort;
     private Toolbar toolbar;
@@ -59,6 +58,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+
+
         //als er geen user ingelogt is ga dan terug naar de login pagina
         if (ingelogd == false) {
             Intent intent = new Intent(this, LoginActivity.class);
@@ -80,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
 
         //initeer de adapters en de iedeeënlijst
         ideeAdapter = new IdeeënAdapter(this, R.layout.fragment_main, IdeeënLijst.getInstance().sortByIdee());
-        klachtenAdapter = new KlachtenAdapter(this, R.layout.fragment_main, IdeeënLijst.getInstance().sortByKlacht());
+        klachtenAdapter = new IdeeënAdapter(this, R.layout.fragment_main, IdeeënLijst.getInstance().sortByKlacht());
         ideeënLijst = IdeeënLijst.getInstance().getIdeeën();
 
         //set de adapter van de spinner

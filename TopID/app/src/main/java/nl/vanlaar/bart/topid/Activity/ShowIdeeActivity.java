@@ -38,6 +38,7 @@ public class ShowIdeeActivity extends AppCompatActivity {
     private TextView tvPosterText_showIdee;
     private ImageView iv_ImagePost_showIdee;
     private Idee idee;
+    private TextView tvPostTijdenDate_showIdee;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +64,8 @@ public class ShowIdeeActivity extends AppCompatActivity {
         backArrow = (ImageView) findViewById(R.id.iv_iedeeën_toolbar_backbutton);
         ideeImage  = (ImageView) findViewById(R.id.iv_ImagePost_showIdee);
         ideeImage_FullScreen = (ImageView) findViewById(R.id.iv_ImagePost_FullScreen_showIdee);
+        tvPostTijdenDate_showIdee = (TextView) findViewById(R.id.tvPostTijdenDate_showIdee);
+
 
         //set alle views met info van het idee
         tv_show_idee_name.setText(idee.getTitle());
@@ -72,6 +75,9 @@ public class ShowIdeeActivity extends AppCompatActivity {
         }
         tvPosterName_showPostcount.setText("Postcount: " + MainActivity.LOGGED_IN_USER.getPostcount());
         ivPosterImage_showIdee.setImageResource(MainActivity.LOGGED_IN_USER.getTempImage());
+        tvPostTijdenDate_showIdee.setText(idee.getidee_Datum());
+
+
 
         //als er op de menu knop wordt gedrukt ga dan naar het menu
         menuButton.setOnClickListener(new View.OnClickListener() {

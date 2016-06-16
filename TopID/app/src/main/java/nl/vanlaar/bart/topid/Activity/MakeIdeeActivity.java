@@ -48,6 +48,7 @@ public class MakeIdeeActivity extends AppCompatActivity {
     private ImageView backArrow;
     private ImageView menuButton;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,6 +69,7 @@ public class MakeIdeeActivity extends AppCompatActivity {
         cbAnoniem = (CheckBox) findViewById(R.id.cbAnoniem_makeIdee);
         cbKlacht = (CheckBox) findViewById(R.id.cbKlacht_makeIdee);
         cbIdee = (CheckBox) findViewById(R.id.cbIdee_makeIdee);
+
 
         //als er op de menu knop gedrukt wordt ga dan naar het menu
         menuButton.setOnClickListener(new View.OnClickListener() {
@@ -173,6 +175,9 @@ public class MakeIdeeActivity extends AppCompatActivity {
                     }
                     idee.setPoster(MainActivity.LOGGED_IN_USER);
                     MainActivity.LOGGED_IN_USER.addToPostcount();
+                    idee.setidee_Datum();
+
+
                     //voeg het idee toe
                     IdeeënLijst.getInstance().addIdee(idee);
 

@@ -43,8 +43,8 @@ private static Gson gson = new GsonBuilder().create();
             JSONObject jsonObject = null;
             try {
                 jsonObject = array.getJSONObject(i);
-                idee.setAnonymous(Boolean.parseBoolean(jsonObject.get("idee_anoniem").toString()));
-                idee.setTitle(jsonObject.get("idee_titel").toString());
+                idee.setAnonymous(jsonObject.optBoolean("idee_anoniem"));
+                idee.setTitle(jsonObject.optString("idee_titel"));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
