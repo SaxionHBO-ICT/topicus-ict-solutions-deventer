@@ -12,6 +12,9 @@ public class Comment {
     private User user;
     private String date;
 
+    public Comment() {
+    }
+
     /**
      * een lege constructor
      */
@@ -49,6 +52,7 @@ public class Comment {
         this.userPicture = userPicture;
         this.user = user;
     }
+
 
     //getters en setters
     public Idee getParentIdee() {

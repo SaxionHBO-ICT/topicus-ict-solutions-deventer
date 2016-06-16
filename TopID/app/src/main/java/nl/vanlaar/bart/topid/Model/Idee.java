@@ -1,23 +1,25 @@
 package nl.vanlaar.bart.topid.Model;
 
 import android.graphics.Bitmap;
-import android.os.Bundle;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Locale;
 
 /**
  * Een idee(kan ook een vraag zijn)
  */
 public class Idee {
+    private int idIdee;
     private User poster;
-    private String title;
+    private String idee_title;
     private String mainText;
     private Bitmap plaatje;
     private int postPoints;
     private String summaryText;
-    private String postDate;
-    private boolean anonymous;
+    private String idee_Datum;
+    private boolean idee_anoniem;
     private int soortIdee;
     private ArrayList<Comment> comments = new ArrayList<>();
     private int tempPlaatje; // temp plaatje voor int.
@@ -38,15 +40,18 @@ public class Idee {
 
     public Idee(User poster, String title, String mainText, int postPoints, String summaryText, String postDate, boolean anonymous, int soortIdee, ArrayList<Comment> comments, int tempPlaatje) {
         this.poster = poster;
-        this.title = title;
-        this.mainText = mainText;
-        this.postPoints = postPoints;
-        this.summaryText = summaryText;
-        this.postDate = postDate;
-        this.anonymous = anonymous;
+        this.mainText = text;
+        this.plaatje = plaatje;
+        this.postPoints = 0;
+    }
+
+    public Idee(User poster, String title, String text, int plaatje, int soortIdee) {
+        this.poster = poster;
+        this.idee_title = title;
+        this.mainText = text;
+        this.tempPlaatje = plaatje;
+        this.postPoints = 0;
         this.soortIdee = soortIdee;
-        this.comments = comments;
-        this.tempPlaatje = tempPlaatje;
     }
 
     //getters en setters
@@ -57,13 +62,20 @@ public class Idee {
     public void setTempPlaatje(int tempPlaatje) {
         this.tempPlaatje = tempPlaatje;
     }
+    
+    public Idee(String title, String mainText, String summaryText) {
+        this.idee_title = title;
+        this.mainText = mainText;
+        this.summaryText = summaryText;
+
+    }
 
     public String getTitle() {
-        return title;
+        return idee_title;
     }
 
     public void setTitle(String title) {
-        this.title = title;
+        this.idee_title = title;
     }
 
     public String getSoortIdee() {
@@ -88,6 +100,7 @@ public class Idee {
     public void setPostPoints(int postPoints) {
         this.postPoints = postPoints;
     }
+
 
     public String getMainText() {
         return mainText;
@@ -126,7 +139,7 @@ public class Idee {
     }
 
     public void setPostDate(String postDate) {
-        this.postDate = postDate;
+        this.idee_Datum = postDate;
     }
 
     public boolean isAnonymous() {
@@ -134,8 +147,11 @@ public class Idee {
     }
 
     public void setAnonymous(boolean anonymous) {
-        this.anonymous = anonymous;
+        this.idee_anoniem = anonymous;
     }
+    public boolean getAnonymous(){
+    return idee_anoniem;
+}
 
     public ArrayList<Comment> getComments() {
         return comments;
@@ -151,7 +167,17 @@ public class Idee {
         comments.add(comment);
     }
 
+    public ArrayList<Comment> getComments() {
+        return comments;
+    }
+    public void setidee_Datum(){
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy HH:mm", Locale.GERMANY);
+        this.idee_Datum =  sdf.format(new Date());
+    }
 
+    public String getidee_Datum() {
+        return idee_Datum;
+    }
 
 }
 

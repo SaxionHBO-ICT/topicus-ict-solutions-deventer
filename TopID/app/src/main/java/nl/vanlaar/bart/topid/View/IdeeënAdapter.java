@@ -19,7 +19,6 @@ import nl.vanlaar.bart.topid.R;
  */
 public class IdeeënAdapter extends ArrayAdapter<Idee> {
     private Idee idee;
-
     public IdeeënAdapter(Context context, int resource, ArrayList<Idee> objects) {
         super(context, resource, objects);
     }
@@ -35,20 +34,27 @@ public class IdeeënAdapter extends ArrayAdapter<Idee> {
         TextView title = (TextView) convertView.findViewById(R.id.tvNaamListItem);
         TextView posterName = (TextView) convertView.findViewById(R.id.tvPosterName);
         ImageView ivPoster = (ImageView) convertView.findViewById(R.id.ivImageListItem);
-
+        TextView tvPostDate = (TextView) convertView.findViewById(R.id.tvPostDate);
         idee = getItem(position);
+
+        tvPostDate.setText(idee.getidee_Datum());
+
         Log.d("idee", idee.getTitle()
         );
+
         tvSummary.setText(idee.getSummaryText());
         title.setText(idee.getTitle());
         //als het idee anoniem geplaatst is dan geeft je hem anonieme data mee
         if (idee.getAnonymous()) {
             ivPoster.setImageResource(R.drawable.anoniem);
             posterName.setText("Anoniem");
-        } else {
+        }else{
             posterName.setText(idee.getPoster().getName());
             ivPoster.setImageResource(idee.getPoster().getTempImage()); // temp non bitmap image
         }
-        return convertView;
+
+
+
+        return  convertView;
     }
 }

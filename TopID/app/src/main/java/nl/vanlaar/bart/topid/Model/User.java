@@ -11,6 +11,7 @@ import nl.vanlaar.bart.topid.R;
  * Een user object
  */
 public class User {
+    private String emailAdres;
     private String name;
     private Bitmap profileImage;
     private int tempImage = R.drawable.anoniem;
@@ -42,6 +43,15 @@ public class User {
         this.name = name;
         this.tempImage = tempImage;
         this.postcount = postcount;
+    }
+    
+    /*
+    een constructor
+     */
+    public User(String name, String emailAdres, int tempImage,int postcount) {
+        this.name = name;
+        this.emailAdres = emailAdres;
+        this.tempImage = tempImage;
     }
 
     /*
@@ -84,6 +94,17 @@ public class User {
 
     public void setPostcount(int postcount) {
         this.postcount = postcount;
+    }
+    public void addToPostcount(){
+        this.postcount = postcount+1;
+    }
+
+    public Bundle toBundle(){
+        Bundle b = new Bundle();
+
+
+
+        return b;
     }
 
     public ArrayList<Idee> getGevolgdeIdeeën() {
