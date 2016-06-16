@@ -13,7 +13,7 @@ import nl.vanlaar.bart.topid.Model.IdeeënLijst;
 import nl.vanlaar.bart.topid.R;
 
 /**
- * Created by bart on 29-5-2016.
+ * Adapter voor reacties
  */
 public class ReactiesAdapter extends ArrayAdapter<Comment> {
 
@@ -26,6 +26,7 @@ public class ReactiesAdapter extends ArrayAdapter<Comment> {
         if(convertView == null){
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_item_reaction, parent, false);
         }
+        //koppelen views aan ids
         ImageView imageView = (ImageView) convertView.findViewById(R.id.iv_reaction_gebbruiker_plaatje);
         TextView userName = (TextView) convertView.findViewById(R.id.tv_reaction_gebruiker_naam);
         TextView date = (TextView) convertView.findViewById(R.id.tv_reaction_date);

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 /**
- * Created by bart on 18-5-2016.
+ * Een idee(kan ook een vraag zijn)
  */
 public class Idee {
     private User poster;
@@ -16,57 +16,46 @@ public class Idee {
     private Bitmap plaatje;
     private int postPoints;
     private String summaryText;
-    private Date postDate;
+    private String postDate;
     private boolean anonymous;
     private int soortIdee;
     private ArrayList<Comment> comments = new ArrayList<>();
-
-
     private int tempPlaatje; // temp plaatje voor int.
 
-
+    //voor soortIdee
     public static final int KLACHT = 1;
     public static final int IDEE = 2;
 
+    /*
+    lege constructor
+     */
     public Idee() {
-
     }
 
+    /*
+    een constructor
+     */
+
+    public Idee(User poster, String title, String mainText, int postPoints, String summaryText, String postDate, boolean anonymous, int soortIdee, ArrayList<Comment> comments, int tempPlaatje) {
+        this.poster = poster;
+        this.title = title;
+        this.mainText = mainText;
+        this.postPoints = postPoints;
+        this.summaryText = summaryText;
+        this.postDate = postDate;
+        this.anonymous = anonymous;
+        this.soortIdee = soortIdee;
+        this.comments = comments;
+        this.tempPlaatje = tempPlaatje;
+    }
+
+    //getters en setters
     public int getTempPlaatje() {
         return tempPlaatje;
     }
 
     public void setTempPlaatje(int tempPlaatje) {
         this.tempPlaatje = tempPlaatje;
-    }
-
-    public Idee(User poster, String text, Bitmap plaatje) {
-        this.poster = poster;
-        this.mainText = text;
-        this.plaatje = plaatje;
-        this.postPoints = 0;
-    }
-
-    public Idee(User poster, String title, String text, int plaatje, int soortIdee) {
-        this.poster = poster;
-        this.title = title;
-        this.mainText = text;
-        this.tempPlaatje = plaatje;
-        this.postPoints = 0;
-        this.soortIdee = soortIdee;
-    }
-
-
-    public Idee(String mainText, String summaryText) {
-        this.mainText = mainText;
-        this.summaryText = summaryText;
-    }
-
-    public Idee(String title, String mainText, String summaryText) {
-        this.title = title;
-        this.mainText = mainText;
-        this.summaryText = summaryText;
-
     }
 
     public String getTitle() {
@@ -100,7 +89,6 @@ public class Idee {
         this.postPoints = postPoints;
     }
 
-
     public String getMainText() {
         return mainText;
     }
@@ -133,11 +121,11 @@ public class Idee {
         this.plaatje = plaatje;
     }
 
-    public Date getPostDate() {
+    public String getPostDate() {
         return postDate;
     }
 
-    public void setPostDate(Date postDate) {
+    public void setPostDate(String postDate) {
         this.postDate = postDate;
     }
 
@@ -148,24 +136,22 @@ public class Idee {
     public void setAnonymous(boolean anonymous) {
         this.anonymous = anonymous;
     }
-public boolean getAnonymous(){
-    return anonymous;
-}
-    public Bundle toBundle() {
-        Bundle b = new Bundle();
-        b.putBundle("User", this.poster.toBundle());
-
-
-        return b;
-    }
-
-    public void addComment(Comment comment) {
-        comments.add(comment);
-    }
 
     public ArrayList<Comment> getComments() {
         return comments;
     }
+    public boolean getAnonymous() {
+        return anonymous;
+    }
+
+    /*
+    voegt een comment toe aan het idee
+     */
+    public void addComment(Comment comment) {
+        comments.add(comment);
+    }
+
+
 
 }
 

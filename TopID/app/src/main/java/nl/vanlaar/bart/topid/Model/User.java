@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import nl.vanlaar.bart.topid.R;
 
 /**
- * Created by bart on 25-5-2016.
+ * Een user object
  */
 public class User {
     private String name;
@@ -17,30 +17,43 @@ public class User {
     private int postcount;
     private ArrayList<Idee> gevolgdeIdeeën = new ArrayList<>();
 
+    /*
+    een constructor
+     */
     public User(String name, Bitmap profileImage, int postcount) {
         this.name = name;
         this.profileImage = profileImage;
         this.postcount = postcount;
     }
 
+    /*
+    een constructor
+     */
     public User(String name, Bitmap profileImage) {
         this.name = name;
         this.profileImage = profileImage;
         this.postcount = 0;
     }
 
+    /*
+    een constructor
+     */
     public User(String name, int tempImage, int postcount) {
         this.name = name;
         this.tempImage = tempImage;
         this.postcount = postcount;
     }
 
-
-
+    /*
+    een constructor
+     */
     public User(String name) {
         this.name = name;
     }
 
+    /*
+    getters en setters
+     */
     public int getTempImage() {
         return tempImage;
     }
@@ -72,20 +85,16 @@ public class User {
     public void setPostcount(int postcount) {
         this.postcount = postcount;
     }
-    public void addToPostcount(){
-        this.postcount =+1;
-    }
-
-    public Bundle toBundle(){
-        Bundle b = new Bundle();
-
-
-
-        return b;
-    }
 
     public ArrayList<Idee> getGevolgdeIdeeën() {
         return gevolgdeIdeeën;
+    }
+
+    /*
+    verhoog postcount met 1
+     */
+    public void addToPostcount() {
+        this.postcount = +1;
     }
 }
 

@@ -2,17 +2,40 @@ package nl.vanlaar.bart.topid.Model;
 
 import java.util.ArrayList;
 
+import nl.vanlaar.bart.topid.R;
+
 /**
- * Created by Sander on 25-5-2016.
+ * Een lijst van comments met een singelton constructor
  */
 public class CommentList {
     private static CommentList instance;
     private ArrayList<Comment> comments;
 
+    /**
+     * een constructor
+     */
     private CommentList(){
         comments = new ArrayList<>();
+
+        //toevoegen van dummy data
+
+        Comment comment = new Comment("Henk", "Meer fietsen", "Ik vind ook dat meer mensen op de fiets moeten!", R.drawable.david, "9 jan");
+        Comment comment2 = new Comment("Henk", "Meer fietsen", "Minder auto's en meer fietsen!", R.drawable.sander, "9 jan");
+
+        comments.add(comment);
+        comments.add(comment2);
+        comments.add(comment);
+        comments.add(comment2);
+        comments.add(comment);
+        comments.add(comment2);
+        comments.add(comment);
+        comments.add(comment2);
     }
 
+    /**
+     * haal de instantie van de lijst op
+     * @return de instantie van CommentList
+     */
     public static CommentList getInstance(){
         if (instance == null){
             instance = new CommentList();
@@ -20,15 +43,24 @@ public class CommentList {
         return instance;
     }
 
+    /*
+    voegt een comment toe
+     */
     public void addComment(Comment comment){
         comments.add(comment);
     }
 
+    /*
+    Voegt een comment toe dmv de waarden van een comment
+     */
     public void addComment(String userName, String ideeName, String comment, int userPic, String date){
         Comment commentAdded = new Comment(userName, ideeName, comment, userPic, date);
         addComment(commentAdded);
     }
 
+    /*
+    haal de lijst met comments op
+     */
     public ArrayList<Comment> getComments() {
         ArrayList<Comment> commentss = new ArrayList<>(comments);
         return commentss;

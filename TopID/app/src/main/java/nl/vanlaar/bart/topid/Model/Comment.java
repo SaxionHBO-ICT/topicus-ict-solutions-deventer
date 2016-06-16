@@ -13,6 +13,12 @@ public class Comment {
     private String date;
 
     /**
+     * een lege constructor
+     */
+    public Comment() {
+    }
+
+    /**
      * een constructer
      * @param userName
      * @param ideeName

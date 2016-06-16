@@ -14,19 +14,22 @@ import nl.vanlaar.bart.topid.Model.Idee;
 import nl.vanlaar.bart.topid.R;
 
 /**
- * Created by bart on 18-5-2016.
+ * Adapter voor de vragen(vragen waren eerst klachten)
  */
 public class KlachtenAdapter extends ArrayAdapter<Idee> {
     private Idee idee;
+
     public KlachtenAdapter(Context context, int resource, ArrayList<Idee> objects) {
-        super(context, resource,objects);
+        super(context, resource, objects);
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        if(convertView == null){
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.listlayout,parent,false);
+        if (convertView == null) {
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.listlayout, parent, false);
         }
+
+        //koppel views aan ids
         TextView tvSummary = (TextView) convertView.findViewById(R.id.tvSAMENVATINGLISTITEM);
         TextView title = (TextView) convertView.findViewById(R.id.tvNaamListItem);
         TextView posterName = (TextView) convertView.findViewById(R.id.tvPosterName);
@@ -34,20 +37,18 @@ public class KlachtenAdapter extends ArrayAdapter<Idee> {
 
 
         idee = getItem(position);
-
         tvSummary.setText(idee.getSummaryText());
         title.setText(idee.getTitle());
         posterName.setText(idee.getPoster().getName());
-        if(idee.getAnonymous()){
-         //     ivPoster.setImageResource(R.drawable.anoniem);
+
+        //als de vraag anoniem gepost is geeft deze dan ook anonieme data mee
+        if (idee.getAnonymous()) {
+            ivPoster.setImageResource(R.drawable.anoniem);
             posterName.setText("Anoniem");
-        }else{
+        } else {
             posterName.setText(idee.getPoster().getName());
             ivPoster.setImageResource(idee.getPoster().getTempImage()); // temp non bitmap image
         }
-
-
-
-        return  convertView;
+        return convertView;
     }
 }
