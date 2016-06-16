@@ -11,7 +11,7 @@ import java.util.Date;
 /**
  * Created by bart on 18-5-2016.
  */
-@DatabaseTable (tableName = "Idee")
+@DatabaseTable(tableName = "Idee")
 public class Idee {
     private ArrayList<Comment> comments = new ArrayList<>();
 
@@ -52,7 +52,6 @@ public class Idee {
     }
 
 
-
     public Idee() {
     }
 
@@ -63,7 +62,6 @@ public class Idee {
     public ArrayList<Comment> getComments() {
         return comments;
     }
-
 
 
     public void setComments(ArrayList<Comment> comments) {
@@ -103,11 +101,9 @@ public class Idee {
     }
 
 
-
     public void setIdee_datum(String idee_datum) {
         this.idee_datum = idee_datum;
     }
-
 
 
     public void setIdee_cat(int idee_cat) {
@@ -147,18 +143,17 @@ public class Idee {
     }
 
 
-
     public void setIdee_points(int idee_points) {
         this.idee_points = idee_points;
     }
 
-    public String generateDate(){
+    public String generateDate() {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy HH:mm");
         return sdf.format(new Date());
     }
 
 
-    public void like(){
+    public void like() {
         idee_points++;
     }
 
