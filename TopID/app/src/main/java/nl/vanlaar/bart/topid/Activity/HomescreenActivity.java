@@ -8,11 +8,14 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import nl.vanlaar.bart.topid.Database.DatabaseHelper;
 import nl.vanlaar.bart.topid.R;
 
 /**
  * Created by Sander on 25-5-2016.
+ */
+
+/**
+ * De HomescreenActivity laat een menu zien met de mogelijkheden van de app
  */
 public class HomescreenActivity extends AppCompatActivity {
     private TextView uitloggen;
@@ -26,7 +29,7 @@ public class HomescreenActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        DatabaseHelper dbhelper = DatabaseHelper.getInstance();
+
 
         setContentView(R.layout.activity_homescreen);
 

@@ -34,7 +34,7 @@ import nl.vanlaar.bart.topid.R;
 import static android.Manifest.permission.READ_CONTACTS;
 
 /**
- * A login screen that offers login via email/password.
+ * De login activity laat een gebruiker inloggen
  */
 public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
 

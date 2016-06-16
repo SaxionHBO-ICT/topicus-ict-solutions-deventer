@@ -18,6 +18,9 @@ import nl.vanlaar.bart.topid.Model.IdeeënLijst;
 import nl.vanlaar.bart.topid.R;
 import nl.vanlaar.bart.topid.View.ReactiesAdapter;
 
+/**
+ * De reageer activity laat de gebruiker een reactie plaatsen op een idee
+ */
 public class ReageerActivity extends AppCompatActivity {
 
     private Button btPlaatsReactie;

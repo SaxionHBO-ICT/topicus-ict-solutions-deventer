@@ -53,6 +53,25 @@ public class IdeeënLijst {
         return sortedArray;
 
     }
+    private ArrayList<Idee> sortByDate(ArrayList<Idee> ideeën){
+        ArrayList<Idee> gesorteerdeIdeeën = ideeën;
+        boolean aangepast = true;
+        while (aangepast) {
+            int changeCounter = 0;
+            for (int i = 0; i < gesorteerdeIdeeën.size(); i++) {
+                if (gesorteerdeIdeeën.get(i).getidee_Datum().compareTo(gesorteerdeIdeeën.get(i + 1).getidee_Datum()) > 1) {
+                    Idee idee = gesorteerdeIdeeën.get(i);
+                    gesorteerdeIdeeën.remove(i);
+                    gesorteerdeIdeeën.add(i + 1, idee);
+                    changeCounter++;
+                }
+            }
+            if (changeCounter == 0){
+                aangepast = false;
+            }
+        }
+        return gesorteerdeIdeeën;
+    }
 
 
 }

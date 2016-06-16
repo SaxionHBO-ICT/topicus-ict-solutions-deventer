@@ -1,23 +1,25 @@
 package nl.vanlaar.bart.topid.Model;
 
 import android.graphics.Bitmap;
-import android.os.Bundle;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Locale;
 
 /**
  * Created by bart on 18-5-2016.
  */
 public class Idee {
+    private int idIdee;
     private User poster;
-    private String title;
+    private String idee_title;
     private String mainText;
     private Bitmap plaatje;
     private int postPoints;
     private String summaryText;
-    private Date postDate;
-    private boolean anonymous;
+    private String idee_Datum;
+    private boolean idee_anoniem;
     private int soortIdee;
     private ArrayList<Comment> comments = new ArrayList<>();
 
@@ -49,7 +51,7 @@ public class Idee {
 
     public Idee(User poster, String title, String text, int plaatje, int soortIdee) {
         this.poster = poster;
-        this.title = title;
+        this.idee_title = title;
         this.mainText = text;
         this.tempPlaatje = plaatje;
         this.postPoints = 0;
@@ -62,18 +64,18 @@ public class Idee {
     }
 
     public Idee(String title, String mainText, String summaryText) {
-        this.title = title;
+        this.idee_title = title;
         this.mainText = mainText;
         this.summaryText = summaryText;
 
     }
 
     public String getTitle() {
-        return title;
+        return idee_title;
     }
 
     public void setTitle(String title) {
-        this.title = title;
+        this.idee_title = title;
     }
 
     public String getSoortIdee() {
@@ -132,31 +134,22 @@ public class Idee {
         this.plaatje = plaatje;
     }
 
-    public Date getPostDate() {
-        return postDate;
+    public String getPostDate() {
+        return idee_Datum;
     }
 
-    public void setPostDate(Date postDate) {
-        this.postDate = postDate;
+    public void setPostDate(String postDate) {
+        this.idee_Datum = postDate;
     }
 
-    public boolean isAnonymous() {
-        return anonymous;
-    }
 
     public void setAnonymous(boolean anonymous) {
-        this.anonymous = anonymous;
+        this.idee_anoniem = anonymous;
     }
-public boolean getAnonymous(){
-    return anonymous;
+    public boolean getAnonymous(){
+    return idee_anoniem;
 }
-    public Bundle toBundle() {
-        Bundle b = new Bundle();
-        b.putBundle("User", this.poster.toBundle());
 
-
-        return b;
-    }
 
     public void addComment(Comment comment) {
         comments.add(comment);
@@ -164,6 +157,14 @@ public boolean getAnonymous(){
 
     public ArrayList<Comment> getComments() {
         return comments;
+    }
+    public void setidee_Datum(){
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy HH:mm", Locale.GERMANY);
+        this.idee_Datum =  sdf.format(new Date());
+    }
+
+    public String getidee_Datum() {
+        return idee_Datum;
     }
 
 }

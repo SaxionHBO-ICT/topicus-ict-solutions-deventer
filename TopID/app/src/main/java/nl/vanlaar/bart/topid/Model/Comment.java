@@ -15,6 +15,14 @@ public class Comment {
     public Comment() {
     }
 
+    /**
+     * een constructer
+     * @param userName
+     * @param ideeName
+     * @param comment
+     * @param userPicture
+     * @param date
+     */
     public Comment(String userName, String ideeName, String comment, int userPicture, String date) {
         this.userName = userName;
         this.ideeName = ideeName;
@@ -23,6 +31,14 @@ public class Comment {
         this.date = date;
     }
 
+    /**
+     * een constructor
+     * @param userName
+     * @param comment
+     * @param parentIdee
+     * @param userPicture
+     * @param user
+     */
     public Comment(String userName, String comment, Idee parentIdee, int userPicture, User user) {
         this.userName = userName;
         this.comment = comment;
@@ -31,34 +47,29 @@ public class Comment {
         this.user = user;
     }
 
+
+    //getters en setters
     public Idee getParentIdee() {
         return parentIdee;
     }
-
     public void setParentIdee(Idee parentIdee) {
         this.parentIdee = parentIdee;
     }
-
     public String getDate() {
         return date;
     }
-
     public User getUser() {
         return user;
     }
-
     public String getUserName() {
         return userName;
     }
-
     public String getIdeeName() {
         return ideeName;
     }
-
     public String getComment() {
         return comment;
     }
-
     public int getUserPicture() {
         return userPicture;
     }

@@ -64,7 +64,8 @@
         android:layout_marginTop="45sp"
         android:text="@string/inbox"
         android:textColor="@color/white"
-        android:textSize="25sp" />
+        android:textSize="25sp"
+        android:layout_marginBottom="10sp"/>
 
     <TextView
         android:id="@+id/tv_homescreen_ideeën"
@@ -74,7 +75,8 @@
         android:layout_marginLeft="25sp"
         android:text="@string/ideeën"
         android:textColor="@color/white"
-        android:textSize="25sp" />
+        android:textSize="25sp"
+        android:layout_marginBottom="10sp"/>
 
 
     <TextView
@@ -85,7 +87,8 @@
         android:layout_marginLeft="25sp"
         android:text="@string/GevolgdeIdeeën"
         android:textColor="@color/white"
-        android:textSize="25sp" />
+        android:textSize="25sp"
+        android:layout_marginBottom="10sp"/>
 
     <TextView
         android:id="@+id/tv_homescreen_uitloggen"

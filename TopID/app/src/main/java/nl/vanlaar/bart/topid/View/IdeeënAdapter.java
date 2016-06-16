@@ -32,16 +32,18 @@ public class IdeeënAdapter extends ArrayAdapter<Idee> {
         TextView title = (TextView) convertView.findViewById(R.id.tvNaamListItem);
         TextView posterName = (TextView) convertView.findViewById(R.id.tvPosterName);
         ImageView ivPoster = (ImageView) convertView.findViewById(R.id.ivImageListItem);
-
-
+        TextView tvPostDate = (TextView) convertView.findViewById(R.id.tvPostDate);
         idee = getItem(position);
+
+        tvPostDate.setText(idee.getidee_Datum());
+
         Log.d("idee", idee.getTitle()
         );
 
         tvSummary.setText(idee.getSummaryText());
         title.setText(idee.getTitle());
         if(idee.getAnonymous()){
-           // ivPoster.setImageResource(R.drawable.anoniem);
+            ivPoster.setImageResource(R.drawable.anoniem);
             posterName.setText("Anoniem");
         }else{
             posterName.setText(idee.getPoster().getName());

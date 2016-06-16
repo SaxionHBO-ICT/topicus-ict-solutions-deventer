@@ -13,7 +13,7 @@ import nl.vanlaar.bart.topid.R;
 import nl.vanlaar.bart.topid.View.InboxAdapter;
 
 /**
- * Created by Sander on 25-5-2016.
+ * De InboaxActivity laat de gebruiker zijn inbox zien.
  */
 public class InboxActivity extends AppCompatActivity {
     private ListView listView;
@@ -34,7 +34,7 @@ public class InboxActivity extends AppCompatActivity {
         //koppelen aan views
         listView = (ListView) findViewById(R.id.lv_inbox_list);
         menuButton = (ImageView) findViewById(R.id.iv_inbox_menu);
-        backArrow = (ImageView) findViewById(R.id.iv_iedeeën_toolbar_backbutton);
+        backArrow = (ImageView) findViewById(R.id.iv_inbox_toolbar_backbutton);
 
         //als de menu knop is ingedrukt ga dan naar het menu
         menuButton.setOnClickListener(new View.OnClickListener() {

@@ -3,28 +3,29 @@ package Model;
 
 
 import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
 
 import java.util.ArrayList;
 
 /**
  * Created by bart on 25-5-2016.
  */
+@DatabaseTable(tableName = "Gebruiker")
 public class User {
-    private String name;
-    private String email_adres;
+
     private String profileImage;
     private int tempImage;
-    private int postcount;
+
     private ArrayList<Idee> gevolgdeIdeeën = new ArrayList<>();
 
-    @DatabaseField(id = true)
-    private String EMail_adres;
+    @DatabaseField(id = true,canBeNull = false)
+    private String email_adres;
     @DatabaseField(canBeNull = false)
-    private String Gebruikersnaam;
-    @DatabaseField(canBeNull = false)
-    private String Wachtwoord;
+    private String name;
     @DatabaseField
-    private String Gebruiker_plaatje_url;
+    private String gebruiker_plaatje_url;
+    @DatabaseField
+    private int postcount;
 
     public User() {
     }
@@ -89,6 +90,22 @@ public class User {
 
     public ArrayList<Idee> getGevolgdeIdeeën() {
         return gevolgdeIdeeën;
+    }
+
+    public String getEmail_adres() {
+        return email_adres;
+    }
+
+    public void setEmail_adres(String email_adres) {
+        this.email_adres = email_adres;
+    }
+
+    public String getGebruiker_plaatje_url() {
+        return gebruiker_plaatje_url;
+    }
+
+    public void setGebruiker_plaatje_url(String gebruiker_plaatje_url) {
+        gebruiker_plaatje_url = gebruiker_plaatje_url;
     }
 }
 
