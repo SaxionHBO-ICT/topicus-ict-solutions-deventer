@@ -21,37 +21,31 @@ public class Idee {
     private String idee_Datum;
     private boolean idee_anoniem;
     private int soortIdee;
-    private ArrayList<Comment> comments = new ArrayList<>();
+    private ArrayList<Comment> comments;
     private int tempPlaatje; // temp plaatje voor int.
 
     //voor soortIdee
     public static final int KLACHT = 1;
     public static final int IDEE = 2;
 
-    /*
-    lege constructor
+    /**
+     * lege constructor
      */
     public Idee() {
     }
-
-    /*
-    een constructor
+    /**
+     * een constructor
      */
 
-    public Idee(User poster, String title, String mainText, int postPoints, String summaryText, String postDate, boolean anonymous, int soortIdee, ArrayList<Comment> comments, int tempPlaatje) {
-        this.poster = poster;
-        this.mainText = text;
-        this.plaatje = plaatje;
-        this.postPoints = 0;
-    }
-
-    public Idee(User poster, String title, String text, int plaatje, int soortIdee) {
+    public Idee(User poster, String title, String text,String summaryText,  int soortIdee,int tempPlaatje) {
         this.poster = poster;
         this.idee_title = title;
         this.mainText = text;
-        this.tempPlaatje = plaatje;
+        this.summaryText = summaryText;
+        this.tempPlaatje = tempPlaatje;
         this.postPoints = 0;
         this.soortIdee = soortIdee;
+        this.comments = new ArrayList<>();
     }
 
     //getters en setters
@@ -135,15 +129,11 @@ public class Idee {
     }
 
     public String getPostDate() {
-        return postDate;
+        return idee_Datum;
     }
 
     public void setPostDate(String postDate) {
         this.idee_Datum = postDate;
-    }
-
-    public boolean isAnonymous() {
-        return anonymous;
     }
 
     public void setAnonymous(boolean anonymous) {
@@ -156,19 +146,13 @@ public class Idee {
     public ArrayList<Comment> getComments() {
         return comments;
     }
-    public boolean getAnonymous() {
-        return anonymous;
-    }
+
 
     /*
     voegt een comment toe aan het idee
      */
     public void addComment(Comment comment) {
         comments.add(comment);
-    }
-
-    public ArrayList<Comment> getComments() {
-        return comments;
     }
     public void setidee_Datum(){
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy HH:mm", Locale.GERMANY);

@@ -95,9 +95,6 @@ public class User {
     public void setPostcount(int postcount) {
         this.postcount = postcount;
     }
-    public void addToPostcount(){
-        this.postcount = postcount+1;
-    }
 
     public Bundle toBundle(){
         Bundle b = new Bundle();

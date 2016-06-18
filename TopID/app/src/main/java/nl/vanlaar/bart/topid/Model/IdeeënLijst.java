@@ -16,17 +16,16 @@ public class IdeeënLijst {
         User Sander = new User("Sander" , R.drawable.sander, 30);
         User David = new User("David", R.drawable.david, 8);
 
-        Idee idee = new Idee(Sander, "Meer mensen op de fiets", "tegenwoordig komen teveel mensen met de auto terwijl ze ook met de fiets kunnen", 50, "te weinig mensen komen met de fiets", "9 jan", false, 2, CommentList.getInstance().getComments(), R.drawable.fiets);
-        Idee idee2 = new Idee(David, "Te warm op de 2e verdieping", "Het is te warm op de 2e verdieping kan daar misschien wat aan gedaan worden?", 40, "Mogelijk om het cooler te maken op de 2e verdieping?", "9 jan", false, 1, null, R.drawable.heet);
 
-        ideeën.add(idee);
-        ideeën.add(idee2);
-        ideeën.add(idee);
-        ideeën.add(idee2);
-        ideeën.add(idee);
-        ideeën.add(idee2);
-        ideeën.add(idee);
-        ideeën.add(idee2);
+
+        ideeën.add(new Idee(Sander,"Meer mensen op de fiets","tegenwoordig komen teveel mensen met de auto terwijl ze ook met de fiets kunnen","er moeten meer mensen met de fiets komen",Idee.IDEE,R.drawable.fiets));
+        ideeën.add(new Idee(David, "Te warm op de 2e verdieping", "Het is te warm op de 2e verdieping kan daar misschien wat aan gedaan worden?", "Mogelijk om het koeler te maken op de 2e verdieping?", Idee.KLACHT,  R.drawable.heet));
+        ideeën.add(new Idee(Sander,"Meer mensen op de fiets","tegenwoordig komen teveel mensen met de auto terwijl ze ook met de fiets kunnen","er moeten meer mensen met de fiets komen",Idee.IDEE,R.drawable.fiets));
+        ideeën.add(new Idee(David, "Te warm op de 2e verdieping", "Het is te warm op de 2e verdieping kan daar misschien wat aan gedaan worden?", "Mogelijk om het koeler te maken op de 2e verdieping?", Idee.KLACHT,  R.drawable.heet));
+        ideeën.add(new Idee(Sander,"Meer mensen op de fiets","tegenwoordig komen teveel mensen met de auto terwijl ze ook met de fiets kunnen","er moeten meer mensen met de fiets komen",Idee.IDEE,R.drawable.fiets));
+        ideeën.add(new Idee(David, "Te warm op de 2e verdieping", "Het is te warm op de 2e verdieping kan daar misschien wat aan gedaan worden?", "Mogelijk om het koeler te maken op de 2e verdieping?", Idee.KLACHT,  R.drawable.heet));
+        ideeën.add(new Idee(Sander,"Meer mensen op de fiets","tegenwoordig komen teveel mensen met de auto terwijl ze ook met de fiets kunnen","er moeten meer mensen met de fiets komen",Idee.IDEE,R.drawable.fiets));
+        ideeën.add(new Idee(David, "Te warm op de 2e verdieping", "Het is te warm op de 2e verdieping kan daar misschien wat aan gedaan worden?", "Mogelijk om het koeler te maken op de 2e verdieping?", Idee.KLACHT,  R.drawable.heet));
 
     }
 
@@ -101,8 +100,7 @@ public class IdeeënLijst {
      * @return ideeën
      */
     public ArrayList<Idee> getIdeeën() {
-        ArrayList<Idee> array = new ArrayList<>(ideeën);
-        return array;
+        return ideeën;
     }
 
 }

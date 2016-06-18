@@ -73,7 +73,7 @@ public class ReageerActivity extends AppCompatActivity {
                     return;
                     //maak een comment, vul hem met de velden en voeg hem toe aan een idee
                 } else {
-                    comment = new Comment(MainActivity.LOGGED_IN_USER.getName(), etReactie.getText().toString(), idee, MainActivity.LOGGED_IN_USER.getTempImage(), MainActivity.LOGGED_IN_USER);
+                    comment = new Comment(MainActivity.LOGGED_IN_USER.getName(), etReactie.getText().toString(), MainActivity.LOGGED_IN_USER.getTempImage(), MainActivity.LOGGED_IN_USER);
                     commentList.add(comment);
                     reactiesAdapter.notifyDataSetChanged();
                     Toast toast = Toast.makeText(getApplicationContext(), "Uw Reactie is geplaatst", Toast.LENGTH_SHORT);

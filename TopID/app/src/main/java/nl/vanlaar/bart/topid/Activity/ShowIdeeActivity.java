@@ -1,7 +1,6 @@
 package nl.vanlaar.bart.topid.Activity;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -31,12 +30,13 @@ public class ShowIdeeActivity extends AppCompatActivity {
     private ImageView backArrow;
     private ImageView menuButton;
     private ImageView ideeImage;
-    private ImageView ideeImage_FullScreen;
+
     private ImageView ivPosterImage_showIdee;
     private TextView tvPosterName_showPostcount;
     private TextView tv_show_idee_name;
     private TextView tvPosterText_showIdee;
-    private ImageView iv_ImagePost_showIdee;
+    private TextView tvPosterName_showIdee;
+
     private Idee idee;
     private TextView tvPostTijdenDate_showIdee;
 
@@ -57,25 +57,26 @@ public class ShowIdeeActivity extends AppCompatActivity {
         //kopelen van views
         tv_show_idee_name = (TextView) findViewById(R.id.tv_show_idee_name);
         tvPosterText_showIdee = (TextView) findViewById(R.id.tvPosterText_showIdee);
-        iv_ImagePost_showIdee = (ImageView) findViewById(R.id.iv_ImagePost_showIdee);
         tvPosterName_showPostcount = (TextView) findViewById(R.id.tvPosterName_showPostcount);
         ivPosterImage_showIdee = (ImageView) findViewById(R.id.ivPosterImage_showIdee);
         menuButton = (ImageView) findViewById(R.id.iv_show_idee_menu);
         backArrow = (ImageView) findViewById(R.id.iv_iedeeën_toolbar_backbutton);
         ideeImage  = (ImageView) findViewById(R.id.iv_ImagePost_showIdee);
-        ideeImage_FullScreen = (ImageView) findViewById(R.id.iv_ImagePost_FullScreen_showIdee);
+        tvPosterName_showIdee = (TextView) findViewById(R.id.tvPosterName_showIdee);
+
         tvPostTijdenDate_showIdee = (TextView) findViewById(R.id.tvPostTijdenDate_showIdee);
 
 
         //set alle views met info van het idee
         tv_show_idee_name.setText(idee.getTitle());
         tvPosterText_showIdee.setText(idee.getMainText());
-        if(idee.getPlaatje()!=null){
-            iv_ImagePost_showIdee.setImageBitmap(idee.getPlaatje());
+        if(idee.getPlaatje()!=null) {
+            ideeImage.setImageBitmap(idee.getPlaatje());
         }
         tvPosterName_showPostcount.setText("Postcount: " + MainActivity.LOGGED_IN_USER.getPostcount());
-        ivPosterImage_showIdee.setImageResource(MainActivity.LOGGED_IN_USER.getTempImage());
+        ivPosterImage_showIdee.setImageResource(idee.getPoster().getTempImage());
         tvPostTijdenDate_showIdee.setText(idee.getidee_Datum());
+        tvPosterName_showIdee.setText(idee.getPoster().getName());
 
 
 
@@ -99,27 +100,6 @@ public class ShowIdeeActivity extends AppCompatActivity {
 
 
 
-        ////////////////////////////////////////////////////////////////////////
-        ideeImage.setClickable(true);
-        ideeImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(ideeImage.getVisibility()== View.VISIBLE) {
-                    ideeImage.setVisibility(View.INVISIBLE);
-                    ideeImage_FullScreen.setImageDrawable(ideeImage.getDrawable());
-                    ideeImage_FullScreen.setBackgroundColor(Color.WHITE);
-                    ideeImage_FullScreen.setVisibility(View.VISIBLE);
-                }
-            }
-        });
-        ////////////////////////////////////////////////////////////////
-        ideeImage_FullScreen.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ideeImage_FullScreen.setVisibility(View.GONE);
-                ideeImage.setVisibility(View.VISIBLE);
-            }
-        });
 
 
         upvoteButton = (Button) findViewById(R.id.btUpvote);
@@ -147,4 +127,9 @@ public class ShowIdeeActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
 }

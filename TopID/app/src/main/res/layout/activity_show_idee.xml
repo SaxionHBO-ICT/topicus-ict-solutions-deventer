@@ -95,7 +95,7 @@
                 android:layout_width="50sp"
                 android:layout_height="50sp"
                 android:layout_margin="20sp"
-                android:src="@drawable/sander" />
+                 />
 
 
             <TextView
@@ -130,7 +130,7 @@
                 android:layout_below="@+id/tv_show_idee_name"
                 android:layout_marginLeft="5sp"
                 android:layout_marginRight="5sp"
-                android:src="@drawable/fiets" />
+              />
 
 
             <TextView

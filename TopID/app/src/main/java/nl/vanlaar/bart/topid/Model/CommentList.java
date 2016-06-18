@@ -19,8 +19,8 @@ public class CommentList {
 
         //toevoegen van dummy data
 
-        Comment comment = new Comment("Henk", "Meer fietsen", "Ik vind ook dat meer mensen op de fiets moeten!", R.drawable.david, "9 jan");
-        Comment comment2 = new Comment("Henk", "Meer fietsen", "Minder auto's en meer fietsen!", R.drawable.sander, "9 jan");
+        Comment comment = new Comment("Henk", "Meer fietsen", "Ik vind ook dat meer mensen op de fiets moeten!", R.drawable.david);
+        Comment comment2 = new Comment("Henk", "Meer fietsen", "Minder auto's en meer fietsen!", R.drawable.sander);
 
         comments.add(comment);
         comments.add(comment2);
@@ -43,19 +43,14 @@ public class CommentList {
         return instance;
     }
 
-    /*
-    voegt een comment toe
-     */
-    public void addComment(Comment comment){
-        comments.add(comment);
-    }
+
 
     /*
     Voegt een comment toe dmv de waarden van een comment
      */
-    public void addComment(String userName, String ideeName, String comment, int userPic, String date){
-        Comment commentAdded = new Comment(userName, ideeName, comment, userPic, date);
-        addComment(commentAdded);
+    public void addComment(String userName, String ideeName, String comment, int userPic){
+        Comment commentAdded = new Comment(userName, ideeName, comment, userPic);
+        comments.add(commentAdded);
     }
 
     /*
