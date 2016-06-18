@@ -178,8 +178,13 @@ public class MakeIdeeActivity extends AppCompatActivity {
                     idee.setidee_Datum();
 
 
-                    //voeg het idee toe
-                    IdeeënLijst.getInstance().addIdee(idee);
+                    //voeg het idee/klacht toe
+                    if(idee.getSoortIdee().equalsIgnoreCase("idee")) {
+                        IdeeënLijst.getInstance().addIdee(idee);
+                    }
+                    else  {
+                        IdeeënLijst.getInstance().addKlacht(idee);
+                    }
 
                     //notify de user dat zijn idee is geplaatst
                     Toast toast = Toast.makeText(getApplicationContext(), "Uw Idee/Klacht is geplaatst", Toast.LENGTH_SHORT);

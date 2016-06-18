@@ -60,6 +60,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/tv_lijstType"
-        tools:layout="@layout/listlayout"></ListView>
+        tools:layout="@layout/listlayout"
+        android:visibility="gone"></ListView>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tv_lijstType"
+        android:id="@+id/lvKlachten"
+        tools:layout="@layout/listlayout"
+        android:visibility="gone"></ListView>
 
 </RelativeLayout>

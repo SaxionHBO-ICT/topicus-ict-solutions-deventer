@@ -8,17 +8,22 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 import nl.vanlaar.bart.topid.Model.Comment;
-import nl.vanlaar.bart.topid.Model.IdeeënLijst;
 import nl.vanlaar.bart.topid.R;
 
 /**
  * Adapter voor reacties
  */
 public class ReactiesAdapter extends ArrayAdapter<Comment> {
+    private ArrayList<Comment> comments;
 
-    public ReactiesAdapter(Context context, int ideePositie) {
-        super(context, 0, IdeeënLijst.getInstance().getIdeeën().get(ideePositie).getComments());
+
+    public ReactiesAdapter(Context context, ArrayList<Comment> objects) {
+        super(context, 0,objects);
+        comments = objects;
+
     }
 
     @Override
@@ -32,7 +37,7 @@ public class ReactiesAdapter extends ArrayAdapter<Comment> {
         TextView date = (TextView) convertView.findViewById(R.id.tv_reaction_date);
         TextView reactie = (TextView) convertView.findViewById(R.id.tv_reaction_comment);
 
-        Comment comment = getItem(position);
+        Comment comment = comments.get(position);
         imageView.setImageResource(comment.getUserPicture());
         userName.setText(comment.getUserName());
         date.setText(comment.getDate());

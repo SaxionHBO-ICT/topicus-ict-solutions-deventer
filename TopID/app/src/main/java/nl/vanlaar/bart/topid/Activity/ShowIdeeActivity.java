@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -21,7 +22,7 @@ import nl.vanlaar.bart.topid.View.ReactiesAdapter;
  */
 public class ShowIdeeActivity extends AppCompatActivity {
     public static final String EXTRA_IDEE = "idee";
-    public static final String FULL_SCREEN_PICTURE ="FULL SCREEN PICTURE" ;
+    public static final String EXTRA_KLACHT = "klacht";
     private ReactiesAdapter adapter;
     private Button btReageer;
     private ScrollView svReacties;
@@ -37,6 +38,8 @@ public class ShowIdeeActivity extends AppCompatActivity {
     private TextView tvPosterText_showIdee;
     private TextView tvPosterName_showIdee;
 
+    private int ideePositieIdee;
+    private int ideePositieKlacht;
     private Idee idee;
     private TextView tvPostTijdenDate_showIdee;
 
@@ -50,9 +53,16 @@ public class ShowIdeeActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         //full het idee met het meegegeven idee
-        Intent intent = getIntent();
-        int ideePositie = intent.getIntExtra(EXTRA_IDEE, -1);
-        idee = IdeeënLijst.getInstance().getIdeeën().get(ideePositie);
+
+        ideePositieIdee = getIntent().getIntExtra(EXTRA_IDEE,-1);
+         ideePositieKlacht = getIntent().getIntExtra(EXTRA_KLACHT,-1);
+
+        Log.d("idee post/ klacht post","" + ideePositieIdee+ideePositieKlacht);
+        if(ideePositieIdee>-1) {
+            idee = IdeeënLijst.getInstance().getIdeeën().get(ideePositieIdee);
+        } else if(ideePositieKlacht >-1){
+            idee = IdeeënLijst.getInstance().getKlachten().get(ideePositieKlacht);
+        }
 
         //kopelen van views
         tv_show_idee_name = (TextView) findViewById(R.id.tv_show_idee_name);
@@ -120,7 +130,11 @@ public class ShowIdeeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ShowIdeeActivity.this, ReageerActivity.class);
-                intent.putExtra(EXTRA_IDEE,getIntent().getIntExtra(EXTRA_IDEE,-1));
+                if(ideePositieIdee >-1){
+                    intent.putExtra(EXTRA_IDEE,ideePositieIdee);
+                }else {
+                    intent.putExtra(EXTRA_KLACHT,ideePositieKlacht);
+                }
                 startActivity(intent);
             }
         });
