@@ -13,7 +13,7 @@ import nl.vanlaar.bart.topid.Model.CommentList;
 import nl.vanlaar.bart.topid.R;
 
 /**
- * Created by Sander on 25-5-2016.
+ * Adapter voor de inbox
  */
 public class InboxAdapter extends ArrayAdapter {
 
@@ -26,6 +26,8 @@ public class InboxAdapter extends ArrayAdapter {
         if (convertView == null){
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_item_inbox, parent, false);
         }
+
+        //koppel views aan ids
         TextView inboxMessage = (TextView) convertView.findViewById(R.id.tv_inbox_message);
         TextView inboxComment = (TextView) convertView.findViewById(R.id.tv_inbox_comment);
         ImageView inboxUserImage = (ImageView) convertView.findViewById(R.id.iv_inbox_user);

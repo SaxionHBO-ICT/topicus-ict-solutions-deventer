@@ -8,7 +8,7 @@ import java.util.Date;
 import java.util.Locale;
 
 /**
- * Created by bart on 18-5-2016.
+ * Een idee(kan ook een vraag zijn)
  */
 public class Idee {
     private int idIdee;
@@ -21,46 +21,40 @@ public class Idee {
     private String idee_Datum;
     private boolean idee_anoniem;
     private int soortIdee;
-    private ArrayList<Comment> comments = new ArrayList<>();
+    private ArrayList<Comment> comments;
+    private int tempPlaatje; // temp plaatje voor int.
 
-
-    private int tempPlaatje; // temp plaatje voor i
-
-
+    //voor soortIdee
     public static final int KLACHT = 1;
     public static final int IDEE = 2;
 
+    /**
+     * lege constructor
+     */
     public Idee() {
+    }
+    /**
+     * een constructor
+     */
 
+    public Idee(User poster, String title, String text,String summaryText,  int soortIdee,int tempPlaatje) {
+        this.poster = poster;
+        this.idee_title = title;
+        this.mainText = text;
+        this.summaryText = summaryText;
+        this.tempPlaatje = tempPlaatje;
+        this.postPoints = 0;
+        this.soortIdee = soortIdee;
+        this.comments = new ArrayList<>();
     }
 
+    //getters en setters
     public int getTempPlaatje() {
         return tempPlaatje;
     }
 
     public void setTempPlaatje(int tempPlaatje) {
         this.tempPlaatje = tempPlaatje;
-    }
-
-    public Idee(User poster, String text, Bitmap plaatje) {
-        this.poster = poster;
-        this.mainText = text;
-        this.plaatje = plaatje;
-        this.postPoints = 0;
-    }
-
-    public Idee(User poster, String title, String text, int plaatje, int soortIdee) {
-        this.poster = poster;
-        this.idee_title = title;
-        this.mainText = text;
-        this.tempPlaatje = plaatje;
-        this.postPoints = 0;
-        this.soortIdee = soortIdee;
-    }
-
-    public Idee(String mainText, String summaryText) {
-        this.mainText = mainText;
-        this.summaryText = summaryText;
     }
 
     public Idee(String title, String mainText, String summaryText) {
@@ -142,7 +136,6 @@ public class Idee {
         this.idee_Datum = postDate;
     }
 
-
     public void setAnonymous(boolean anonymous) {
         this.idee_anoniem = anonymous;
     }
@@ -150,13 +143,16 @@ public class Idee {
     return idee_anoniem;
 }
 
-
-    public void addComment(Comment comment) {
-        comments.add(comment);
-    }
-
     public ArrayList<Comment> getComments() {
         return comments;
+    }
+
+
+    /*
+    voegt een comment toe aan het idee
+     */
+    public void addComment(Comment comment) {
+        comments.add(comment);
     }
     public void setidee_Datum(){
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy HH:mm", Locale.GERMANY);

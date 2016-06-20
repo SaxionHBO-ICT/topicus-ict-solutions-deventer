@@ -26,7 +26,7 @@ public class ReageerActivity extends AppCompatActivity {
     private Button btPlaatsReactie;
     private EditText etReactie;
     private Comment comment = new Comment();
-    private ArrayList<Idee> ideeënLijst = IdeeënLijst.getInstance().getIdeeën();
+    private ArrayList<Idee> ideeënLijst;
     private Idee idee;
     private ArrayList<Comment> commentList;
     private ListView lv;
@@ -34,14 +34,29 @@ public class ReageerActivity extends AppCompatActivity {
     private ImageView backArrow;
     private ListView commentListView;
 
+    private int ideePositieIdee;
+    private int ideePositieKlacht;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reageer);
 
         //idee en ideeënlijst vullen
-        idee = ideeënLijst.get(getIntent().getIntExtra(ShowIdeeActivity.EXTRA_IDEE, -1));
-        commentList = ideeënLijst.get(getIntent().getIntExtra(ShowIdeeActivity.EXTRA_IDEE, -1)).getComments();
+        ideePositieIdee = getIntent().getIntExtra(ShowIdeeActivity.EXTRA_IDEE,-1);
+        ideePositieKlacht = getIntent().getIntExtra(ShowIdeeActivity.EXTRA_KLACHT,-1);
+
+        if(ideePositieIdee>-1){
+            ideeënLijst = IdeeënLijst.getInstance().getIdeeën();
+            idee = ideeënLijst.get(ideePositieIdee);
+        } else if (ideePositieKlacht > -1) {
+            ideeënLijst = IdeeënLijst.getInstance().getKlachten();
+            idee = ideeënLijst.get(ideePositieKlacht);
+        }
+        commentList = idee.getComments();
+
+
+
 
         //kopelen aan views
         btPlaatsReactie = (Button) findViewById(R.id.btPlaats_reactie);
@@ -50,8 +65,8 @@ public class ReageerActivity extends AppCompatActivity {
         commentListView = (ListView) findViewById(R.id.lvReacties_showIdee);
 
         //adapter configuratie
-        final int ideePositie = getIntent().getIntExtra(ShowIdeeActivity.EXTRA_IDEE, -1);
-        reactiesAdapter = new ReactiesAdapter(this, ideePositie);
+
+        reactiesAdapter = new ReactiesAdapter(this, commentList);
         commentListView.setAdapter(reactiesAdapter);
 
         //als de terug knop wordt ingedrukt ga dan naar de vorige activity
@@ -73,7 +88,7 @@ public class ReageerActivity extends AppCompatActivity {
                     return;
                     //maak een comment, vul hem met de velden en voeg hem toe aan een idee
                 } else {
-                    comment = new Comment(MainActivity.LOGGED_IN_USER.getName(), etReactie.getText().toString(), idee, MainActivity.LOGGED_IN_USER.getTempImage(), MainActivity.LOGGED_IN_USER);
+                    comment = new Comment(MainActivity.LOGGED_IN_USER.getName(), etReactie.getText().toString(), MainActivity.LOGGED_IN_USER.getTempImage(), MainActivity.LOGGED_IN_USER);
                     commentList.add(comment);
                     reactiesAdapter.notifyDataSetChanged();
                     Toast toast = Toast.makeText(getApplicationContext(), "Uw Reactie is geplaatst", Toast.LENGTH_SHORT);

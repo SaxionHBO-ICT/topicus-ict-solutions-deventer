@@ -14,9 +14,6 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
 
-import java.util.ArrayList;
-
-import nl.vanlaar.bart.topid.Model.Idee;
 import nl.vanlaar.bart.topid.Model.IdeeënLijst;
 import nl.vanlaar.bart.topid.Model.User;
 import nl.vanlaar.bart.topid.R;
@@ -27,12 +24,12 @@ import nl.vanlaar.bart.topid.View.IdeeënAdapter;
  * mogelijkhijd om te sorteren op beste en nieuwste
  */
 public class MainActivity extends AppCompatActivity {
-    private ArrayList<Idee> ideeënLijst;
-    public static User LOGGED_IN_USER = new User("henk","henk@live.nl", R.drawable.gabenewell, 0);
+    public static User LOGGED_IN_USER = new User("henk", "henk@live.nl", R.drawable.gabenewell, 0);
     public static final int IDEE_REQUESTCODE = 1337;
     public static boolean dataChanged = false;
     public static boolean ingelogd = true;
     private ListView lvIdeeën;
+    private ListView lvKlachten;
     private FloatingActionButton fab;
     private static IdeeënAdapter ideeAdapter;
     private static IdeeënAdapter klachtenAdapter;
@@ -59,8 +56,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-
-
         //als er geen user ingelogt is ga dan terug naar de login pagina
         if (ingelogd == false) {
             Intent intent = new Intent(this, LoginActivity.class);
@@ -78,19 +73,20 @@ public class MainActivity extends AppCompatActivity {
         backArrow = (ImageView) findViewById(R.id.iv_iedeeën_toolbar_backbutton);
         fab = (FloatingActionButton) findViewById(R.id.fab);
         lvIdeeën = (ListView) findViewById(R.id.lvIdeeën);
+        lvKlachten = (ListView) findViewById(R.id.lvKlachten);
         spinnerSort = (Spinner) findViewById(R.id.spinner_lijst_sorteer);
 
-        //initeer de adapters en de iedeeënlijst
-        ideeAdapter = new IdeeënAdapter(this, R.layout.fragment_main, IdeeënLijst.getInstance().sortByIdee());
-        klachtenAdapter = new IdeeënAdapter(this, R.layout.fragment_main, IdeeënLijst.getInstance().sortByKlacht());
-        ideeënLijst = IdeeënLijst.getInstance().getIdeeën();
+        //initeer de adapters en de ideeënlijst
+        ideeAdapter = new IdeeënAdapter(this, R.layout.fragment_main, IdeeënLijst.getInstance().getIdeeën());
+        klachtenAdapter = new IdeeënAdapter(this, R.layout.fragment_main, IdeeënLijst.getInstance().getKlachten());
+        lvIdeeën.setAdapter(ideeAdapter);
+        lvKlachten.setAdapter(klachtenAdapter);
+
 
         //set de adapter van de spinner
         final ArrayAdapter<CharSequence> adapterSort = ArrayAdapter.createFromResource(this, R.array.sort_lijst, android.R.layout.simple_spinner_item);
         spinnerSort.setAdapter(adapterSort);
 
-        //start de activity met de iedeeën
-        lvIdeeën.setAdapter(ideeAdapter);
 
         //Als een checkbox wordt aangevinkt zet de ander checkbox uit en laat de juist listview zien
         bestBox.setChecked(true);
@@ -133,16 +129,30 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        lvKlachten.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(MainActivity.this, ShowIdeeActivity.class);
+                intent.putExtra(ShowIdeeActivity.EXTRA_KLACHT, i);
+                startActivity(intent);
+            }
+        });
+
 
         //als een element in de spinner wordt aangedrukt zet dan de juist adapter aan de listview
         spinnerSort.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (position == 0) {
-                    lvIdeeën.setAdapter(ideeAdapter);
+                    lvKlachten.setVisibility(View.GONE);
+                    lvIdeeën.setVisibility(View.VISIBLE);
+
                 }
                 if (position == 1) {
-                    lvIdeeën.setAdapter(klachtenAdapter);
+                    lvIdeeën.setVisibility(View.GONE);
+                    lvKlachten.setVisibility(View.VISIBLE);
+
+
                 }
             }
 

@@ -1,5 +1,9 @@
 package nl.vanlaar.bart.topid.Model;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 /**
  * Created by Sander on 25-5-2016.
  */
@@ -7,11 +11,14 @@ public class Comment {
     private String userName;
     private String ideeName;
     private String comment;
-    private Idee parentIdee;
-    private int userPicture;
+    private int userPicture; // int voor local testing moet Bitmap worden als het uit DB wordt gehaald.
     private User user;
     private String date;
 
+
+    /**
+     * een lege constructor
+     */
     public Comment() {
     }
 
@@ -21,40 +28,31 @@ public class Comment {
      * @param ideeName
      * @param comment
      * @param userPicture
-     * @param date
      */
-    public Comment(String userName, String ideeName, String comment, int userPicture, String date) {
+    public Comment(String userName, String ideeName, String comment, int userPicture) {
         this.userName = userName;
         this.ideeName = ideeName;
         this.comment = comment;
         this.userPicture = userPicture;
-        this.date = date;
+        setComment_Datum();
     }
 
     /**
      * een constructor
      * @param userName
      * @param comment
-     * @param parentIdee
      * @param userPicture
      * @param user
      */
-    public Comment(String userName, String comment, Idee parentIdee, int userPicture, User user) {
+    public Comment(String userName, String comment, int userPicture, User user) {
         this.userName = userName;
         this.comment = comment;
-        this.parentIdee = parentIdee;
         this.userPicture = userPicture;
         this.user = user;
     }
 
 
     //getters en setters
-    public Idee getParentIdee() {
-        return parentIdee;
-    }
-    public void setParentIdee(Idee parentIdee) {
-        this.parentIdee = parentIdee;
-    }
     public String getDate() {
         return date;
     }
@@ -72,5 +70,9 @@ public class Comment {
     }
     public int getUserPicture() {
         return userPicture;
+    }
+    public void setComment_Datum(){
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy HH:mm", Locale.GERMANY);
+        this.date =  sdf.format(new Date());
     }
 }

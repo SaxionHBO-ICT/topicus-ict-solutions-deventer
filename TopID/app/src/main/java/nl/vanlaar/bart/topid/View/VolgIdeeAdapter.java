@@ -14,7 +14,7 @@ import nl.vanlaar.bart.topid.Model.Idee;
 import nl.vanlaar.bart.topid.R;
 
 /**
- * Created by johan on 6-6-2016.
+ * adapter voor gevolgde ideeën
  */
 public class VolgIdeeAdapter extends ArrayAdapter<Idee> {
 
@@ -27,19 +27,17 @@ public class VolgIdeeAdapter extends ArrayAdapter<Idee> {
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.listlayout, parent, false);
         }
+        //koppelen views aan ids
         TextView tvSummary = (TextView) convertView.findViewById(R.id.tvSAMENVATINGLISTITEM);
         TextView title = (TextView) convertView.findViewById(R.id.tvNaamListItem);
         TextView posterName = (TextView) convertView.findViewById(R.id.tvPosterName);
         ImageView ivPoster = (ImageView) convertView.findViewById(R.id.ivImageListItem);
 
-
         Idee idee = getItem(position);
-
         tvSummary.setText(idee.getSummaryText());
         title.setText(idee.getTitle());
         posterName.setText(idee.getPoster().getName());
         ivPoster.setImageResource(idee.getPoster().getTempImage());
-
         return convertView;
     }
 }
