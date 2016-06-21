@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
 
+import nl.vanlaar.bart.topid.Model.IdeeënLijst;
 import nl.vanlaar.bart.topid.Model.User;
 import nl.vanlaar.bart.topid.R;
 import nl.vanlaar.bart.topid.View.VolgIdeeAdapter;
@@ -14,7 +15,7 @@ import nl.vanlaar.bart.topid.View.VolgIdeeAdapter;
 public class VolgIdeeActivity extends AppCompatActivity {
     private ListView listView;
     private VolgIdeeAdapter adapter;
-    private User user;
+    private User user = null;
     private ImageView backArrow;
     private ImageView menuButton;
 
@@ -26,6 +27,12 @@ public class VolgIdeeActivity extends AppCompatActivity {
         //koppelen aan view
         backArrow = (ImageView) findViewById(R.id.iv_volg_idee_toolbar_backbutton);
         menuButton = (ImageView) findViewById(R.id.iv_volg_idee_menu);
+        listView = (ListView) findViewById(R.id.lv_volg_idee_list);
+
+        //load adapter
+        user = IdeeënLijst.getInstance().getIngelogteUser();
+        adapter = new VolgIdeeAdapter(this, R.layout.activity_volg_idee, user.getGevolgdeIdeeën());
+        listView.setAdapter(adapter);
 
         //what to do when back button is pressed
         backArrow.setOnClickListener(new View.OnClickListener() {
@@ -41,9 +48,5 @@ public class VolgIdeeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-        user = new User("henk");
-        listView = (ListView) findViewById(R.id.lv_volg_idee_list);
-        adapter = new VolgIdeeAdapter(this, R.layout.activity_volg_idee, user.getGevolgdeIdeeën());
     }
 }

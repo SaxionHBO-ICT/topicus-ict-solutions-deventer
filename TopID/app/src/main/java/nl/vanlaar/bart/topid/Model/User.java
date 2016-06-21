@@ -114,5 +114,9 @@ public class User {
     public void addToPostcount() {
         this.postcount = +1;
     }
+
+    public void addVolgendIdee(Idee idee){
+        getGevolgdeIdeeën().add(idee);
+    }
 }
 

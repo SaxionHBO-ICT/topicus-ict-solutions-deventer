@@ -22,7 +22,7 @@ public class Idee {
     private boolean idee_anoniem;
     private int soortIdee;
     private ArrayList<Comment> comments;
-    private int tempPlaatje; // temp plaatje voor int.
+    private int tempPlaatje = 0; // temp plaatje voor int.
 
     //voor soortIdee
     public static final int KLACHT = 1;

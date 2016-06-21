@@ -80,8 +80,8 @@ public class ShowIdeeActivity extends AppCompatActivity {
         //set alle views met info van het idee
         tv_show_idee_name.setText(idee.getTitle());
         tvPosterText_showIdee.setText(idee.getMainText());
-        if(idee.getPlaatje()!=null) {
-            ideeImage.setImageBitmap(idee.getPlaatje());
+        if(idee.getTempPlaatje()!=0) {
+            ideeImage.setImageResource(idee.getTempPlaatje());
         }
         tvPosterName_showPostcount.setText("Postcount: " + MainActivity.LOGGED_IN_USER.getPostcount());
         ivPosterImage_showIdee.setImageResource(idee.getPoster().getTempImage());

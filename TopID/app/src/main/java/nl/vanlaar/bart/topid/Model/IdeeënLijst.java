@@ -12,22 +12,31 @@ public class IdeeënLijst {
     private ArrayList<Idee> ideeën = new ArrayList<>();
     private ArrayList<Idee> klachten = new ArrayList<>();
 
+    //dummy user
+    private User ingelogteUser = new User("Gabe", R.drawable.gabenewell, 40);
+
     private IdeeënLijst() {
         //dummy data
         User Sander = new User("Sander" , R.drawable.sander, 30);
         User David = new User("David", R.drawable.david, 8);
 
+        Idee meerMensenOpDeFiets = new Idee(Sander,"Meer mensen op de fiets","tegenwoordig komen teveel mensen met de auto terwijl ze ook met de fiets kunnen","er moeten meer mensen met de fiets komen",Idee.IDEE,R.drawable.fiets);
+        Comment comment = new Comment("Sander", "<eer mensen op de fiets", "Goed idee!", R.drawable.sander);
+        meerMensenOpDeFiets.addComment(comment);
+        meerMensenOpDeFiets.addComment(comment);
+        meerMensenOpDeFiets.addComment(comment);
+
+        ideeën.add(meerMensenOpDeFiets);
+        klachten.add(new Idee(David, "Te warm op de 2e verdieping", "Het is te warm op de 2e verdieping kan daar misschien wat aan gedaan worden?", "Mogelijk om het koeler te maken op de 2e verdieping?", Idee.KLACHT,  R.drawable.heet));
+        ideeën.add(meerMensenOpDeFiets);
+        klachten.add(new Idee(David, "Te warm op de 2e verdieping", "Het is te warm op de 2e verdieping kan daar misschien wat aan gedaan worden?", "Mogelijk om het koeler te maken op de 2e verdieping?", Idee.KLACHT,  R.drawable.heet));
+        ideeën.add(meerMensenOpDeFiets);
+        klachten.add(new Idee(David, "Te warm op de 2e verdieping", "Het is te warm op de 2e verdieping kan daar misschien wat aan gedaan worden?", "Mogelijk om het koeler te maken op de 2e verdieping?", Idee.KLACHT,  R.drawable.heet));
+        ideeën.add(meerMensenOpDeFiets);
+        klachten.add(new Idee(David, "Te warm op de 2e verdieping", "Het is te warm op de 2e verdieping kan daar misschien wat aan gedaan worden?", "Mogelijk om het koeler te maken op de 2e verdieping?", Idee.KLACHT,  R.drawable.heet));
 
 
-        ideeën.add(new Idee(Sander,"Meer mensen op de fiets","tegenwoordig komen teveel mensen met de auto terwijl ze ook met de fiets kunnen","er moeten meer mensen met de fiets komen",Idee.IDEE,R.drawable.fiets));
-        klachten.add(new Idee(David, "Te warm op de 2e verdieping", "Het is te warm op de 2e verdieping kan daar misschien wat aan gedaan worden?", "Mogelijk om het koeler te maken op de 2e verdieping?", Idee.KLACHT,  R.drawable.heet));
-        ideeën.add(new Idee(Sander,"Meer mensen op de fiets","tegenwoordig komen teveel mensen met de auto terwijl ze ook met de fiets kunnen","er moeten meer mensen met de fiets komen",Idee.IDEE,R.drawable.fiets));
-        klachten.add(new Idee(David, "Te warm op de 2e verdieping", "Het is te warm op de 2e verdieping kan daar misschien wat aan gedaan worden?", "Mogelijk om het koeler te maken op de 2e verdieping?", Idee.KLACHT,  R.drawable.heet));
-        ideeën.add(new Idee(Sander,"Meer mensen op de fiets","tegenwoordig komen teveel mensen met de auto terwijl ze ook met de fiets kunnen","er moeten meer mensen met de fiets komen",Idee.IDEE,R.drawable.fiets));
-        klachten.add(new Idee(David, "Te warm op de 2e verdieping", "Het is te warm op de 2e verdieping kan daar misschien wat aan gedaan worden?", "Mogelijk om het koeler te maken op de 2e verdieping?", Idee.KLACHT,  R.drawable.heet));
-        ideeën.add(new Idee(Sander,"Meer mensen op de fiets","tegenwoordig komen teveel mensen met de auto terwijl ze ook met de fiets kunnen","er moeten meer mensen met de fiets komen",Idee.IDEE,R.drawable.fiets));
-        klachten.add(new Idee(David, "Te warm op de 2e verdieping", "Het is te warm op de 2e verdieping kan daar misschien wat aan gedaan worden?", "Mogelijk om het koeler te maken op de 2e verdieping?", Idee.KLACHT,  R.drawable.heet));
-
+        ingelogteUser.addVolgendIdee(meerMensenOpDeFiets);
     }
 
     public static IdeeënLijst getInstance() {
@@ -81,5 +90,7 @@ public class IdeeënLijst {
     public ArrayList<Idee> getKlachten(){
         return klachten;
     }
-
+    public User getIngelogteUser() {
+        return ingelogteUser;
+    }
 }

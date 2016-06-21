@@ -32,12 +32,14 @@ public class VolgIdeeAdapter extends ArrayAdapter<Idee> {
         TextView title = (TextView) convertView.findViewById(R.id.tvNaamListItem);
         TextView posterName = (TextView) convertView.findViewById(R.id.tvPosterName);
         ImageView ivPoster = (ImageView) convertView.findViewById(R.id.ivImageListItem);
+        TextView postDate = (TextView) convertView.findViewById(R.id.tvPostDate);
 
         Idee idee = getItem(position);
         tvSummary.setText(idee.getSummaryText());
         title.setText(idee.getTitle());
         posterName.setText(idee.getPoster().getName());
         ivPoster.setImageResource(idee.getPoster().getTempImage());
+        postDate.setText(idee.getPostDate());
         return convertView;
     }
 }
