@@ -3,16 +3,23 @@ package Model;
 import java.util.ArrayList;
 
 /**
- * Created by Sander on 25-5-2016.
+ * CommentList is een classe die een lijst can comments bij houdt.
+ * Gemaakt dmv een singelton
  */
 public class CommentList {
     private static CommentList instance;
     private ArrayList<Comment> comments;
 
+    /*
+    private constructor
+     */
     private CommentList(){
         comments = new ArrayList<>();
     }
 
+    /*
+    methode om de instantie van CommentList te krijgen
+     */
     public static CommentList getInstance(){
         if (instance == null){
             instance = new CommentList();
@@ -20,15 +27,16 @@ public class CommentList {
         return instance;
     }
 
+    /*
+    voeg een comment toe
+     */
     public void addComment(Comment comment){
         comments.add(comment);
     }
-/*
-    public void addComment(String userName, String ideeName, String comment, int userPic, String date){
-        Comment commentAdded = new Comment(userName, ideeName, comment, userPic, date);
-        addComment(commentAdded);
-    }
-*/
+
+    /*
+    get de comments
+     */
     public ArrayList<Comment> getComments() {
         ArrayList<Comment> commentss = new ArrayList<>(comments);
         return commentss;

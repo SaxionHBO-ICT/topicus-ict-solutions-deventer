@@ -9,12 +9,11 @@ import java.util.ArrayList;
 import java.util.Date;
 
 /**
- * Created by bart on 18-5-2016.
+ * Een Idee class
  */
 @DatabaseTable(tableName = "Idee")
 public class Idee {
     private ArrayList<Comment> comments = new ArrayList<>();
-
     public static final int KLACHT = 1;
     public static final int IDEE = 2;
 
@@ -39,7 +38,15 @@ public class Idee {
     @DatabaseField
     private int idee_points;
 
+    /*
+    een lege constructor
+     */
+    public Idee() {
+    }
 
+    /*
+    een constructor
+     */
     public Idee(String idee_title, String idee_samenvatting, int idee_cat, String email_Adress, String idee_text, boolean idee_anoniem, int idee_points) {
         this.idee_titel = idee_title;
         this.idee_samenvatting = idee_samenvatting;
@@ -51,18 +58,32 @@ public class Idee {
         this.idee_datum = generateDate();
     }
 
-
-    public Idee() {
-    }
-
+    /*
+    voeg een comment toe aan het idee
+     */
     public void addComment(Comment comment) {
         comments.add(comment);
     }
 
+    /*
+    genereer een date voor het idee
+     */
+    public String generateDate() {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy HH:mm");
+        return sdf.format(new Date());
+    }
+
+    /*
+    verhoog de points van het idee met 1
+     */
+    public void like() {
+        idee_points++;
+    }
+
+    //setters en getters
     public ArrayList<Comment> getComments() {
         return comments;
     }
-
 
     public void setComments(ArrayList<Comment> comments) {
         this.comments = comments;
@@ -100,11 +121,9 @@ public class Idee {
         this.idee_samenvatting = idee_samenvatting;
     }
 
-
     public void setIdee_datum(String idee_datum) {
         this.idee_datum = idee_datum;
     }
-
 
     public void setIdee_cat(int idee_cat) {
         this.idee_cat = idee_cat;
@@ -142,19 +161,8 @@ public class Idee {
         this.idee_anoniem = idee_anoniem;
     }
 
-
     public void setIdee_points(int idee_points) {
         this.idee_points = idee_points;
-    }
-
-    public String generateDate() {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy HH:mm");
-        return sdf.format(new Date());
-    }
-
-
-    public void like() {
-        idee_points++;
     }
 
     public int getIdee_points() {

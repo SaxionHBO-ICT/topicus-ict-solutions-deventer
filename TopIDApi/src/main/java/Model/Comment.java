@@ -4,7 +4,7 @@ import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
 /**
- * Created by Sander on 25-5-2016.
+ * Comment class
  */
 @DatabaseTable(tableName = "Reactie")
 public class Comment {
@@ -28,9 +28,15 @@ public class Comment {
     @DatabaseField(canBeNull = false)
     private int Idee_idIdee;
 
+    /*
+    lege constructor
+     */
     public Comment() {
     }
 
+    /*
+    een constructor
+     */
     public Comment(String userName, String ideeName, String comment, String date) {
         this.userName = userName;
         this.ideeName = ideeName;
@@ -39,6 +45,9 @@ public class Comment {
         this.date = date;
     }
 
+    /*
+    een constructor
+     */
     public Comment(String userName, String comment, Idee parentIdee, int userPicture, User user) {
         this.userName = userName;
         this.comment = comment;
@@ -47,8 +56,7 @@ public class Comment {
         this.user = user;
     }
 
-
-
+    //getters en setters
     public Idee getParentIdee() {
         return parentIdee;
     }

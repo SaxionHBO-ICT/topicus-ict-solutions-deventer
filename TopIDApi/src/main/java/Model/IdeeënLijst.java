@@ -3,17 +3,23 @@ package Model;
 import java.util.ArrayList;
 
 /**
- * Created by bart on 1-6-2016.
+ * IdeeënLijst is een model classe die een lijst van ideeën bij houdt.
+ * Gemaakt dmv een singelton
  */
 public class IdeeënLijst {
     private static IdeeënLijst instance = new IdeeënLijst();
     private ArrayList<Idee> ideeën = new ArrayList<>();
 
-
+    /*
+    private constructor
+     */
     private IdeeënLijst() {
         ideeën = new ArrayList<>();
     }
 
+    /*
+    public methode om de instantie van IdeeënLijst te vragen
+     */
     public static IdeeënLijst getInstance() {
         if(instance == null){
             instance = new IdeeënLijst();
@@ -21,38 +27,17 @@ public class IdeeënLijst {
         return instance;
     }
 
+    /*
+    voeg een idee toe aan de lijst
+     */
     public void addIdee(Idee idee){
         ideeën.add(idee);
     }
+
+    //get de ideeën
     public ArrayList<Idee> getIdeeën(){
         ArrayList<Idee> array = new ArrayList<>(ideeën);
         return array;
     }
-/*
-    public ArrayList<Idee> sortByIdee(){
-        ArrayList<Idee> unsortedArray = new ArrayList<>(ideeën);
-        ArrayList<Idee> sortedArray = new ArrayList<>();
 
-        for(Idee idee : unsortedArray){
-            if(idee.getSoortIdee().equalsIgnoreCase("idee")){
-                sortedArray.add(idee);
-            }
-        }
-
-        return sortedArray;
-    }
-    public ArrayList<Idee> sortByKlacht(){
-        ArrayList<Idee> unsortedArray = new ArrayList<>(ideeën);
-        ArrayList<Idee> sortedArray = new ArrayList<>();
-
-        for(Idee idee : unsortedArray){
-            if(idee.getSoortIdee().equalsIgnoreCase("klacht")){
-                sortedArray.add(idee);
-            }
-        }
-        return sortedArray;
-
-    }
-
-*/
 }
