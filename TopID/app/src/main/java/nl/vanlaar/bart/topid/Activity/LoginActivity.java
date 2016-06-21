@@ -34,7 +34,8 @@ import nl.vanlaar.bart.topid.R;
 import static android.Manifest.permission.READ_CONTACTS;
 
 /**
- * De login activity laat een gebruiker inloggen
+ * De login activity laat een gebruiker inloggen.
+ * Auto generated dmv android
  */
 public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
 
@@ -66,8 +67,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-
-
         // Set up the login form.
         mEmailView = (EditText) findViewById(R.id.tv_login_email);
         mPasswordView = (EditText) findViewById(R.id.et_login_password);
@@ -96,18 +95,18 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mEmailView.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
-                    //mPasswordView.requestFocus();
+                //mPasswordView.requestFocus();
 
                 return false;
             }
         });
 
     }
+
     private void populateAutoComplete() {
         if (!mayRequestContacts()) {
             return;
         }
-
         getLoaderManager().initLoader(0, null, this);
     }
 
@@ -146,7 +145,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         }
     }
 
-
     /**
      * Attempts to sign in or register the account specified by the login form.
      * If there are form errors (invalid email, missing fields, etc.), the
@@ -158,7 +156,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         }
 
         //temp login for DEMO
-        if (mPasswordView.getText().toString().equalsIgnoreCase("admin") && mEmailView.getText().toString().equalsIgnoreCase("admin")){
+        if (mPasswordView.getText().toString().equalsIgnoreCase("admin") && mEmailView.getText().toString().equalsIgnoreCase("admin")) {
             Intent intent = new Intent(this, HomescreenActivity.class);
             MainActivity.ingelogd = true;
             startActivity(intent);
@@ -277,23 +275,17 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             emails.add(cursor.getString(ProfileQuery.ADDRESS));
             cursor.moveToNext();
         }
-
     }
 
     @Override
     public void onLoaderReset(Loader<Cursor> cursorLoader) {
-
     }
-
-
-
 
     private interface ProfileQuery {
         String[] PROJECTION = {
                 ContactsContract.CommonDataKinds.Email.ADDRESS,
                 ContactsContract.CommonDataKinds.Email.IS_PRIMARY,
         };
-
         int ADDRESS = 0;
         int IS_PRIMARY = 1;
     }

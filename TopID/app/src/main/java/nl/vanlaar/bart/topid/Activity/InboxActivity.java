@@ -36,6 +36,10 @@ public class InboxActivity extends AppCompatActivity {
         menuButton = (ImageView) findViewById(R.id.iv_inbox_menu);
         backArrow = (ImageView) findViewById(R.id.iv_inbox_toolbar_backbutton);
 
+        //set adapter
+        inboxAdapter = new InboxAdapter(this);
+        listView.setAdapter(inboxAdapter);
+
         //als de menu knop is ingedrukt ga dan naar het menu
         menuButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,12 +53,9 @@ public class InboxActivity extends AppCompatActivity {
         backArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-              finish();
+                finish();
             }
         });
-
-        inboxAdapter = new InboxAdapter(this);
-        listView.setAdapter(inboxAdapter);
 
         //als er op een een idee wordt gedrukt laat dat idee zien
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

@@ -49,6 +49,9 @@ public class ReageerActivity extends AppCompatActivity {
         //commentlist vullen
         commentList = idee.getComments();
 
+        /*
+        laden van dummy data
+         */
         if(ideePositieIdee>-1){
             ideeënLijst = IdeeënLijst.getInstance().getIdeeën();
             idee = ideeënLijst.get(ideePositieIdee);
@@ -58,7 +61,7 @@ public class ReageerActivity extends AppCompatActivity {
         }
 
 
-        //kopelen aan views
+        //kopellen aan views
         btPlaatsReactie = (Button) findViewById(R.id.btPlaats_reactie);
         etReactie = (EditText) findViewById(R.id.et_reageer_text);
         backArrow = (ImageView) findViewById(R.id.iv_reageren_toolbar_backbutton);

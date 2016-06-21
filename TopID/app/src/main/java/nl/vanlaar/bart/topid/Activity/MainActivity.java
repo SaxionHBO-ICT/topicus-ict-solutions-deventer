@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //start de AssynTask
         new ASyncGetIdeesTask().execute();
 
         //set onze custom toolbar
@@ -78,11 +79,9 @@ public class MainActivity extends AppCompatActivity {
         lvIdeeën.setAdapter(ideeAdapter);
         lvKlachten.setAdapter(klachtenAdapter);
 
-
         //set de adapter van de spinner
         final ArrayAdapter<CharSequence> adapterSort = ArrayAdapter.createFromResource(this, R.array.sort_lijst, android.R.layout.simple_spinner_item);
         spinnerSort.setAdapter(adapterSort);
-
 
         //Als een checkbox wordt aangevinkt zet de ander checkbox uit en laat de juist listview zien
         bestBox.setChecked(true);
@@ -142,13 +141,10 @@ public class MainActivity extends AppCompatActivity {
                 if (position == 0) {
                     lvKlachten.setVisibility(View.GONE);
                     lvIdeeën.setVisibility(View.VISIBLE);
-
                 }
                 if (position == 1) {
                     lvIdeeën.setVisibility(View.GONE);
                     lvKlachten.setVisibility(View.VISIBLE);
-
-
                 }
             }
 
@@ -169,8 +165,6 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
-
-
     }
 
     /**
