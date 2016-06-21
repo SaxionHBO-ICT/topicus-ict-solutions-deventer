@@ -52,12 +52,8 @@
                         android:layout_centerVertical="true"
                         android:paddingRight="15sp"
                         android:src="@drawable/hamburger_icon"/>
-
                 </RelativeLayout>
-
             </android.support.v7.widget.Toolbar>
-
-
         </android.support.design.widget.AppBarLayout>
 
         <RelativeLayout

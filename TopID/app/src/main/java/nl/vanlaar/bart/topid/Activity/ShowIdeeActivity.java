@@ -17,7 +17,7 @@ import nl.vanlaar.bart.topid.R;
 import nl.vanlaar.bart.topid.View.ReactiesAdapter;
 
 /**
- * de showIdeeActivity laat een idee zien van de MainActivity in meer detail en geeft de mogelijkheid om
+ * De ShowIdeeActivity laat een idee zien van de MainActivity in meer detail en geeft de mogelijkheid om
  * dit idee te upvoten en te reageren op het idee
  */
 public class ShowIdeeActivity extends AppCompatActivity {
