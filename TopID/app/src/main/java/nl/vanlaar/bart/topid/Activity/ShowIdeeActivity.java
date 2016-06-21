@@ -25,6 +25,7 @@ public class ShowIdeeActivity extends AppCompatActivity {
     public static final String EXTRA_KLACHT = "klacht";
     private ReactiesAdapter adapter;
     private Button btReageer;
+    private Button btVerwijder;
     private ScrollView svReacties;
     private Button upvoteButton;
     private Toolbar toolbar;
@@ -73,8 +74,10 @@ public class ShowIdeeActivity extends AppCompatActivity {
         backArrow = (ImageView) findViewById(R.id.iv_iedeeën_toolbar_backbutton);
         ideeImage  = (ImageView) findViewById(R.id.iv_ImagePost_showIdee);
         tvPosterName_showIdee = (TextView) findViewById(R.id.tvPosterName_showIdee);
-
+        btVerwijder = (Button) findViewById(R.id.btVerwijderIdee);
         tvPostTijdenDate_showIdee = (TextView) findViewById(R.id.tvPostTijdenDate_showIdee);
+
+        btVerwijder.setVisibility(View.GONE);
 
 
         //set alle views met info van het idee

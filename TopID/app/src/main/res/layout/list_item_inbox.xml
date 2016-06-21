@@ -15,7 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toEndOf="@+id/iv_inbox_user"
-        android:text="*** reageerde op jouwn post: ***"
+        android:text="*** reageerde op jouw post: ***"
         android:textSize="20sp"
         android:textColor="#060606" />
 

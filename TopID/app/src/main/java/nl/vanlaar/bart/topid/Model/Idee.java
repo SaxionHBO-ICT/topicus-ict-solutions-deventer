@@ -61,6 +61,7 @@ public class Idee {
         this.idee_title = title;
         this.mainText = mainText;
         this.summaryText = summaryText;
+        this.comments = new ArrayList<>();
 
     }
 
@@ -161,6 +162,9 @@ public class Idee {
 
     public String getidee_Datum() {
         return idee_Datum;
+    }
+    public void createCommentList(){
+        this.comments = new ArrayList<>();
     }
 
 }

@@ -14,7 +14,6 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
 
-import nl.vanlaar.bart.topid.ASyncTasks.ASyncGetIdeesTask;
 import nl.vanlaar.bart.topid.Model.IdeeënLijst;
 import nl.vanlaar.bart.topid.Model.User;
 import nl.vanlaar.bart.topid.R;
@@ -55,9 +54,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        //start de AssynTask
-        new ASyncGetIdeesTask().execute();
 
         //set onze custom toolbar
         toolbar = (Toolbar) findViewById(R.id.toolbar);

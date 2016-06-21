@@ -46,8 +46,7 @@ public class ReageerActivity extends AppCompatActivity {
         ideePositieIdee = getIntent().getIntExtra(ShowIdeeActivity.EXTRA_IDEE,-1);
         ideePositieKlacht = getIntent().getIntExtra(ShowIdeeActivity.EXTRA_KLACHT,-1);
 
-        //commentlist vullen
-        commentList = idee.getComments();
+
 
         /*
         laden van dummy data
@@ -60,6 +59,13 @@ public class ReageerActivity extends AppCompatActivity {
             idee = ideeënLijst.get(ideePositieKlacht);
         }
 
+        //commentlist vullen, sanity check voor als die list nog niet gemaakt is.
+        if(commentList != null) {
+            commentList = idee.getComments();
+        } else {
+            idee.createCommentList();
+            commentList = idee.getComments();
+        }
 
         //kopellen aan views
         btPlaatsReactie = (Button) findViewById(R.id.btPlaats_reactie);
