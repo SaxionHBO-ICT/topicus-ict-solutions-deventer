@@ -26,7 +26,6 @@ public class Main {
     private static JSONParser parser = new JSONParser();
 
 
-
     //initializing DatabaseHelper
     private static DatabaseHelper dbHelper = DatabaseHelper.getInstance();
 
@@ -51,6 +50,9 @@ public class Main {
             }
         });
 
+        /*
+        post request voor het toevoegen van een user
+         */
         post("/user", new Route() {
             @Override
             public Object handle(Request request, Response response) throws Exception {
@@ -61,16 +63,16 @@ public class Main {
                 int postcount = Integer.parseInt(request.queryParams("postcount"));
 
                 User user = new User();
-            //    user.setName(name);
+                //    user.setName(name);
                 user.setEmail_adres(email_adres);
                 user.setName(name);
-                if(request.queryParams("postcount") != null){
+                if (request.queryParams("postcount") != null) {
                     user.setPostcount(postcount);
                 }
                 user.setPostcount(postcount);
                 System.out.println(user.getName());
-                System.out.println(user.getEmail_adres() + user.getName()+ user.getPostcount());
-                if(Gebruiker_plaatje_url != null) {
+                System.out.println(user.getEmail_adres() + user.getName() + user.getPostcount());
+                if (Gebruiker_plaatje_url != null) {
                     user.setGebruiker_plaatje_url(Gebruiker_plaatje_url);
                 }
                 if (dbHelper.addUserToDatabase(user)) {
@@ -80,15 +82,15 @@ public class Main {
                     response.status(403);
                     return "Error adding User";
                 }
-
             }
         });
+
         get("/idee", new Route() {
             @Override
             public Object handle(Request request, Response response) throws Exception {
                 List<Idee> ideeën = dbHelper.getAllIdee();
 
-                if(ideeën != null){
+                if (ideeën != null) {
                     response.status(200);
                     return parser.ideeënToJson(ideeën);
                 } else {
@@ -97,7 +99,6 @@ public class Main {
                 }
             }
         });
-
 
 
         post("/idee", new Route() {
@@ -115,9 +116,9 @@ public class Main {
                 int idee_cat = Integer.parseInt(request.queryParams("idee_cat"));
 
 //http://localhost:1234/idee?idee_title=Hans&idee_text= hoi&idee_samenvatting=hoii&email_adres_gebruiker=henk@live.nl&idee_anoniem=false&idee_points=0&idee_cat=1
-                Idee idee = new Idee(title,samenvatting,idee_cat, email_gebruiker,text, idee_anoniem,idee_points);
+                Idee idee = new Idee(title, samenvatting, idee_cat, email_gebruiker, text, idee_anoniem, idee_points);
 
-                if(idee_plaatje_url!= null) {
+                if (idee_plaatje_url != null) {
                     idee.setIdee_plaatje_url(idee_plaatje_url);
                 }
 
@@ -180,14 +181,14 @@ public class Main {
 
                 ArrayList<Idee> ideeën = dbHelper.getBesteIdeeën(false);
 
-                if(ideeën != null) {
+                if (ideeën != null) {
                     response.status(200);
                     return JSONParser.ideeënToJson(ideeën);
 
                 } else {
                     response.status(403);
                 }
-                return  null;
+                return null;
             }
 
         });

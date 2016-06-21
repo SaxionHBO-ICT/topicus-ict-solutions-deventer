@@ -18,7 +18,7 @@ import nl.vanlaar.bart.topid.Controller.JSONParser;
 import nl.vanlaar.bart.topid.Model.Idee;
 
 /**
- * Created by bart on 15-6-2016.
+ * Custom AsyncTask om ideeën mee op te vragen.
  */
 public class ASyncGetIdeesTask extends AsyncTask<Void,Void,JSONArray> {
     @Override
@@ -30,14 +30,9 @@ public class ASyncGetIdeesTask extends AsyncTask<Void,Void,JSONArray> {
             url = new URL("http://145.2.236.128:1234/idee");
             connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
-           // connection.setDoOutput(true);
             connection.setConnectTimeout(9999);
-          //  BufferedOutputStream os = new BufferedOutputStream(connection.getOutputStream());
-     //      os.close();
             int responsecode = connection.getResponseCode();
-
             Log.d("response code ",""+ responsecode);
-
             Log.d("response",connection.getInputStream().toString());
             if(responsecode == 200){
                 InputStream inputStream = connection.getInputStream();
@@ -52,7 +47,6 @@ public class ASyncGetIdeesTask extends AsyncTask<Void,Void,JSONArray> {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
         return jsonArray ;
     }
 
@@ -62,7 +56,5 @@ public class ASyncGetIdeesTask extends AsyncTask<Void,Void,JSONArray> {
       JSONParser parser = new JSONParser();
         ArrayList<Idee> lijst = parser.jsonToIdeeënLijst(jsonArray);
         Log.d("lijst lengte",""+ lijst.size());
-
-
     }
 }

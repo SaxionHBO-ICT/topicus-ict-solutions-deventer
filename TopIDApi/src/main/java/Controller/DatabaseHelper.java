@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by bart on 12-6-2016.
+ * Onze DatabaseHelper gemaakt met een singelton
  */
 public class DatabaseHelper {
     // database variables
@@ -22,43 +22,50 @@ public class DatabaseHelper {
     private static final String DB_USERNAME = "root";
     private static final String DB_PASSWORD = "usbw";
 
-
-
     // create a connection source to our database
     private ConnectionSource connectionSource;
 
     // data access objects
-    private Dao<Comment,Integer> commentDao;
-    private Dao<Idee,Integer> ideeDao;
-    private Dao<User,String> userDao;
+    private Dao<Comment, Integer> commentDao;
+    private Dao<Idee, Integer> ideeDao;
+    private Dao<User, String> userDao;
 
-    private DatabaseHelper(){
+    /*
+    private constructor
+     */
+    private DatabaseHelper() {
         initializeDatabaseLink();
     }
 
-    public static DatabaseHelper getInstance(){
-        if(dbHelper == null){
+    /*
+    public methode om de instantie van onze DatabaseHelper te krijgen
+     */
+    public static DatabaseHelper getInstance() {
+        if (dbHelper == null) {
             dbHelper = new DatabaseHelper();
         }
         return dbHelper;
     }
 
-    private void initializeDatabaseLink(){
+    /*
+    verbind met onze database
+     */
+    private void initializeDatabaseLink() {
         try {
-            connectionSource = new JdbcConnectionSource(DB_URL,DB_USERNAME, DB_PASSWORD);
+            connectionSource = new JdbcConnectionSource(DB_URL, DB_USERNAME, DB_PASSWORD);
             commentDao = DaoManager.createDao(connectionSource, Comment.class);
-            ideeDao = DaoManager.createDao(connectionSource,Idee.class);
-            userDao = DaoManager.createDao(connectionSource,User.class);
+            ideeDao = DaoManager.createDao(connectionSource, Idee.class);
+            userDao = DaoManager.createDao(connectionSource, User.class);
 
         } catch (SQLException e) {
             System.out.println(e.getMessage() + "    " + e.getErrorCode());
         }
     }
 
-    /**
-     * alle get methodes.
-     * */
-    public User getUserByEmail(String username){
+    /*
+    get een User dmv zijn email
+     */
+    public User getUserByEmail(String username) {
         User user = null;
         try {
             user = userDao.queryForId(username);
@@ -67,6 +74,10 @@ public class DatabaseHelper {
         }
         return user;
     }
+
+    /*
+    get alle ideeën
+     */
     public List<Idee> getAllIdee() {
         List<Idee> idee = new ArrayList<>();
 
@@ -75,13 +86,13 @@ public class DatabaseHelper {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-            return idee;
+        return idee;
     }
 
-
-
-
-    public Idee getIdeeById(int id){
+    /*
+    get idee dmv een id
+     */
+    public Idee getIdeeById(int id) {
         Idee idee = null;
         try {
 
@@ -92,10 +103,10 @@ public class DatabaseHelper {
         return idee;
     }
 
-    /**
-     * alle add methodes.
-     * */
-    public boolean addIdeeToDatabase(Idee idee){
+   /*
+   add een idee aan de database
+    */
+    public boolean addIdeeToDatabase(Idee idee) {
         try {
             ideeDao.create(idee);
             return true;
@@ -105,7 +116,10 @@ public class DatabaseHelper {
         return false;
     }
 
-    public boolean addUserToDatabase(User gebruiker){
+    /*
+    add een user aan de database
+     */
+    public boolean addUserToDatabase(User gebruiker) {
         try {
             userDao.create(gebruiker);
             return true;
@@ -116,38 +130,36 @@ public class DatabaseHelper {
         return false;
     }
 
-
-    /**
-     * alle update methods.
-     * */
-    public boolean updateIdeeInDatabase(Idee idee){
-        try{
+    /*
+    update een idee
+     */
+    public boolean updateIdeeInDatabase(Idee idee) {
+        try {
             ideeDao.update(idee);
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
         }
-         return false;
+        return false;
     }
 
-    public boolean upvoteIdee(Idee idee, User user){
-        idee.like();///////////////////////////////////////////////////////////////////////////////////////////////////////////
-        return true;
-    }
 
-    public ArrayList<Idee> getNieuwsteIdeeën(boolean isIdee){
+    /*
+    get de nieuwste ideeën of vragen
+     */
+    public ArrayList<Idee> getNieuwsteIdeeën(boolean isIdee) {
         try {
 
             List<Idee> list = ideeDao.queryForAll();
             ArrayList<Idee> ideeën = new ArrayList<>();
             ideeën.addAll(list);
-            for (Idee idee: ideeën){
-                if (isIdee){
-                    if (idee.getIdee_cat() == 1){
+            for (Idee idee : ideeën) {
+                if (isIdee) {
+                    if (idee.getIdee_cat() == 1) {
                         ideeën.remove(idee);
                     }
                 } else {
-                    if (idee.getIdee_cat() == 2){
+                    if (idee.getIdee_cat() == 2) {
                         ideeën.remove(idee);
                     }
                 }
@@ -160,18 +172,21 @@ public class DatabaseHelper {
         }
     }
 
-    public ArrayList<Idee> getBesteIdeeën(boolean isIdee){
-        try{
+    /*
+    get de beste ideeën of vragen
+     */
+    public ArrayList<Idee> getBesteIdeeën(boolean isIdee) {
+        try {
             List<Idee> list = ideeDao.queryForAll();
             ArrayList<Idee> ideeën = new ArrayList<>();
             ideeën.addAll(list);
-            for (Idee idee: ideeën){
-                if (isIdee){
-                    if (idee.getIdee_cat() == 1){
+            for (Idee idee : ideeën) {
+                if (isIdee) {
+                    if (idee.getIdee_cat() == 1) {
                         ideeën.remove(idee);
                     }
                 } else {
-                    if (idee.getIdee_cat() == 2){
+                    if (idee.getIdee_cat() == 2) {
                         ideeën.remove(idee);
                     }
                 }
@@ -184,7 +199,10 @@ public class DatabaseHelper {
         }
     }
 
-    private ArrayList<Idee> customBesteIdeeënSorter(ArrayList<Idee> ideeën){
+    /*
+    Sorteert op beste ideeën
+     */
+    private ArrayList<Idee> customBesteIdeeënSorter(ArrayList<Idee> ideeën) {
         ArrayList<Idee> gesorteerdeIdeeën = ideeën;
         boolean aangepast = true;
         while (aangepast) {
@@ -197,14 +215,17 @@ public class DatabaseHelper {
                     changeCounter++;
                 }
             }
-            if (changeCounter == 0){
+            if (changeCounter == 0) {
                 aangepast = false;
             }
         }
         return gesorteerdeIdeeën;
     }
 
-    private ArrayList<Idee> customNieuwsteIdeeënSorter(ArrayList<Idee> ideeën){
+    /*
+    sorteer op nieuwste ideeën
+     */
+    private ArrayList<Idee> customNieuwsteIdeeënSorter(ArrayList<Idee> ideeën) {
         ArrayList<Idee> gesorteerdeIdeeën = ideeën;
         boolean aangepast = true;
         while (aangepast) {
@@ -217,7 +238,7 @@ public class DatabaseHelper {
                     changeCounter++;
                 }
             }
-            if (changeCounter == 0){
+            if (changeCounter == 0) {
                 aangepast = false;
             }
         }

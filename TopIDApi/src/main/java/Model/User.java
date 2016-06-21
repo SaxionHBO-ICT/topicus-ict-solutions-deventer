@@ -8,16 +8,15 @@ import com.j256.ormlite.table.DatabaseTable;
 import java.util.ArrayList;
 
 /**
- * Created by bart on 25-5-2016.
+ * Een user
  */
 @DatabaseTable(tableName = "Gebruiker")
 public class User {
-
     private String profileImage;
     private int tempImage;
-
     private ArrayList<Idee> gevolgdeIdeeën = new ArrayList<>();
 
+    //database velden
     @DatabaseField(id = true,canBeNull = false)
     private String email_adres;
     @DatabaseField(canBeNull = false)
@@ -27,31 +26,54 @@ public class User {
     @DatabaseField
     private int postcount;
 
+    /*
+    een lege constructor
+     */
     public User() {
     }
 
+    /*
+    een constructor
+     */
     public User(String name, String profileImage, int postcount) {
         this.name = name;
         this.profileImage = profileImage;
         this.postcount = postcount;
     }
 
+    /*
+    een constructor
+     */
     public User(String name, String profileImage) {
         this.name = name;
         this.profileImage = profileImage;
         this.postcount = 0;
     }
 
+    /*
+    een constructor
+     */
     public User(String name, int tempImage, int postcount) {
         this.name = name;
         this.tempImage = tempImage;
         this.postcount = postcount;
     }
 
+    /*
+    een constructor
+     */
     public User(String name) {
         this.name = name;
     }
 
+    /*
+    verhoog de users postcount
+     */
+    public void addToPostcount(){
+        this.postcount =+1;
+    }
+
+    //getters en setters
     public int getTempImage() {
         return tempImage;
     }
@@ -83,10 +105,6 @@ public class User {
     public void setPostcount(int postcount) {
         this.postcount = postcount;
     }
-    public void addToPostcount(){
-        this.postcount =+1;
-    }
-
 
     public ArrayList<Idee> getGevolgdeIdeeën() {
         return gevolgdeIdeeën;

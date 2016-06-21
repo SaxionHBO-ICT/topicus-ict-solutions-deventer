@@ -46,6 +46,9 @@ public class ReageerActivity extends AppCompatActivity {
         ideePositieIdee = getIntent().getIntExtra(ShowIdeeActivity.EXTRA_IDEE,-1);
         ideePositieKlacht = getIntent().getIntExtra(ShowIdeeActivity.EXTRA_KLACHT,-1);
 
+        //commentlist vullen
+        commentList = idee.getComments();
+
         if(ideePositieIdee>-1){
             ideeënLijst = IdeeënLijst.getInstance().getIdeeën();
             idee = ideeënLijst.get(ideePositieIdee);
@@ -53,9 +56,6 @@ public class ReageerActivity extends AppCompatActivity {
             ideeënLijst = IdeeënLijst.getInstance().getKlachten();
             idee = ideeënLijst.get(ideePositieKlacht);
         }
-        commentList = idee.getComments();
-
-
 
 
         //kopelen aan views
@@ -65,7 +65,6 @@ public class ReageerActivity extends AppCompatActivity {
         commentListView = (ListView) findViewById(R.id.lvReacties_showIdee);
 
         //adapter configuratie
-
         reactiesAdapter = new ReactiesAdapter(this, commentList);
         commentListView.setAdapter(reactiesAdapter);
 
