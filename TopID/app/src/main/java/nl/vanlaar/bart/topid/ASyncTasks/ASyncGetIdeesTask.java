@@ -3,10 +3,10 @@ package nl.vanlaar.bart.topid.ASyncTasks;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import org.apache.commons.io.IOUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 
-import java.io.BufferedOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -27,18 +27,22 @@ public class ASyncGetIdeesTask extends AsyncTask<Void,Void,JSONArray> {
         URL url = null;
         HttpURLConnection connection = null;
         try {
-            url = new URL("http://145.2.236.36:1234/idee");
+            url = new URL("http://145.2.236.128:1234/idee");
             connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
-            connection.setDoOutput(true);
-            BufferedOutputStream os = new BufferedOutputStream(connection.getOutputStream());
-            os.close();
+           // connection.setDoOutput(true);
+            connection.setConnectTimeout(9999);
+          //  BufferedOutputStream os = new BufferedOutputStream(connection.getOutputStream());
+     //      os.close();
             int responsecode = connection.getResponseCode();
+
             Log.d("response code ",""+ responsecode);
+
+            Log.d("response",connection.getInputStream().toString());
             if(responsecode == 200){
                 InputStream inputStream = connection.getInputStream();
-
-                jsonArray = new JSONArray(inputStream.toString());
+                jsonArray = new JSONArray(IOUtils.toString(inputStream, "UTF-8"));
+                Log.d("json array",jsonArray.toString());
                 connection.disconnect();
             }
         } catch (MalformedURLException e) {
@@ -55,8 +59,10 @@ public class ASyncGetIdeesTask extends AsyncTask<Void,Void,JSONArray> {
     @Override
     protected void onPostExecute(JSONArray jsonArray) {
         super.onPostExecute(jsonArray);
-        JSONParser parser = new JSONParser();
+      JSONParser parser = new JSONParser();
         ArrayList<Idee> lijst = parser.jsonToIdeeënLijst(jsonArray);
         Log.d("lijst lengte",""+ lijst.size());
+
+
     }
 }

@@ -1,7 +1,6 @@
 package nl.vanlaar.bart.topid.View;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,20 +36,25 @@ public class IdeeënAdapter extends ArrayAdapter<Idee> {
         TextView tvPostDate = (TextView) convertView.findViewById(R.id.tvPostDate);
         idee = getItem(position);
 
-        tvPostDate.setText(idee.getidee_Datum());
-
-        Log.d("idee", idee.getTitle()
-        );
-
-        tvSummary.setText(idee.getSummaryText());
-        title.setText(idee.getTitle());
+        if(idee.getSummaryText() != null) {
+            tvPostDate.setText(idee.getidee_Datum());
+        }
+        if(idee.getSummaryText() != null) {
+            tvSummary.setText(idee.getSummaryText());
+        }
+        if (idee.getTitle() != null) {
+            title.setText(idee.getTitle());
+        }
         //als het idee anoniem geplaatst is dan geeft je hem anonieme data mee
         if (idee.getAnonymous()) {
             ivPoster.setImageResource(R.drawable.anoniem);
             posterName.setText("Anoniem");
         }else{
-            posterName.setText(idee.getPoster().getName());
-            ivPoster.setImageResource(idee.getPoster().getTempImage()); // temp non bitmap image
+            if(idee.getPoster()!=null) {
+                posterName.setText(idee.getPoster().getName());
+
+                ivPoster.setImageResource(idee.getPoster().getTempImage()); // temp non bitmap image
+            }
         }
 
 
