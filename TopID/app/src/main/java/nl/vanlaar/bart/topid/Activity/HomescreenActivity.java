@@ -30,6 +30,11 @@ public class HomescreenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        //als er geen user ingelogt is ga dan terug naar de login pagina
+        if (!MainActivity.ingelogd) {
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+        }
 
         setContentView(R.layout.activity_homescreen);
 

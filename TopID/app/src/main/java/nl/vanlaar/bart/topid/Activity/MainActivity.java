@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
 
+import nl.vanlaar.bart.topid.ASyncTasks.ASyncGetIdeesTask;
 import nl.vanlaar.bart.topid.Model.IdeeënLijst;
 import nl.vanlaar.bart.topid.Model.User;
 import nl.vanlaar.bart.topid.R;
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     public static User LOGGED_IN_USER = new User("henk", "henk@live.nl", R.drawable.gabenewell, 0);
     public static final int IDEE_REQUESTCODE = 1337;
     public static boolean dataChanged = false;
-    public static boolean ingelogd = true;
+    public static boolean ingelogd = false;
     private ListView lvIdeeën;
     private ListView lvKlachten;
     private FloatingActionButton fab;
@@ -55,12 +56,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        //als er geen user ingelogt is ga dan terug naar de login pagina
-        if (ingelogd == false) {
-            Intent intent = new Intent(this, LoginActivity.class);
-            startActivity(intent);
-        }
+        new ASyncGetIdeesTask().execute();
 
         //set onze custom toolbar
         toolbar = (Toolbar) findViewById(R.id.toolbar);

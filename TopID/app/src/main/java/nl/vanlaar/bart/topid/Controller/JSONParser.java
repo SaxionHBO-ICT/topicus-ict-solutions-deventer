@@ -5,7 +5,6 @@ import com.google.gson.GsonBuilder;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,19 +37,18 @@ private static Gson gson = new GsonBuilder().create();
 
     public static ArrayList<Idee> jsonToIdeeënLijst(JSONArray array){
         ArrayList<Idee> lijst = new ArrayList<>();
+
+
+
         for(int i = 0; i <array.length();i++){
             Idee idee = new Idee();
-            JSONObject jsonObject = null;
             try {
-                jsonObject = array.getJSONObject(i);
-                idee.setAnonymous(jsonObject.optBoolean("idee_anoniem"));
-                idee.setTitle(jsonObject.optString("idee_titel"));
+                String jsonstring = array.get(i).toString();
+                idee = gson.fromJson(jsonstring,Idee.class);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-
             lijst.add(idee);
-
         }
             return  lijst;
     }
