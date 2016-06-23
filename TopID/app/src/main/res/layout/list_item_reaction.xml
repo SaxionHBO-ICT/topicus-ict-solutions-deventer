@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/iv_reaction_gebbruiker_plaatje"
+        android:layout_width="75sp"
+        android:layout_height="75sp"
+        android:layout_margin="5sp"/>
+
+    <TextView
+        android:id="@+id/tv_reaction_gebruiker_naam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="sample gabe"
+        android:layout_toEndOf="@+id/iv_reaction_gebbruiker_plaatje"/>
+
+    <TextView
+        android:id="@+id/tv_reaction_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:text="18-5-2016 || 21:30"/>
+
+    <TextView
+        android:id="@+id/tv_reaction_comment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_reaction_gebbruiker_plaatje"
+        android:text="sample comment"/>
+
+</RelativeLayout>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Activity.ReageerActivity">
+
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/make_idee_appbarlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/iv_reageren_toolbar_backbutton"
+                    android:layout_width="25sp"
+                    android:layout_height="25sp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/back_button" />
+
+                <TextView
+                    android:id="@+id/tv_reageren_toolbar_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:text="Reacties"
+                    android:textSize="20sp" />
+
+</RelativeLayout>
+
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <ListView
+        android:layout_below="@+id/make_idee_appbarlayout"
+        android:id="@+id/lvReacties_showIdee"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout="@layout/list_item_reaction"
+        android:layout_above="@+id/et_reageer_text">
+
+    </ListView>
+
+
+    <EditText
+        android:id="@+id/et_reageer_text"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btPlaats_reactie"
+        android:inputType="textMultiLine"/>
+
+    <Button
+        android:id="@+id/btPlaats_reactie"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Plaats reactie"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>
