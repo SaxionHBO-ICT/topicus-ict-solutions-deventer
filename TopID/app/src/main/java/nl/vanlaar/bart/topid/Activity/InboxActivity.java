@@ -13,7 +13,7 @@ import nl.vanlaar.bart.topid.R;
 import nl.vanlaar.bart.topid.View.InboxAdapter;
 
 /**
- * De InboaxActivity laat de gebruiker zijn inbox zien.
+ * De InboxActivity laat de gebruiker zijn inbox zien.
  */
 public class InboxActivity extends AppCompatActivity {
     private ListView listView;

@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * JsonParser dmv Gson
+ * JsonParser dmv Gson library.
  */
 public class JSONParser {
 

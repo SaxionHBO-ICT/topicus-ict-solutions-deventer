@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import nl.vanlaar.bart.topid.R;
 
 /**
- * Een lijst van ideeën/vragen met een singelton constructor
+ * Een lijst van ideeën/opmerkingen met een singleton constructor
  */
 public class IdeeënLijst {
     private static IdeeënLijst instance = new IdeeënLijst();

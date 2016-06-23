@@ -14,7 +14,7 @@ import nl.vanlaar.bart.topid.Model.Idee;
 import nl.vanlaar.bart.topid.R;
 
 /**
- * De adapter voor ideeën
+ * De adapter voor het weergeven van ideeën
  */
 public class IdeeënAdapter extends ArrayAdapter<Idee> {
     private Idee idee;

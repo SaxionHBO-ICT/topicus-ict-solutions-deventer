@@ -3,8 +3,8 @@ package Model;
 import java.util.ArrayList;
 
 /**
- * CommentList is een classe die een lijst can comments bij houdt.
- * Gemaakt dmv een singelton
+ * CommentList is een class die een lijst van comments bij houdt.
+ * Gemaakt dmv een singleton
  */
 public class CommentList {
     private static CommentList instance;

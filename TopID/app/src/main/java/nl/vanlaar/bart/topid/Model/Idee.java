@@ -8,7 +8,7 @@ import java.util.Date;
 import java.util.Locale;
 
 /**
- * Een idee(kan ook een vraag zijn)
+ * Een idee(kan ook een opmerking zijn)
  */
 public class Idee {
     private int idIdee;

@@ -8,7 +8,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
 import nl.vanlaar.bart.topid.Model.Idee;
@@ -26,7 +25,6 @@ public class ShowIdeeActivity extends AppCompatActivity {
     private ReactiesAdapter adapter;
     private Button btReageer;
     private Button btVerwijder;
-    private ScrollView svReacties;
     private Button upvoteButton;
     private Toolbar toolbar;
     private ImageView backArrow;

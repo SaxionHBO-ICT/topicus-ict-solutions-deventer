@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import nl.vanlaar.bart.topid.R;
 
 /**
- * Een lijst van comments met een singelton constructor
+ * Een lijst van comments met een singleton constructor
  */
 public class CommentList {
     private static CommentList instance;

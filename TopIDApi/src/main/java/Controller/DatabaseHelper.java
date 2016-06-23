@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Onze DatabaseHelper gemaakt met een singelton
+ * Onze DatabaseHelper gemaakt met een singleton
  */
 public class DatabaseHelper {
     // database variables

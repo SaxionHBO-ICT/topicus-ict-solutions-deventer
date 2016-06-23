@@ -6,6 +6,7 @@ import java.util.Locale;
 
 /**
  * Created by Sander on 25-5-2016.
+ * Comment object class.
  */
 public class Comment {
     private String userName;

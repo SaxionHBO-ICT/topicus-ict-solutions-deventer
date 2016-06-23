@@ -15,6 +15,7 @@ import nl.vanlaar.bart.topid.Model.User;
 
 /**
  * Created by bart on 13-6-2016.
+ * Parser die werkt d.m.v. de Gson library.
  */
 public class JSONParser {
 private static Gson gson = new GsonBuilder().create();

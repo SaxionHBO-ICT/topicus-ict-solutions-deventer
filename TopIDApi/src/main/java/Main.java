@@ -177,6 +177,7 @@ public class Main {
                 boolean idee_anoniem = Boolean.parseBoolean(request.queryParams("idee_anoniem"));
                 int idee_points = Integer.parseInt(request.queryParams("idee_points"));
                 int idee_cat = Integer.parseInt(request.queryParams("idee_cat"));
+                //voorbeeld van een post request in url.
                 //http://localhost:1234/idee?idee_title=Hans&idee_text= hoi&idee_samenvatting=hoii&email_adres_gebruiker=henk@live.nl&idee_anoniem=false&idee_points=0&idee_cat=1
                 Idee idee = new Idee(title, samenvatting, idee_cat, email_gebruiker, text, idee_anoniem, idee_points);
                 if (idee_plaatje_url != null) {

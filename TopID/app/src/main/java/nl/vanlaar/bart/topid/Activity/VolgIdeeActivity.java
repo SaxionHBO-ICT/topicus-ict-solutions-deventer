@@ -11,6 +11,9 @@ import nl.vanlaar.bart.topid.Model.IdeeënLijst;
 import nl.vanlaar.bart.topid.Model.User;
 import nl.vanlaar.bart.topid.R;
 import nl.vanlaar.bart.topid.View.VolgIdeeAdapter;
+/**
+ * VolgIdeeActivity geeft een overzicht aan de gebruiker van de ideeën die ij gevolgt heeft (geliked).
+ * */
 
 public class VolgIdeeActivity extends AppCompatActivity {
     private ListView listView;

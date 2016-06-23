@@ -3,8 +3,8 @@ package Model;
 import java.util.ArrayList;
 
 /**
- * IdeeënLijst is een model classe die een lijst van ideeën bij houdt.
- * Gemaakt dmv een singelton
+ * IdeeënLijst is een model class die een lijst van ideeën bijhoud.
+ * Gemaakt dmv een singleton
  */
 public class IdeeënLijst {
     private static IdeeënLijst instance = new IdeeënLijst();
